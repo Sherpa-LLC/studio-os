@@ -12,11 +12,11 @@ import { Separator } from "@/components/ui/separator"
 import { formatCurrency } from "@/lib/format"
 import { CreditCard, Lock } from "lucide-react"
 
-// Mock selected classes for the prototype
+// Mock selected classes for the prototype — tuition = hours/week × $95/hr
 const MOCK_SELECTED = [
-  { name: "Ballet I - Minis (Ages 5-7)", monthly: 85 },
-  { name: "Jazz I - Juniors (Ages 7-9)", monthly: 90 },
-  { name: "Contemporary I - Teens (Ages 10-13)", monthly: 100 },
+  { name: "Ballet I - Minis (Ages 5-7)", hours: 1, monthly: 95 },
+  { name: "Jazz I - Juniors (Ages 7-9)", hours: 1, monthly: 95 },
+  { name: "Contemporary I - Teens (Ages 10-13)", hours: 1, monthly: 95 },
 ]
 
 const REGISTRATION_FEE = 50
@@ -51,10 +51,14 @@ export default function RegisterPaymentPage() {
             <CardTitle>Order Summary</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+
+            <p className="text-xs text-muted-foreground mb-2">
+              Tuition is $95 per hour of class per week, billed monthly.
+            </p>
             <div className="space-y-3">
               {MOCK_SELECTED.map((cls) => (
                 <div key={cls.name} className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">{cls.name}</span>
+                  <span className="text-muted-foreground">{cls.name} ({cls.hours} hr/wk)</span>
                   <span>{formatCurrency(cls.monthly)}/mo</span>
                 </div>
               ))}

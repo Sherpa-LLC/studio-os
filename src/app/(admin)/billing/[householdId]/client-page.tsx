@@ -498,6 +498,22 @@ export default function HouseholdBillingPage({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <p className="text-sm text-muted-foreground">
+                      Tuition Rate
+                    </p>
+                    <p className="text-sm font-medium mt-1">
+                      $95/hr, prorated to class duration
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">
+                      Monthly Cap
+                    </p>
+                    <p className="text-sm font-medium mt-1">
+                      $570 (6 hrs/wk)
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">
                       Billing Cycle
                     </p>
                     <p className="text-sm font-medium mt-1">

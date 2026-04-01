@@ -235,10 +235,13 @@ export default function ClassDetailPage({
             <CardContent className="pt-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
                 <DollarSign className="size-4" />
-                Monthly Rate
+                Tuition
               </div>
               <p className="font-semibold text-lg">
-                {formatCurrency(cls.monthlyRate)}
+                {formatCurrency(cls.monthlyRate)}/mo
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {classDurationHours} hr/wk &times; $95/hr
               </p>
             </CardContent>
           </Card>
@@ -500,8 +503,7 @@ function FinancialsTabContent({
             {/* Revenue */}
             <div className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">
-                Revenue ({cls.enrolledCount} students x{" "}
-                {formatCurrency(cls.monthlyRate)})
+                Revenue ({cls.enrolledCount} &times; {formatCurrency(cls.monthlyRate)}/mo)
               </span>
               <span className="font-medium text-sm text-emerald-600">
                 +{formatCurrency(monthlyRevenue)}

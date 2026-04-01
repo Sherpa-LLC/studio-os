@@ -4,6 +4,7 @@ import type { BillingOverride } from "@/lib/types"
 
 export interface BillingConfig {
   hourlyRate: number
+  monthlyCapEnabled: boolean
   monthlyCapHours: number
   monthlyCapAmount: number
   registrationFee: number
@@ -14,13 +15,11 @@ export interface BillingConfig {
   }
   lateFeePercent: number
   lateFeeGraceDays: number
-  siblingDiscountPercent: number
-  multiClassDiscountThreshold: number
-  multiClassDiscountPercent: number
 }
 
 export const billingConfig: BillingConfig = {
   hourlyRate: 95,
+  monthlyCapEnabled: true,
   monthlyCapHours: 6,
   monthlyCapAmount: 570,
   registrationFee: 50,
@@ -31,9 +30,6 @@ export const billingConfig: BillingConfig = {
   },
   lateFeePercent: 5,
   lateFeeGraceDays: 10,
-  siblingDiscountPercent: 10,
-  multiClassDiscountThreshold: 4,
-  multiClassDiscountPercent: 5,
 }
 
 // ── Billing overrides (audit trail) ───────────────────────────────────────────
@@ -65,19 +61,19 @@ export const billingOverrides: BillingOverride[] = [
   },
   {
     id: "bo-004",
-    originalAmount: 320,
-    newAmount: 288,
-    reason: "Sibling discount applied - 10% off for second child in Williams household.",
-    createdBy: "System (Auto)",
-    createdAt: "2026-02-01T00:00:00Z",
+    originalAmount: 95,
+    newAmount: 0,
+    reason: "Referral credit — Rodriguez family referred by Anderson household.",
+    createdBy: "Sarah Mitchell (Office Manager)",
+    createdAt: "2026-02-01T10:30:00Z",
   },
   {
     id: "bo-005",
-    originalAmount: 960,
-    newAmount: 912,
-    reason: "Multi-class discount - Garcia family has 8 classes across 3 students (5% discount).",
-    createdBy: "System (Auto)",
-    createdAt: "2026-01-01T00:00:00Z",
+    originalAmount: 570,
+    newAmount: 475,
+    reason: "Competitive team travel hardship — reduced monthly cap for February during competition season.",
+    createdBy: "Jennifer Walsh (Studio Director)",
+    createdAt: "2026-02-03T09:00:00Z",
   },
   {
     id: "bo-006",
@@ -113,13 +109,12 @@ export function getOverrideById(id: string): BillingOverride | undefined {
 
 export function calculateMonthlyTotal(classRates: number[]): number {
   const total = classRates.reduce((sum, rate) => sum + rate, 0)
-  return Math.min(total, billingConfig.monthlyCapAmount)
+  if (billingConfig.monthlyCapEnabled) {
+    return Math.min(total, billingConfig.monthlyCapAmount)
+  }
+  return total
 }
 
 export function calculateLateFee(invoiceTotal: number): number {
   return invoiceTotal * (billingConfig.lateFeePercent / 100)
-}
-
-export function calculateSiblingDiscount(tuition: number): number {
-  return tuition * (billingConfig.siblingDiscountPercent / 100)
 }

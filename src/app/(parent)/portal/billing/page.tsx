@@ -173,7 +173,7 @@ export default function MyBillingPage() {
               {formatDate("2026-04-01")}
             </p>
             <p className="text-xs text-muted-foreground">
-              {formatCurrency(500)} due
+              {formatCurrency(475)} due
             </p>
           </CardContent>
         </Card>

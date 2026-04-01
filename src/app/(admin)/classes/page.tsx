@@ -48,7 +48,7 @@ import {
   CommandGroup,
   CommandItem,
 } from "@/components/ui/command"
-import { classes } from "@/data/classes"
+import { classes, getClassDurationHours } from "@/data/classes"
 import { instructors, getInstructorName } from "@/data/instructors"
 import {
   formatCurrency,
@@ -845,13 +845,13 @@ export default function ClassesPage() {
                         </div>
                       </div>
 
-                      {/* Monthly rate */}
+                      {/* Tuition */}
                       <div className="flex items-center justify-between pt-1 border-t">
                         <span className="text-xs text-muted-foreground">
-                          Monthly
+                          {getClassDurationHours(cls)} hr/wk &times; $95/hr
                         </span>
                         <span className="font-semibold text-sm">
-                          {formatCurrency(cls.monthlyRate)}
+                          {formatCurrency(cls.monthlyRate)}/mo
                         </span>
                       </div>
                     </CardContent>
@@ -918,7 +918,7 @@ export default function ClassesPage() {
                       className="flex items-center gap-1 ml-auto hover:text-foreground transition-colors"
                       onClick={() => handleSort("price")}
                     >
-                      Rate
+                      Tuition/mo
                       {sortField === "price" &&
                         (sortDirection === "asc" ? (
                           <ChevronUp className="size-3" />

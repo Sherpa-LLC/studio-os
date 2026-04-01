@@ -142,12 +142,15 @@ export interface Class {
   status: "active" | "cancelled" | "completed"
 }
 
+export type BillingType = "monthly" | "per-session" | "per-camp"
+
 export interface Season {
   id: string
   name: string
   startDate: string
   endDate: string
   billingRate: number // per hour
+  billingType: BillingType
   status: "upcoming" | "active" | "completed"
 }
 

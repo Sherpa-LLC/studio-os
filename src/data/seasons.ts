@@ -7,6 +7,7 @@ export const seasons: Season[] = [
     startDate: "2025-09-02",
     endDate: "2025-12-19",
     billingRate: 95,
+    billingType: "monthly",
     status: "completed",
   },
   {
@@ -15,6 +16,7 @@ export const seasons: Season[] = [
     startDate: "2026-01-12",
     endDate: "2026-05-29",
     billingRate: 95,
+    billingType: "monthly",
     status: "active",
   },
   {
@@ -23,6 +25,16 @@ export const seasons: Season[] = [
     startDate: "2026-06-15",
     endDate: "2026-08-14",
     billingRate: 85,
+    billingType: "monthly",
+    status: "upcoming",
+  },
+  {
+    id: "season-summer-camps-2026",
+    name: "Summer Camps 2026",
+    startDate: "2026-06-15",
+    endDate: "2026-08-14",
+    billingRate: 0,
+    billingType: "per-camp",
     status: "upcoming",
   },
 ]

@@ -145,7 +145,7 @@ function ClassDetailPanel({
               <span className="font-medium text-emerald-600">+{formatCurrency(f.monthlyRevenue)}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-muted-foreground pl-3">({f.enrolledStudents} students x {formatCurrency(f.monthlyRate)})</span>
+              <span className="text-muted-foreground pl-3">({f.enrolledStudents} students &times; {formatCurrency(f.monthlyRate)}/mo)</span>
               <span></span>
             </div>
             <Separator />
@@ -215,7 +215,7 @@ function ClassDetailPanel({
       {f.monthlyMargin < 0 && (
         <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-800">
           This class needs <strong>{f.breakeven - f.enrolledStudents} more students</strong> to break even.
-          At {formatCurrency(f.monthlyRate)}/student, that&apos;s {formatCurrency((f.breakeven - f.enrolledStudents) * f.monthlyRate)} in additional monthly revenue.
+          At {formatCurrency(f.monthlyRate)}/mo per student, that&apos;s {formatCurrency((f.breakeven - f.enrolledStudents) * f.monthlyRate)} in additional monthly revenue.
         </div>
       )}
       {f.monthlyMargin >= 0 && f.marginPercent < 15 && (

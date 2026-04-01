@@ -508,7 +508,7 @@ export default function AddClassPage() {
                   </div>
 
                   <div className="space-y-1.5">
-                    <Label htmlFor="monthly-rate">Monthly Rate</Label>
+                    <Label htmlFor="monthly-rate">Tuition/mo <span className="font-normal text-muted-foreground">(auto: hrs/wk &times; $95)</span></Label>
                     <div className="relative">
                       <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
                         $
@@ -678,12 +678,12 @@ export default function AddClassPage() {
                     </span>
                   </PreviewRow>
 
-                  {/* Rate */}
-                  <PreviewRow icon={DollarSign} label="Rate">
+                  {/* Tuition */}
+                  <PreviewRow icon={DollarSign} label="Tuition">
                     {monthlyRate ? (
                       <span className="font-medium">
                         {formatCurrency(Number(monthlyRate))}
-                        <span className="text-muted-foreground font-normal">/month</span>
+                        <span className="text-muted-foreground font-normal">/mo</span>
                       </span>
                     ) : (
                       <span className="text-muted-foreground/40">Not set</span>
