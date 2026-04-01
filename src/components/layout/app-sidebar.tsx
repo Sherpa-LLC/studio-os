@@ -21,6 +21,7 @@ import {
   Users,
   CalendarDays,
   BookMarked,
+  Brain,
 } from "lucide-react"
 import {
   Sidebar,
@@ -149,6 +150,12 @@ const NAV_GROUPS: NavGroup[] = [
     label: "Operations",
     items: [
       {
+        title: "Insights",
+        href: "/insights",
+        icon: Brain,
+        roles: ["admin"],
+      },
+      {
         title: "Staff",
         href: "/staff",
         icon: Users,
@@ -219,9 +226,8 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
         <Link href="/dashboard" className="flex items-center gap-2 group-data-[collapsible=icon]:justify-center">
-          <div className="h-8 w-8 shrink-0 rounded-lg bg-sidebar-primary flex items-center justify-center">
-            <span className="text-sidebar-primary-foreground font-bold text-sm">S</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo-256.png" alt="Studio OS" width={32} height={32} className="h-8 w-8 shrink-0 rounded-lg" />
           <span className="text-lg font-bold tracking-tight text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Studio OS
           </span>
