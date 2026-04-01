@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useRole } from "@/providers/role-provider"
@@ -48,8 +49,7 @@ export default function ParentLayout({
             href="/portal"
             className="flex items-center gap-2"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-256.png" alt="Studio OS" width={32} height={32} className="h-8 w-8 rounded-lg" />
+            <Image src="/logo-256.png" alt="Studio OS" width={32} height={32} className="h-8 w-8 rounded-lg" />
             <span className="text-lg font-bold tracking-tight hidden sm:inline">
               Studio OS
             </span>

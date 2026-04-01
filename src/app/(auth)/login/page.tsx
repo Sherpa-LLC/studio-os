@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useRole, type Role } from "@/providers/role-provider"
 import {
@@ -60,8 +61,7 @@ export default function LoginPage() {
       <div className="w-full max-w-2xl">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo-256.png" alt="Studio OS" width={40} height={40} className="h-10 w-10 rounded-lg" />
+            <Image src="/logo-256.png" alt="Studio OS" width={40} height={40} className="h-10 w-10 rounded-lg" />
             <span className="text-2xl font-bold tracking-tight text-foreground">
               Studio OS
             </span>
