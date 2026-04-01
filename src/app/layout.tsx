@@ -15,15 +15,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 })
 
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+
 export const metadata: Metadata = {
   title: "Studio OS",
   description: "All-in-one studio management platform",
   icons: {
     icon: [
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: `${base}/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${base}/favicon-16.png`, sizes: "16x16", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: `${base}/apple-touch-icon.png`,
   },
 }
 
