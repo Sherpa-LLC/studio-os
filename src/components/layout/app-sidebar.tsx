@@ -227,7 +227,7 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4">
         <Link href="/dashboard" className="flex items-center gap-2 group-data-[collapsible=icon]:justify-center">
-          <Image src="/logo-256.png" alt="Studio OS" width={32} height={32} className="h-8 w-8 shrink-0 rounded-lg" />
+          <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo-256.png`} alt="Studio OS" width={32} height={32} className="h-8 w-8 shrink-0 rounded-lg" />
           <span className="text-lg font-bold tracking-tight text-sidebar-foreground group-data-[collapsible=icon]:hidden">
             Studio OS
           </span>
