@@ -4,79 +4,52 @@ import { useState } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { signIn } from "@/lib/auth-client"
-import {
-  LayoutDashboard,
-  ClipboardList,
-  UserCheck,
-  Users,
-  Loader2,
-} from "lucide-react"
-
-const DEMO_ACCOUNTS = [
-  {
-    label: "Studio Owner",
-    description: "Full dashboard, financials, reports, and admin access",
-    icon: LayoutDashboard,
-    email: "vicki@studioos.com",
-    password: "password123",
-    redirect: "/dashboard",
-  },
-  {
-    label: "Office Admin",
-    description: "Manage registrations, billing, communications, and families",
-    icon: ClipboardList,
-    email: "pam@studioos.com",
-    password: "password123",
-    redirect: "/households",
-  },
-  {
-    label: "Coach / Instructor",
-    description: "View class rosters and mark attendance",
-    icon: UserCheck,
-    email: "sarah@studioos.com",
-    password: "password123",
-    redirect: "/attendance",
-  },
-  {
-    label: "Parent / Guardian",
-    description: "View schedule, billing, and manage your household",
-    icon: Users,
-    email: "jennifer@studioos.com",
-    password: "password123",
-    redirect: "/portal",
-  },
-]
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Loader2 } from "lucide-react"
 
 export default function LoginPage() {
   const router = useRouter()
-  const [loading, setLoading] = useState<string | null>(null)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  async function handleDemoLogin(account: (typeof DEMO_ACCOUNTS)[number]) {
-    setLoading(account.email)
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setLoading(true)
     setError(null)
+
     try {
-      const result = await signIn.email({
-        email: account.email,
-        password: account.password,
-      })
+      const result = await signIn.email({ email, password })
       if (result.error) {
-        setError(result.error.message ?? "Login failed")
-        setLoading(null)
+        setError(result.error.message ?? "Invalid email or password")
+        setLoading(false)
         return
       }
-      router.push(account.redirect)
+
+      const role = (result.data?.user as { role?: string })?.role
+      if (role === "parent") {
+        router.push("/portal")
+      } else if (role === "attendance") {
+        router.push("/attendance")
+      } else if (role === "office") {
+        router.push("/households")
+      } else {
+        router.push("/dashboard")
+      }
       router.refresh()
     } catch {
-      setError("Login failed. Is the database running?")
-      setLoading(null)
+      setError("Unable to sign in. Please try again.")
+      setLoading(false)
     }
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-4">
-      <div className="w-full max-w-2xl">
-        <div className="text-center mb-10">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 mb-4">
             <Image src="/logo-256.png" alt="Studio OS" width={40} height={40} className="h-10 w-10 rounded-lg" />
             <span className="text-2xl font-bold tracking-tight text-foreground">
@@ -84,48 +57,55 @@ export default function LoginPage() {
             </span>
           </div>
           <p className="text-muted-foreground text-sm">
-            Select a role to sign in
+            Sign in to your account
           </p>
         </div>
 
-        {error && (
-          <div className="mb-6 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-sm text-destructive">
-            {error}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {error && (
+            <div className="rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-center text-sm text-destructive">
+              {error}
+            </div>
+          )}
+
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+              autoFocus
+            />
           </div>
-        )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {DEMO_ACCOUNTS.map((account) => {
-            const Icon = account.icon
-            const isLoading = loading === account.email
-            return (
-              <button
-                key={account.email}
-                onClick={() => handleDemoLogin(account)}
-                disabled={loading !== null}
-                className="group relative flex flex-col items-start gap-3 rounded-xl border bg-card p-6 text-left shadow-sm transition-all hover:shadow-md hover:border-primary/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  {isLoading ? (
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                  ) : (
-                    <Icon className="h-5 w-5" />
-                  )}
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{account.label}</h3>
-                  <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-                    {account.description}
-                  </p>
-                </div>
-              </button>
-            )
-          })}
-        </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
 
-        <p className="text-center text-xs text-muted-foreground mt-8">
-          Demo accounts &mdash; click any role to sign in
-        </p>
+          <Button type="submit" className="w-full" disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Signing in...
+              </>
+            ) : (
+              "Sign in"
+            )}
+          </Button>
+        </form>
       </div>
     </div>
   )
