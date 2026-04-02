@@ -1,0 +1,608 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role { admin office attendance parent }
+enum Discipline { ballet jazz tap contemporary hip_hop lyrical acro musical_theatre pointe }
+enum AgeGroup { tiny_tots minis juniors teens seniors adults }
+enum DayOfWeek { monday tuesday wednesday thursday friday saturday }
+enum Room { studio_a studio_b studio_c studio_d }
+enum EnrollmentStatus { active waitlisted trial withdrawn graduated }
+enum PaymentStatus { paid pending overdue failed refunded }
+enum HouseholdStatus { active inactive archived }
+enum ClassStatus { active cancelled completed }
+enum SeasonStatus { upcoming active completed }
+enum BillingType { monthly per_session per_camp }
+enum Gender { female male other }
+enum GuardianRelationship { mother father guardian grandparent other }
+enum MessageChannel { email sms both }
+enum MessageStatus { sent scheduled draft }
+enum ConversationChannel { sms email facebook instagram webchat }
+enum ConversationStatus { open closed snoozed }
+enum MessageDirection { inbound outbound }
+enum AttendanceStatus { present absent late excused }
+enum LeadStage { new_lead contacted trial_scheduled trial_completed registered lost }
+enum LeadSource { website walk_in referral trial social_media phone }
+enum ContactType { lead household }
+enum TemplateCategory { follow_up reminder welcome billing general }
+enum AutomationTrigger { new_lead trial_booked trial_completed enrollment missed_class invoice_overdue birthday }
+enum AutomationStepType { send_sms send_email wait condition update_stage add_tag notify_staff }
+enum AutomationStatus { active paused draft }
+enum RecitalStatus { planning ordering rehearsals show_week completed }
+enum StaffRole { instructor assistant sub staff_admin }
+enum StaffStatus { active on_leave inactive }
+enum SubRequestStatus { open covered cancelled }
+enum ArticleCategory { policies_procedures curriculum_lesson_plans studio_operations sub_handbook hr_staff }
+enum ReviewPlatform { google facebook yelp }
+enum CallDirection { inbound outbound }
+enum CallStatus { completed missed voicemail }
+enum CompetitionEventStatus { registered pending upcoming }
+enum TeamFeeStatus { paid pending overdue }
+enum WaiverStatus { signed not_signed }
+enum RolloverResponseStatus { confirmed opted_out change_requested no_response }
+
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  emailVerified Boolean @default(false)
+  image String?
+  role Role @default(parent)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  sessions Session[]
+  accounts Account[]
+  guardian Guardian?
+  staffMember StaffMember?
+  @@map("user")
+}
+
+model Session {
+  id String @id @default(cuid())
+  expiresAt DateTime
+  token String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@map("session")
+}
+
+model Account {
+  id String @id @default(cuid())
+  accountId String
+  providerId String
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken String?
+  refreshToken String?
+  idToken String?
+  accessTokenExpiresAt DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope String?
+  password String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("account")
+}
+
+model Verification {
+  id String @id @default(cuid())
+  identifier String
+  value String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("verification")
+}
+
+model Household {
+  id String @id @default(cuid())
+  street String
+  city String
+  state String
+  zip String
+  status HouseholdStatus @default(active)
+  balance Decimal @default(0) @db.Decimal(10, 2)
+  paymentMethodType String?
+  paymentMethodLast4 String?
+  paymentMethodExpiry String?
+  stripeCustomerId String? @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  guardians Guardian[]
+  students Student[]
+  invoices Invoice[]
+  @@map("household")
+}
+
+model Guardian {
+  id String @id @default(cuid())
+  householdId String
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  firstName String
+  lastName String
+  email String @unique
+  phone String
+  relationship GuardianRelationship
+  userId String? @unique
+  user User? @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("guardian")
+}
+
+model Student {
+  id String @id @default(cuid())
+  householdId String
+  household Household @relation(fields: [householdId], references: [id], onDelete: Cascade)
+  firstName String
+  lastName String
+  dateOfBirth DateTime
+  gender Gender
+  medicalNotes String?
+  enrollmentStatus EnrollmentStatus @default(active)
+  measurements Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  enrollments Enrollment[]
+  attendanceRecords AttendanceRecord[]
+  invoiceLineItems InvoiceLineItem[]
+  teamMemberships TeamMember[]
+  @@map("student")
+}
+
+model Season {
+  id String @id @default(cuid())
+  name String
+  startDate DateTime
+  endDate DateTime
+  billingRate Decimal @db.Decimal(10, 2)
+  billingType BillingType @default(monthly)
+  status SeasonStatus @default(upcoming)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  classes Class[]
+  @@map("season")
+}
+
+model Class {
+  id String @id @default(cuid())
+  name String
+  discipline Discipline
+  ageGroup AgeGroup
+  description String @default("")
+  instructorId String
+  instructor StaffMember @relation(fields: [instructorId], references: [id])
+  seasonId String
+  season Season @relation(fields: [seasonId], references: [id])
+  capacity Int
+  monthlyRate Decimal @db.Decimal(10, 2)
+  ageRangeMin Int
+  ageRangeMax Int
+  status ClassStatus @default(active)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  schedules ClassSchedule[]
+  enrollments Enrollment[]
+  attendanceRecords AttendanceRecord[]
+  invoiceLineItems InvoiceLineItem[]
+  routines Routine[]
+  subRequests SubRequest[]
+  trialSlots TrialSlot[]
+  @@map("class")
+}
+
+model ClassSchedule {
+  id String @id @default(cuid())
+  classId String
+  class Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  day DayOfWeek
+  startTime String
+  endTime String
+  room Room
+  @@map("class_schedule")
+}
+
+model Enrollment {
+  id String @id @default(cuid())
+  studentId String
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  classId String
+  class Class @relation(fields: [classId], references: [id], onDelete: Cascade)
+  status EnrollmentStatus @default(active)
+  enrolledAt DateTime @default(now())
+  @@unique([studentId, classId])
+  @@map("enrollment")
+}
+
+model Invoice {
+  id String @id @default(cuid())
+  householdId String
+  household Household @relation(fields: [householdId], references: [id])
+  date DateTime
+  dueDate DateTime
+  subtotal Decimal @db.Decimal(10, 2)
+  total Decimal @db.Decimal(10, 2)
+  status PaymentStatus @default(pending)
+  paidDate DateTime?
+  stripeInvoiceId String? @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lineItems InvoiceLineItem[]
+  @@index([householdId, date])
+  @@map("invoice")
+}
+
+model InvoiceLineItem {
+  id String @id @default(cuid())
+  invoiceId String
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  studentId String
+  student Student @relation(fields: [studentId], references: [id])
+  classId String
+  class Class @relation(fields: [classId], references: [id])
+  description String
+  amount Decimal @db.Decimal(10, 2)
+  overrides BillingOverride[]
+  @@map("invoice_line_item")
+}
+
+model BillingOverride {
+  id String @id @default(cuid())
+  lineItemId String
+  lineItem InvoiceLineItem @relation(fields: [lineItemId], references: [id], onDelete: Cascade)
+  originalAmount Decimal @db.Decimal(10, 2)
+  newAmount Decimal @db.Decimal(10, 2)
+  reason String
+  createdBy String
+  createdAt DateTime @default(now())
+  @@map("billing_override")
+}
+
+model BillingConfig {
+  id String @id @default(cuid())
+  hourlyRate Decimal @db.Decimal(10, 2)
+  monthlyCap Decimal @db.Decimal(10, 2)
+  registrationFee Decimal @db.Decimal(10, 2)
+  lateFee Decimal @db.Decimal(10, 2)
+  lateFeeGraceDays Int
+  siblingDiscount Decimal @db.Decimal(5, 2)
+  trialFee Decimal @db.Decimal(10, 2)
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("billing_config")
+}
+
+model AttendanceRecord {
+  id String @id @default(cuid())
+  classId String
+  class Class @relation(fields: [classId], references: [id])
+  studentId String
+  student Student @relation(fields: [studentId], references: [id])
+  date DateTime
+  status AttendanceStatus
+  markedBy String
+  markedAt DateTime @default(now())
+  @@index([classId, date])
+  @@unique([classId, studentId, date])
+  @@map("attendance_record")
+}
+
+model StaffMember {
+  id String @id @default(cuid())
+  firstName String
+  lastName String
+  email String @unique
+  phone String
+  role StaffRole
+  disciplines Discipline[]
+  status StaffStatus @default(active)
+  payRate Decimal @db.Decimal(10, 2)
+  payType String @default("hourly")
+  avatar String?
+  hireDate DateTime
+  certifications Json?
+  availability Json?
+  weeklyHours Decimal @default(0) @db.Decimal(5, 1)
+  monthlyCompensation Decimal @default(0) @db.Decimal(10, 2)
+  userId String? @unique
+  user User? @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  classes Class[]
+  subRequests SubRequest[]
+  @@map("staff_member")
+}
+
+model SubRequest {
+  id String @id @default(cuid())
+  classId String
+  class Class @relation(fields: [classId], references: [id])
+  date DateTime
+  time String
+  originalInstructorId String
+  originalInstructor StaffMember @relation(fields: [originalInstructorId], references: [id])
+  status SubRequestStatus @default(open)
+  coveredBy String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("sub_request")
+}
+
+model Lead {
+  id String @id @default(cuid())
+  firstName String
+  lastName String
+  email String
+  phone String
+  childName String
+  childAge Int
+  interestDiscipline Discipline
+  source LeadSource
+  stage LeadStage @default(new_lead)
+  notes String @default("")
+  assignedTo String?
+  lastContactedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("lead")
+}
+
+model Conversation {
+  id String @id @default(cuid())
+  contactName String
+  contactPhone String
+  contactEmail String
+  contactType ContactType
+  contactId String
+  channel ConversationChannel
+  status ConversationStatus @default(open)
+  unreadCount Int @default(0)
+  lastMessage String @default("")
+  lastMessageAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages ConversationMessage[]
+  @@map("conversation")
+}
+
+model ConversationMessage {
+  id String @id @default(cuid())
+  conversationId String
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  direction MessageDirection
+  channel ConversationChannel
+  body String
+  read Boolean @default(false)
+  timestamp DateTime @default(now())
+  @@map("conversation_message")
+}
+
+model Message {
+  id String @id @default(cuid())
+  subject String
+  body String
+  channel MessageChannel
+  audience String
+  audienceCount Int
+  sentBy String
+  sentAt DateTime @default(now())
+  status MessageStatus @default(draft)
+  deliveredCount Int?
+  openedCount Int?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("message")
+}
+
+model TextTemplate {
+  id String @id @default(cuid())
+  name String
+  body String
+  category TemplateCategory
+  shortcut String?
+  @@map("text_template")
+}
+
+model Automation {
+  id String @id @default(cuid())
+  name String
+  description String @default("")
+  trigger AutomationTrigger
+  status AutomationStatus @default(draft)
+  runsCount Int @default(0)
+  successRate Decimal @default(0) @db.Decimal(5, 2)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  steps AutomationStep[]
+  @@map("automation")
+}
+
+model AutomationStep {
+  id String @id @default(cuid())
+  automationId String
+  automation Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  type AutomationStepType
+  label String
+  config Json @default("{}")
+  sortOrder Int @default(0)
+  @@map("automation_step")
+}
+
+model TrialSlot {
+  id String @id @default(cuid())
+  classId String
+  class Class @relation(fields: [classId], references: [id])
+  date DateTime
+  startTime String
+  endTime String
+  room String
+  instructorName String
+  availableSpots Int
+  bookedCount Int @default(0)
+  @@map("trial_slot")
+}
+
+model Recital {
+  id String @id @default(cuid())
+  name String
+  date DateTime
+  venue String
+  theme String?
+  description String?
+  status RecitalStatus @default(planning)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  routines Routine[]
+  @@map("recital")
+}
+
+model Routine {
+  id String @id @default(cuid())
+  recitalId String
+  recital Recital @relation(fields: [recitalId], references: [id], onDelete: Cascade)
+  name String
+  classId String
+  class Class @relation(fields: [classId], references: [id])
+  discipline Discipline
+  costume Json
+  lineupPosition Int
+  estimatedDuration Int
+  studentCount Int
+  @@map("routine")
+}
+
+model CompetitionTeam {
+  id String @id @default(cuid())
+  name String
+  disciplines Discipline[]
+  ageGroup AgeGroup
+  headCoach String
+  season String
+  studentCount Int
+  financials Json
+  messages Json @default("[]")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  roster TeamMember[]
+  competitions CompetitionEvent[]
+  @@map("competition_team")
+}
+
+model TeamMember {
+  id String @id @default(cuid())
+  teamId String
+  team CompetitionTeam @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  studentId String
+  student Student @relation(fields: [studentId], references: [id])
+  feeStatus TeamFeeStatus @default(pending)
+  waiverStatus WaiverStatus @default(not_signed)
+  teamFee Decimal @db.Decimal(10, 2)
+  competitionFees Decimal @db.Decimal(10, 2)
+  costumeFees Decimal @db.Decimal(10, 2)
+  totalOwed Decimal @db.Decimal(10, 2)
+  totalPaid Decimal @db.Decimal(10, 2)
+  @@unique([teamId, studentId])
+  @@map("team_member")
+}
+
+model CompetitionEvent {
+  id String @id @default(cuid())
+  teamId String
+  team CompetitionTeam @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  name String
+  date DateTime
+  location String
+  entryDeadline DateTime
+  status CompetitionEventStatus @default(upcoming)
+  entryFees Decimal @db.Decimal(10, 2)
+  travelCost Decimal @db.Decimal(10, 2)
+  hotelCost Decimal @db.Decimal(10, 2)
+  routines String[]
+  logistics String?
+  @@map("competition_event")
+}
+
+model Review {
+  id String @id @default(cuid())
+  platform ReviewPlatform
+  author String
+  rating Int
+  body String
+  date DateTime
+  responded Boolean @default(false)
+  responseBody String?
+  @@map("review")
+}
+
+model SavedSegment {
+  id String @id @default(cuid())
+  name String
+  rules Json
+  contactCount Int @default(0)
+  createdAt DateTime @default(now())
+  @@map("saved_segment")
+}
+
+model CallRecord {
+  id String @id @default(cuid())
+  contactId String
+  contactName String
+  direction CallDirection
+  duration Int
+  timestamp DateTime
+  status CallStatus
+  @@map("call_record")
+}
+
+model KnowledgeBaseArticle {
+  id String @id @default(cuid())
+  title String
+  category ArticleCategory
+  body String
+  author String
+  relatedArticleIds String[]
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+  @@map("knowledge_base_article")
+}
+
+model RolloverConfig {
+  id String @id @default(cuid())
+  sourceSeasonId String
+  sourceSeasonName String
+  targetSeasonName String
+  rolloverDate DateTime
+  registrationFee Decimal @db.Decimal(10, 2)
+  notificationDate DateTime
+  currentStep Int @default(1)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  responses RolloverHouseholdResponse[]
+  @@map("rollover_config")
+}
+
+model RolloverHouseholdResponse {
+  id String @id @default(cuid())
+  rolloverConfigId String
+  rolloverConfig RolloverConfig @relation(fields: [rolloverConfigId], references: [id], onDelete: Cascade)
+  householdId String
+  household Household @relation(fields: [householdId], references: [id])
+  householdName String
+  status RolloverResponseStatus @default(no_response)
+  currentClasses String[]
+  suggestedClasses String[]
+  requestedChanges String?
+  reason String?
+  @@unique([rolloverConfigId, householdId])
+  @@map("rollover_household_response")
+}
