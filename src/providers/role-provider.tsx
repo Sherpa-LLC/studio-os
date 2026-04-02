@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react"
+import { useSession } from "@/lib/auth-client"
 
 export type Role = "admin" | "office" | "attendance" | "parent"
 
@@ -21,20 +22,20 @@ const ROLE_USERS: Record<Role, { name: string }> = {
 const RoleContext = createContext<RoleContextType | null>(null)
 
 export function RoleProvider({ children }: { children: ReactNode }) {
-  const [role, setRoleState] = useState<Role>("admin")
+  const { data: session } = useSession()
+  const [fallbackRole, setFallbackRole] = useState<Role>("admin")
+
+  const sessionRole = (session?.user as { role?: string } | undefined)?.role as Role | undefined
+  const role = sessionRole ?? fallbackRole
 
   const setRole = useCallback((newRole: Role) => {
-    setRoleState(newRole)
+    setFallbackRole(newRole)
   }, [])
 
+  const userName = session?.user?.name ?? ROLE_USERS[role].name
+
   return (
-    <RoleContext.Provider
-      value={{
-        role,
-        setRole,
-        userName: ROLE_USERS[role].name,
-      }}
-    >
+    <RoleContext.Provider value={{ role, setRole, userName }}>
       {children}
     </RoleContext.Provider>
   )

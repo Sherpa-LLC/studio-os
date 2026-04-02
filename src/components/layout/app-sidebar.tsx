@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useRole, type Role } from "@/providers/role-provider"
+import { signOut } from "@/lib/auth-client"
 import {
   LayoutDashboard,
   Home,
@@ -327,7 +328,7 @@ export function AppSidebar() {
                 ))}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
-                  onClick={() => router.push("/login")}
+                  onClick={async () => { await signOut(); router.push("/login"); router.refresh() }}
                 >
                   <LogOut className="mr-2 h-4 w-4" />
                   Back to Login

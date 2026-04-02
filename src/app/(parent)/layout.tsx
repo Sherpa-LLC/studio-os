@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { useRole } from "@/providers/role-provider"
+import { signOut } from "@/lib/auth-client"
 import {
   CalendarDays,
   CreditCard,
@@ -93,7 +94,7 @@ export default function ParentLayout({
                 <p className="text-sm font-medium">{userName}</p>
                 <p className="text-xs text-muted-foreground">Parent Portal</p>
               </div>
-              <DropdownMenuItem onClick={() => router.push("/login")}>
+              <DropdownMenuItem onClick={async () => { await signOut(); router.push("/login"); router.refresh() }}>
                 <LogOut className="mr-2 h-4 w-4" />
                 Switch Role
               </DropdownMenuItem>
