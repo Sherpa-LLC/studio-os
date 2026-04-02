@@ -1,6 +1,6 @@
 import { getHouseholdById } from "@/lib/dal/households"
 import { getStudentsByHousehold } from "@/lib/dal/students"
-import { getAllClasses } from "@/lib/dal/classes"
+import { getClasses } from "@/lib/dal/classes"
 import { notFound } from "next/navigation"
 import MyHouseholdClient from "./client-page"
 
@@ -11,7 +11,7 @@ export default async function MyHouseholdPage() {
   const [household, students, allClasses] = await Promise.all([
     getHouseholdById(HOUSEHOLD_ID),
     getStudentsByHousehold(HOUSEHOLD_ID),
-    getAllClasses(),
+    getClasses(),
   ])
 
   if (!household) notFound()

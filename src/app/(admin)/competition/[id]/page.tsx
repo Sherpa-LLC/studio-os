@@ -1,8 +1,8 @@
-import { getAllTeams, getTeamById } from "@/lib/dal/competition"
+import { getTeams, getTeamById } from "@/lib/dal/competition"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const teams = await getAllTeams()
+  const teams = await getTeams()
   return teams.map((t) => ({ id: t.id }))
 }
 

@@ -1,4 +1,4 @@
-import { getAllClasses } from "@/lib/dal/classes"
+import { getClasses } from "@/lib/dal/classes"
 import { getStudentsByHousehold } from "@/lib/dal/students"
 import { getInstructorName } from "@/lib/dal/instructors"
 import ParentDashboardClient from "./client-page"
@@ -8,7 +8,7 @@ const HOUSEHOLD_ID = "hh-001"
 
 export default async function ParentDashboardPage() {
   const [allClasses, students] = await Promise.all([
-    getAllClasses(),
+    getClasses(),
     getStudentsByHousehold(HOUSEHOLD_ID),
   ])
 

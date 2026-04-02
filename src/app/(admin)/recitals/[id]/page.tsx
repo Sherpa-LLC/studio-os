@@ -1,8 +1,8 @@
-import { getAllRecitals, getRecitalById, getMeasurementsByRecitalId, getCostumeFinancials, getLineupConflicts } from "@/lib/dal/recitals"
+import { getRecitals, getRecitalById, getMeasurementsByRecitalId, getCostumeFinancials, getLineupConflicts } from "@/lib/dal/recitals"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const recitals = await getAllRecitals()
+  const recitals = await getRecitals()
   return recitals.map((r) => ({ id: r.id }))
 }
 

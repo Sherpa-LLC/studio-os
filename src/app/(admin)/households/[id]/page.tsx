@@ -1,11 +1,11 @@
-import { getAllHouseholds, getHouseholdById } from "@/lib/dal/households"
+import { getHouseholds, getHouseholdById } from "@/lib/dal/households"
 import { getStudentsByHousehold } from "@/lib/dal/students"
-import { getAllClasses } from "@/lib/dal/classes"
+import { getClasses } from "@/lib/dal/classes"
 import { getInvoicesByHousehold } from "@/lib/dal/invoices"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const households = await getAllHouseholds()
+  const households = await getHouseholds()
   return households.map((hh) => ({ id: hh.id }))
 }
 
@@ -18,7 +18,7 @@ export default async function Page({
   const [household, students, classes, invoices] = await Promise.all([
     getHouseholdById(id),
     getStudentsByHousehold(id),
-    getAllClasses(),
+    getClasses(),
     getInvoicesByHousehold(id),
   ])
 

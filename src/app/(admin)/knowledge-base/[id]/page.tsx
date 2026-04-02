@@ -1,8 +1,8 @@
-import { getAllArticles, getArticleById, getCategoryMeta } from "@/lib/dal/knowledge-base"
+import { getArticles, getArticleById, categories } from "@/lib/dal/knowledge-base"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const articles = await getAllArticles()
+  const articles = await getArticles()
   return articles.map((a) => ({ id: a.id }))
 }
 
@@ -14,10 +14,10 @@ export default async function Page({
   const { id } = await params
   const [article, allArticles] = await Promise.all([
     getArticleById(id),
-    getAllArticles(),
+    getArticles(),
   ])
 
-  const categoryMeta = article ? await getCategoryMeta(article.category) : undefined
+  const categoryMeta = article ? (await import("@/data/knowledge-base")).categories.find((c: any) => c.id === article.category) : undefined
 
   // Resolve related articles
   const relatedArticles = article
@@ -30,7 +30,7 @@ export default async function Page({
     <ClientPage
       article={article}
       categoryMeta={categoryMeta}
-      relatedArticles={relatedArticles as Awaited<ReturnType<typeof getAllArticles>>}
+      relatedArticles={relatedArticles as Awaited<ReturnType<typeof getArticles>>}
     />
   )
 }

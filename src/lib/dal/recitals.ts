@@ -33,3 +33,8 @@ export async function getRecitalById(id: string) {
 export { COSTUME_SUPPLIERS } from "@/data/recitals"
 export { measurements } from "@/data/recitals"
 export { getCostumeFinancials } from "@/data/recitals"
+
+// Compatibility exports
+import { measurements as _measurements, lineupConflicts as _lineupConflicts } from "@/data/recitals"
+export async function getMeasurementsByRecitalId(_recitalId: string) { return _measurements }
+export async function getLineupConflicts() { return _lineupConflicts }

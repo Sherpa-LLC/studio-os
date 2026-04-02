@@ -1,7 +1,7 @@
 import { getHouseholdById } from "@/lib/dal/households"
 import { getStudentsByHousehold } from "@/lib/dal/students"
 import { getInvoicesByHousehold } from "@/lib/dal/invoices"
-import { getAllClasses } from "@/lib/dal/classes"
+import { getClasses } from "@/lib/dal/classes"
 import { notFound } from "next/navigation"
 import MyBillingClient from "./client-page"
 
@@ -13,7 +13,7 @@ export default async function MyBillingPage() {
     getHouseholdById(HOUSEHOLD_ID),
     getStudentsByHousehold(HOUSEHOLD_ID),
     getInvoicesByHousehold(HOUSEHOLD_ID),
-    getAllClasses(),
+    getClasses(),
   ])
 
   if (!household) notFound()

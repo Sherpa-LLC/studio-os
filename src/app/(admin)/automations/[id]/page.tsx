@@ -1,9 +1,9 @@
-import { getAllAutomations, getAutomationById } from "@/lib/dal/automations"
-import { getAllTextTemplates } from "@/lib/dal/text-templates"
+import { getAutomations, getAutomationById } from "@/lib/dal/automations"
+import { getTextTemplates } from "@/lib/dal/text-templates"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const automations = await getAllAutomations()
+  const automations = await getAutomations()
   return automations.map((a) => ({ id: a.id }))
 }
 
@@ -15,7 +15,7 @@ export default async function Page({
   const { id } = await params
   const [automation, textTemplates] = await Promise.all([
     getAutomationById(id),
-    getAllTextTemplates(),
+    getTextTemplates(),
   ])
 
   return <ClientPage automation={automation} textTemplates={textTemplates} />

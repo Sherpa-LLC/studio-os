@@ -1,10 +1,10 @@
-import { getAllClasses, getClassById } from "@/lib/dal/classes"
+import { getClasses, getClassById } from "@/lib/dal/classes"
 import { getStudentsByClass } from "@/lib/dal/students"
 import { getInstructorName } from "@/lib/dal/instructors"
 import ClientPage from "./client-page"
 
 export async function generateStaticParams() {
-  const classes = await getAllClasses()
+  const classes = await getClasses()
   return classes.map((cls) => ({ classId: cls.id }))
 }
 

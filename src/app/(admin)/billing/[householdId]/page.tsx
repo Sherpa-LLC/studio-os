@@ -1,13 +1,8 @@
-import { getAllHouseholds, getHouseholdById } from "@/lib/dal/households"
+import { getHouseholdById } from "@/lib/dal/households"
 import { getStudentsByHousehold } from "@/lib/dal/students"
-import { getInvoicesByHousehold, getBillingOverridesByHousehold } from "@/lib/dal/invoices"
-import { getAllClasses } from "@/lib/dal/classes"
+import { getInvoicesByHousehold } from "@/lib/dal/invoices"
+import { getClasses } from "@/lib/dal/classes"
 import ClientPage from "./client-page"
-
-export async function generateStaticParams() {
-  const households = await getAllHouseholds()
-  return households.map((hh) => ({ householdId: hh.id }))
-}
 
 export default async function Page({
   params,
@@ -15,20 +10,18 @@ export default async function Page({
   params: Promise<{ householdId: string }>
 }) {
   const { householdId } = await params
-  const [household, students, invoices, overrides, classes] = await Promise.all([
+  const [household, students, invoices, classes] = await Promise.all([
     getHouseholdById(householdId),
     getStudentsByHousehold(householdId),
     getInvoicesByHousehold(householdId),
-    getBillingOverridesByHousehold(householdId),
-    getAllClasses(),
+    getClasses(),
   ])
-
   return (
     <ClientPage
       household={household}
       students={students}
       invoices={invoices}
-      overrides={overrides}
+      overrides={[]}
       classes={classes}
     />
   )
