@@ -1,0 +1,201 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]: Inbound & Outbound Phone Calls
+    - generic [ref=e6]:
+      - generic: 
+      - generic [ref=e8]:
+        - text: 
+        - generic [ref=e16]:
+          - link "https://enrollio.ai/" [ref=e21] [cursor=pointer]:
+            - /url: https://enrollio.ai/
+            - img "Brand Logo" [ref=e23]
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+                - text: WHAT WE OFFER
+                - generic [ref=e27]: 
+            - listitem [ref=e28]:
+              - button "RESOURCES " [ref=e29] [cursor=pointer]:
+                - text: RESOURCES
+                - generic [ref=e30]: 
+            - listitem [ref=e31]:
+              - link "About" [ref=e32] [cursor=pointer]:
+                - /url: https://enrollio.ai/about-us
+                - generic [ref=e33]: About
+            - listitem [ref=e34]:
+              - link "Testimonials" [ref=e35] [cursor=pointer]:
+                - /url: https://enrollio.ai/stories
+                - generic [ref=e36]: Testimonials
+            - listitem [ref=e37]:
+              - link "Systems Demo" [ref=e38] [cursor=pointer]:
+                - /url: https://enrollio.ai/book-live-demo
+                - generic [ref=e39]: Systems Demo
+            - listitem [ref=e40]:
+              - link "LOGIN" [ref=e41] [cursor=pointer]:
+                - /url: https://app.enrollio.ai/
+                - generic [ref=e42]: LOGIN
+            - listitem [ref=e43]:
+              - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+                - /url: https://payments.enrollio.ai/account-creation
+                - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+        - heading "Inbound & Outbound Calls with Call Tracking" [level=1] [ref=e55]:
+          - strong [ref=e56]: Inbound & Outbound Calls with Call Tracking
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - generic [ref=e67]:
+              - img "call reporting"
+            - heading "Pick A Phone Number & Start Dialing Leads & Current Families From Our App or on Desktop!" [level=3] [ref=e71]:
+              - strong [ref=e72]: Pick A Phone Number & Start Dialing Leads & Current Families From Our App or on Desktop!
+            - generic [ref=e75]:
+              - paragraph [ref=e76]:
+                - text: Streamline your dance studio's operations by centralizing everything under one roof, including call management. Enrollio
+                - superscript [ref=e77]: ®
+                - text: ", in partnership with Twilio technology, allows you to easily make inbound calls directly from our desktop or mobile app."
+              - paragraph [ref=e78]
+              - paragraph [ref=e79]: Plus, gain valuable insights with our comprehensive call reporting analytics, ensuring you stay on top of every inbound call.
+          - generic [ref=e81]:
+            - generic [ref=e83]:
+              - heading "Two-Way Incoming & Outbound Calls With Leads & Current Students" [level=3] [ref=e87]:
+                - strong [ref=e88]: Two-Way Incoming & Outbound Calls With Leads & Current Students
+              - paragraph [ref=e92]:
+                - text: Effortlessly connect with your dance studio leads directly from our user-friendly desktop or mobile app. Enrollio
+                - superscript [ref=e93]: ®
+                - text: offers pay-as-you-go pricing for calls and texts, with rates that stand as some of the most cost-effective in the entire industry. We're committed to passing on these savings to our dedicated dance studio users..
+              - heading "Calls Are Forwarded To Any Number" [level=3] [ref=e97]:
+                - strong [ref=e98]: Calls Are Forwarded To Any Number
+              - generic [ref=e101]:
+                - paragraph [ref=e102]:
+                  - text: Enrollio
+                  - superscript [ref=e103]: ®
+                  - text: offers the flexibility you need for managing inbound calls to your dance studio. All calls to your Enrollio
+                  - superscript [ref=e104]: ®
+                  - text: number can be seamlessly forwarded to a custom number that you can change at your convenience.
+                - paragraph [ref=e105]
+                - paragraph [ref=e106]: Register as many numbers as you'd like to track calls from various sources, and take advantage of features like call recording, custom voicemail messages, assigning numbers to specific team members, and even registering numbers from different area codes.
+                - paragraph [ref=e107]
+                - paragraph [ref=e108]: Your dance studio's call management, your way!
+            - generic [ref=e115]:
+              - img "Two-Way Incoming & Outbound Calls With Leads & Current Students"
+        - generic [ref=e121]:
+          - generic [ref=e126]:
+            - img "Twilio Compliant Solution To Reach Customers In a Safe & Secure Manner"
+          - heading "Twilio-Compliant Solution To Reach Customers In a Safe & Secure Manner" [level=3] [ref=e130]:
+            - strong [ref=e131]: Twilio-Compliant Solution To Reach Customers In a Safe & Secure Manner
+          - paragraph [ref=e135]:
+            - text: Enrollio
+            - superscript [ref=e136]: ®
+            - text: ensures that all incoming calls to your studio are seamlessly forwarded to a customizable number that you can update as needed. Register multiple numbers to track calls from various sources while keeping your dance studio's identity intact – your customers will always see 'Enrollio' when communicating with you. Plus, take advantage of features like call recording, personalized voicemails, number assignments to specific team members, and the ability to register numbers from different area codes to suit your studio's unique needs.
+        - generic [ref=e138]:
+          - generic [ref=e140]:
+            - img "Bring Enrollio Features on the Go with our Mobile App" [ref=e148]
+            - generic [ref=e150]:
+              - heading "Bring Enrollio® Features on the Go with our Mobile App" [level=3] [ref=e154]:
+                - strong [ref=e155]:
+                  - text: Bring Enrollio
+                  - superscript [ref=e156]: ®
+                  - text: Features on the Go with our Mobile App
+              - paragraph [ref=e160]:
+                - text: Effortlessly manage all your inbound calls using our dedicated iOS and Android mobile app. Enrollio
+                - superscript [ref=e161]: ®
+                - text: allows you to assign specific phone numbers to your dance studio staff members and easily track incoming calls. Plus, you can send and receive text messages on the go to engage with all your lead inquiries. Unlock countless time-saving possibilities with Enrollio
+                - superscript [ref=e162]: ®
+                - text: – the ultimate solution for dance studios worldwide.
+              - list [ref=e166]:
+                - listitem [ref=e167]:
+                  - paragraph [ref=e168]: Send Texts, Emails, Video Messages & Call
+              - list [ref=e172]:
+                - listitem [ref=e173]:
+                  - paragraph [ref=e174]: Request Payment for Classes
+              - list [ref=e178]:
+                - listitem [ref=e179]:
+                  - paragraph [ref=e180]: View Trial Class Calendar & Book Times
+          - generic [ref=e182]:
+            - link "https://apps.apple.com/us/app/enrollio/id6451193806" [ref=e192] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+              - generic [ref=e193]:
+                - img "App Store"
+            - link "https://play.google.com/store/apps/details?id=com.enrollio" [ref=e199] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio
+              - generic [ref=e200]:
+                - img "Google Play"
+        - generic [ref=e202]:
+          - heading "Ready to Get Started?" [level=2] [ref=e210]:
+            - strong [ref=e211]: Ready to Get Started?
+          - generic [ref=e213]:
+            - generic [ref=e215]:
+              - img "Enroll More Students" [ref=e221]
+              - heading "Enroll More Students" [level=3] [ref=e225]
+            - generic [ref=e227]:
+              - img "Automate Everyhing" [ref=e233]
+              - heading "Automate Everything" [level=3] [ref=e237]
+            - generic [ref=e239]:
+              - img "Keep Families Coming Back" [ref=e245]
+              - heading "Keep Families Coming Back" [level=3] [ref=e249]
+          - paragraph [ref=e257]:
+            - strong [ref=e258]: SAVE 20% WITH ANNUAL PRICING
+          - generic [ref=e262]:
+            - heading "FULL ACCESS PLAN" [level=3] [ref=e266]:
+              - strong [ref=e267]: FULL ACCESS PLAN
+            - paragraph [ref=e271]:
+              - strong [ref=e272]: $297
+            - list [ref=e276]:
+              - listitem [ref=e277]:
+                - paragraph [ref=e278]:
+                  - strong [ref=e279]: EVERYTHING IN STARTER PLAN
+            - list [ref=e283]:
+              - listitem [ref=e284]:
+                - paragraph [ref=e285]:
+                  - strong [ref=e286]: TWO-WAY TEXTING
+            - list [ref=e290]:
+              - listitem [ref=e291]:
+                - paragraph [ref=e292]:
+                  - strong [ref=e293]: AUTOMATED WEBSITE LEAD FOLLOW UP
+            - list [ref=e297]:
+              - listitem [ref=e298]:
+                - paragraph [ref=e299]:
+                  - strong [ref=e300]: AUTOMATED MISSED CALL TEXT
+            - list [ref=e304]:
+              - listitem [ref=e305]:
+                - paragraph [ref=e306]:
+                  - strong [ref=e307]: TRIAL CLASS AUTOMATION
+            - list [ref=e311]:
+              - listitem [ref=e312]:
+                - paragraph [ref=e313]:
+                  - strong [ref=e314]: ONE-TIME TEXT INVOICING
+            - list [ref=e318]:
+              - listitem [ref=e319]:
+                - paragraph [ref=e320]:
+                  - strong [ref=e321]: AUTOMATED REVIEW REQUESTS
+            - list [ref=e325]:
+              - listitem [ref=e326]:
+                - paragraph [ref=e327]:
+                  - strong [ref=e328]: PAID ADVERTISING SUPPORT
+          - link "SIGN UP NOW" [ref=e334] [cursor=pointer]:
+            - /url: https://payments.enrollio.ai/account-creation
+            - generic [ref=e336]: SIGN UP NOW
+        - text: 
+        - generic [ref=e340]:
+          - paragraph [ref=e346]:
+            - text: © Copyright 2026. Enrollio
+            - superscript [ref=e347]: ®
+            - text: . All rights reserved.
+          - heading "Privacy Policy" [level=1] [ref=e357]:
+            - link "Privacy Policy" [ref=e358] [cursor=pointer]:
+              - /url: https://enrollio.ai/privacy-policy
+          - heading "Terms" [level=2] [ref=e364]:
+            - link "Terms" [ref=e365] [cursor=pointer]:
+              - /url: https://enrollio.ai/terms
+          - heading "Cyber Security" [level=1] [ref=e371]:
+            - link "Cyber Security" [ref=e372] [cursor=pointer]:
+              - /url: https://enrollio.ai/cyber-security
+  - generic:
+    - generic:
+      - generic [ref=e374]:
+        - iframe [ref=e375]:
+          - button "Close message from company" [ref=f39e4] [cursor=pointer]:
+            - img [ref=f39e5]
+        - iframe
+      - iframe [ref=e376]:
+        - button "Open messaging window" [ref=f41e5] [cursor=pointer]:
+          - img [ref=f41e7]
+          - img [ref=f41e10]

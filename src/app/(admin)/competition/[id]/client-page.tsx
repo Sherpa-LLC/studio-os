@@ -42,7 +42,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { teams } from "@/data/competition"
+import type { CompetitionTeam, CompetitionEvent } from "@/lib/types"
 import { formatCurrency, formatDate } from "@/lib/format"
 import { DISCIPLINE_LABELS, DISCIPLINE_COLORS } from "@/lib/constants"
 import {
@@ -57,7 +57,6 @@ import {
   Clock,
   Send,
 } from "lucide-react"
-import type { CompetitionEvent } from "@/lib/types"
 import { toast } from "sonner"
 
 // ── Badge style maps ─────────────────────────────────────────────────────────
@@ -81,14 +80,13 @@ const COMPETITION_STATUS_CLASSES: Record<string, string> = {
 
 // ── Page component ───────────────────────────────────────────────────────────
 
-export default function CompetitionDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
+interface CompetitionDetailPageProps {
+  team: CompetitionTeam | undefined
+}
 
-  const team = useMemo(() => teams.find((t) => t.id === id), [id])
+export default function CompetitionDetailPage({
+  team,
+}: CompetitionDetailPageProps) {
 
   const [addMemberOpen, setAddMemberOpen] = useState(false)
   const [registerCompOpen, setRegisterCompOpen] = useState(false)
@@ -102,7 +100,7 @@ export default function CompetitionDetailPage({
         <div className="flex-1 p-6 space-y-6">
           <PageHeader title="Team Not Found" />
           <p className="text-sm text-muted-foreground">
-            No team found with ID &quot;{id}&quot;.
+            The requested team could not be found.
           </p>
           <Link href="/competition">
             <Button variant="outline">

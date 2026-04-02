@@ -1,0 +1,180 @@
+<h2>Studio Financials — Class Analysis Tab</h2>
+<p class="subtitle">The payoff: real overhead distributed across classes so owners can see true profitability.</p>
+
+<div class="mockup">
+  <div class="mockup-header">Finance → Studio Financials → Class Analysis</div>
+  <div class="mockup-body" style="padding: 0;">
+    <!-- Tab bar -->
+    <div style="display: flex; border-bottom: 2px solid #e5e7eb; background: #f9fafb;">
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Overview</div>
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Revenue</div>
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Expenses</div>
+      <div style="padding: 12px 24px; font-weight: 600; color: #6366f1; border-bottom: 2px solid #6366f1; margin-bottom: -2px; font-size: 14px;">Class Analysis</div>
+    </div>
+
+    <div style="padding: 24px;">
+      <!-- Allocation controls -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div>
+          <div style="font-weight: 600; font-size: 16px; color: #111827;">Class Profitability</div>
+          <div style="font-size: 13px; color: #6b7280; margin-top: 2px;">Overhead of <strong>$8,910/mo</strong> distributed across 23 active classes</div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div style="font-size: 13px; color: #6b7280;">Allocate by:</div>
+          <div style="display: flex; background: #f3f4f6; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb;">
+            <div style="padding: 7px 14px; font-size: 12px; color: #6b7280; cursor: pointer;">Equal</div>
+            <div style="padding: 7px 14px; font-size: 12px; background: #6366f1; color: white; font-weight: 500;">Hours</div>
+            <div style="padding: 7px 14px; font-size: 12px; color: #6b7280; cursor: pointer;">Revenue</div>
+            <div style="padding: 7px 14px; font-size: 12px; color: #6b7280; cursor: pointer;">Custom</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary cards -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px;">
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+          <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Avg Margin</div>
+          <div style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 2px;">34.2%</div>
+        </div>
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+          <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Profitable</div>
+          <div style="font-size: 20px; font-weight: 700; color: #10b981; margin-top: 2px;">20 <span style="font-size: 13px; font-weight: 400; color: #6b7280;">of 23</span></div>
+        </div>
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+          <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Below Breakeven</div>
+          <div style="font-size: 20px; font-weight: 700; color: #ef4444; margin-top: 2px;">3</div>
+        </div>
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+          <div style="font-size: 11px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em;">Best Margin</div>
+          <div style="font-size: 20px; font-weight: 700; color: #111827; margin-top: 2px;">83.7%</div>
+        </div>
+      </div>
+
+      <!-- Class table -->
+      <div style="background: white; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden;">
+        <!-- Table header -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 10px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">
+          <div>Class</div>
+          <div>Instructor</div>
+          <div style="text-align: right;">Revenue</div>
+          <div style="text-align: right;">Instr. Pay</div>
+          <div style="text-align: right;">Overhead</div>
+          <div style="text-align: right;">Net Margin</div>
+          <div style="text-align: right;">Margin %</div>
+          <div style="text-align: right;">Breakeven</div>
+        </div>
+
+        <!-- High margin row -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='white'">
+          <div>
+            <div style="font-weight: 500; color: #111827;">Comp Hip Hop - Teens</div>
+            <div style="font-size: 11px; color: #6b7280;">20 students · 1.25 hrs/wk</div>
+          </div>
+          <div style="color: #374151;">Tyrell Banks</div>
+          <div style="text-align: right; color: #374151;">$2,800</div>
+          <div style="text-align: right; color: #374151;">$226</div>
+          <div style="text-align: right; color: #374151;">$487</div>
+          <div style="text-align: right; font-weight: 600; color: #10b981;">$2,087</div>
+          <div style="text-align: right;"><span style="background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">74.5%</span></div>
+          <div style="text-align: right; color: #6b7280;">4</div>
+        </div>
+
+        <!-- Mid margin row -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='white'">
+          <div>
+            <div style="font-weight: 500; color: #111827;">Hip Hop II - Teens</div>
+            <div style="font-size: 11px; color: #6b7280;">20 students · 1 hr/wk</div>
+          </div>
+          <div style="color: #374151;">Marcus Chen</div>
+          <div style="text-align: right; color: #374151;">$2,000</div>
+          <div style="text-align: right; color: #374151;">$194</div>
+          <div style="text-align: right; color: #374151;">$389</div>
+          <div style="text-align: right; font-weight: 600; color: #10b981;">$1,417</div>
+          <div style="text-align: right;"><span style="background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">70.9%</span></div>
+          <div style="text-align: right; color: #6b7280;">4</div>
+        </div>
+
+        <!-- Another mid -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='white'">
+          <div>
+            <div style="font-weight: 500; color: #111827;">Ballet III - Teens</div>
+            <div style="font-size: 11px; color: #6b7280;">17 students · 1.25 hrs/wk</div>
+          </div>
+          <div style="color: #374151;">Natasha Volkov</div>
+          <div style="text-align: right; color: #374151;">$2,040</div>
+          <div style="text-align: right; color: #374151;">$215</div>
+          <div style="text-align: right; color: #374151;">$487</div>
+          <div style="text-align: right; font-weight: 600; color: #10b981;">$1,338</div>
+          <div style="text-align: right;"><span style="background: #d1fae5; color: #065f46; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">65.6%</span></div>
+          <div style="text-align: right; color: #6b7280;">4</div>
+        </div>
+
+        <!-- Ellipsis row -->
+        <div style="padding: 8px 16px; text-align: center; color: #9ca3af; font-size: 13px; border-bottom: 1px solid #f3f4f6;">
+          ··· 16 more classes ···
+        </div>
+
+        <!-- Low margin row -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; align-items: center; cursor: pointer;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='white'">
+          <div>
+            <div style="font-weight: 500; color: #111827;">Tap I - Minis</div>
+            <div style="font-size: 11px; color: #6b7280;">15 students · 0.75 hrs/wk</div>
+          </div>
+          <div style="color: #374151;">Ryan Fitzgerald</div>
+          <div style="text-align: right; color: #374151;">$1,200</div>
+          <div style="text-align: right; color: #374151;">$123</div>
+          <div style="text-align: right; color: #374151;">$292</div>
+          <div style="text-align: right; font-weight: 600; color: #f59e0b;">$785</div>
+          <div style="text-align: right;"><span style="background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">65.4%</span></div>
+          <div style="text-align: right; color: #6b7280;">6</div>
+        </div>
+
+        <!-- Below breakeven row - warning -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; border-bottom: 1px solid #f3f4f6; font-size: 13px; align-items: center; background: #fef2f2; cursor: pointer;" onmouseover="this.style.background='#fee2e2'" onmouseout="this.style.background='#fef2f2'">
+          <div>
+            <div style="font-weight: 500; color: #991b1b;">Adult Ballet</div>
+            <div style="font-size: 11px; color: #b91c1c;">8 students · 1.25 hrs/wk · needs 5 more</div>
+          </div>
+          <div style="color: #374151;">Hannah Bergstrom</div>
+          <div style="text-align: right; color: #374151;">$720</div>
+          <div style="text-align: right; color: #374151;">$211</div>
+          <div style="text-align: right; color: #374151;">$487</div>
+          <div style="text-align: right; font-weight: 600; color: #ef4444;">−$78</div>
+          <div style="text-align: right;"><span style="background: #fecaca; color: #991b1b; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">−10.8%</span></div>
+          <div style="text-align: right; color: #991b1b; font-weight: 600;">8</div>
+        </div>
+
+        <!-- Below breakeven row 2 -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr 0.8fr 0.8fr 0.8fr 0.8fr 0.8fr 0.6fr; gap: 0; padding: 12px 16px; font-size: 13px; align-items: center; background: #fef2f2; cursor: pointer;" onmouseover="this.style.background='#fee2e2'" onmouseout="this.style.background='#fef2f2'">
+          <div>
+            <div style="font-weight: 500; color: #991b1b;">Adult Jazz</div>
+            <div style="font-size: 11px; color: #b91c1c;">10 students · 1 hr/wk · needs 3 more</div>
+          </div>
+          <div style="color: #374151;">Marcus Chen</div>
+          <div style="text-align: right; color: #374151;">$900</div>
+          <div style="text-align: right; color: #374151;">$194</div>
+          <div style="text-align: right; color: #374151;">$389</div>
+          <div style="text-align: right; font-weight: 600; color: #ef4444;">−$83</div>
+          <div style="text-align: right;"><span style="background: #fecaca; color: #991b1b; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 500;">−9.2%</span></div>
+          <div style="text-align: right; color: #991b1b; font-weight: 600;">7</div>
+        </div>
+      </div>
+
+      <!-- Allocation explanation -->
+      <div style="margin-top: 16px; padding: 12px 16px; background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; font-size: 13px; color: #5b21b6;">
+        <strong>Allocation method: Hours</strong> — overhead is distributed proportionally by weekly class hours. A 1.25 hr/wk class absorbs $487/mo, while a 0.75 hr/wk class absorbs $292/mo. <a href="#" style="color: #6366f1; text-decoration: underline;">Change method</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+  <h3 style="margin: 0 0 8px 0; font-size: 14px;">Design Decisions</h3>
+  <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+    <li><strong>Allocation toggle</strong> — Equal / Hours / Revenue / Custom, right at the top. Numbers update instantly.</li>
+    <li><strong>Red row treatment</strong> — below-breakeven classes get a red background + "needs X more" hint so the owner immediately knows the gap</li>
+    <li><strong>Overhead column</strong> — shows the actual allocated amount per class (varies by method), not just the flat $231</li>
+    <li><strong>Sorted by margin %</strong> — best performers at top, problem classes at bottom</li>
+    <li><strong>Clickable rows</strong> — navigate to class detail page for deeper analysis and what-if slider</li>
+  </ul>
+</div>

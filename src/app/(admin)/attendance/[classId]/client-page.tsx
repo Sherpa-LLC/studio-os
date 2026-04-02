@@ -10,10 +10,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { formatTime, formatDate, getInitials } from "@/lib/format"
 import { DISCIPLINE_LABELS, DISCIPLINE_COLORS, DAY_LABELS } from "@/lib/constants"
-import { getClassById } from "@/data/classes"
-import { getStudentsByClass } from "@/data/students"
-import { getInstructorName } from "@/data/instructors"
 import { getAttendanceByClass } from "@/data/attendance-records"
+import type { Class, Student } from "@/lib/types"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 import {
@@ -76,18 +74,22 @@ const INITIAL_NOTES: Record<string, string> = {
   "stu-017": "Left early - parent pickup at 4:30",
 }
 
+interface ClassAttendancePageProps {
+  cls: Class | undefined
+  students: Student[]
+  instructorName: string
+}
+
 export default function ClassAttendancePage({
-  params,
-}: {
-  params: { classId: string }
-}) {
-  const { classId } = params
+  cls,
+  students: passedStudents,
+  instructorName,
+}: ClassAttendancePageProps) {
+  const classId = cls?.id ?? ""
   const router = useRouter()
 
-  const cls = getClassById(classId)
-
   // Get enrolled students (active + trial)
-  let enrolledStudents = getStudentsByClass(classId).filter(
+  let enrolledStudents = passedStudents.filter(
     (s) => s.enrollmentStatus === "active" || s.enrollmentStatus === "trial",
   )
 
@@ -269,7 +271,7 @@ export default function ClassAttendancePage({
             </span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <User className="h-3.5 w-3.5" />
-              {getInstructorName(cls.instructorId)}
+              {instructorName}
             </span>
           </div>
         </CardContent>

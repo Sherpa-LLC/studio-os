@@ -1,0 +1,216 @@
+<h2>Studio Financials — Expenses Tab</h2>
+<p class="subtitle">Where studio owners manage their real operating costs. Custom categories, monthly entry, and defaults.</p>
+
+<div class="mockup">
+  <div class="mockup-header">Finance → Studio Financials → Expenses</div>
+  <div class="mockup-body" style="padding: 0;">
+    <!-- Tab bar -->
+    <div style="display: flex; border-bottom: 2px solid #e5e7eb; background: #f9fafb;">
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Overview</div>
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Revenue</div>
+      <div style="padding: 12px 24px; font-weight: 600; color: #6366f1; border-bottom: 2px solid #6366f1; margin-bottom: -2px; font-size: 14px;">Expenses</div>
+      <div style="padding: 12px 24px; color: #6b7280; font-size: 14px;">Class Analysis</div>
+    </div>
+
+    <div style="padding: 24px;">
+      <!-- Header with add button -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <div style="font-weight: 600; font-size: 16px; color: #111827;">Monthly Expenses</div>
+          <div style="font-size: 13px; color: #6b7280; margin-top: 2px;">Enter your average monthly costs. These flow into overhead allocation for class profitability.</div>
+        </div>
+        <button style="padding: 8px 16px; background: #6366f1; color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer;">+ Add Category</button>
+      </div>
+
+      <!-- Expense categories grouped -->
+      <!-- Facility -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6366f1; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb;">Facility</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Rent / Mortgage</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$4,500</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Property Tax</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$380</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Maintenance & Repairs</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$250</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Utilities -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6366f1; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb;">Utilities</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Electric</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$420</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Water</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$85</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Gas</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$150</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Internet / Phone</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$165</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insurance -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6366f1; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb;">Insurance</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Property Insurance</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$450</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Liability Insurance</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$350</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Workers' Compensation</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$400</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Administrative -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6366f1; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb;">Administrative</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Accounting / Bookkeeping</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$300</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Software Subscriptions</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$280</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Music Licensing</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$50</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Cleaning Service</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$600</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6366f1; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb;">Marketing</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Advertising</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$500</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px;">
+            <div style="flex: 1; font-size: 14px; color: #374151;">Website Hosting</div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="font-size: 13px; color: #6b7280; width: 60px; text-align: right;">Monthly</div>
+              <div style="background: #f9fafb; border: 1px solid #d1d5db; border-radius: 6px; padding: 8px 12px; width: 120px; text-align: right; font-size: 14px; font-weight: 500;">$30</div>
+              <div style="color: #9ca3af; cursor: pointer; font-size: 18px;">⋮</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary footer -->
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 12px; color: #166534; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Total Monthly Expenses (excl. instructor pay)</div>
+          <div style="font-size: 11px; color: #15803d; margin-top: 2px;">19 items across 5 categories</div>
+        </div>
+        <div style="font-size: 28px; font-weight: 700; color: #166534;">$8,910</div>
+      </div>
+
+      <!-- Note about instructor pay -->
+      <div style="margin-top: 12px; padding: 12px 16px; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; font-size: 13px; color: #1e40af;">
+        <strong>Note:</strong> Instructor pay ($8,400/mo) is calculated automatically from class schedules and pay rates — it's not entered here. Total overhead including instructor pay: <strong>$17,310/mo</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 24px; padding: 16px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+  <h3 style="margin: 0 0 8px 0; font-size: 14px;">Design Decisions</h3>
+  <ul style="margin: 0; padding-left: 20px; font-size: 13px; color: #475569; display: flex; flex-direction: column; gap: 6px;">
+    <li><strong>Grouped by category</strong> — Facility, Utilities, Insurance, Administrative, Marketing (all customizable)</li>
+    <li><strong>Inline editing</strong> — amounts are editable right in the list, no modal needed</li>
+    <li><strong>"+ Add Category"</strong> button creates new groups or items within groups</li>
+    <li><strong>Three-dot menu (⋮)</strong> — rename, move to different group, delete</li>
+    <li><strong>Instructor pay excluded</strong> — it's auto-calculated from class data, shown as a note</li>
+    <li><strong>Running total</strong> at the bottom so the owner always knows where they stand</li>
+  </ul>
+</div>

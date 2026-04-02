@@ -1,0 +1,2 @@
+{"type":"server-started","port":53687,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:53687","screen_dir":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/73403-1775049928/content","state_dir":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/73403-1775049928/state"}
+{"type":"server-stopped","reason":"idle timeout"}

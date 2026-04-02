@@ -1,0 +1,178 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]: Social Media Messaging - Enrollio
+    - generic [ref=e6]:
+      - generic: 
+      - generic [ref=e8]:
+        - text: 
+        - generic [ref=e16]:
+          - link "https://enrollio.ai/" [ref=e21] [cursor=pointer]:
+            - /url: https://enrollio.ai/
+            - img "Brand Logo" [ref=e23]
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+                - text: WHAT WE OFFER
+                - generic [ref=e27]: 
+            - listitem [ref=e28]:
+              - button "RESOURCES " [ref=e29] [cursor=pointer]:
+                - text: RESOURCES
+                - generic [ref=e30]: 
+            - listitem [ref=e31]:
+              - link "About" [ref=e32] [cursor=pointer]:
+                - /url: https://enrollio.ai/about-us
+                - generic [ref=e33]: About
+            - listitem [ref=e34]:
+              - link "Testimonials" [ref=e35] [cursor=pointer]:
+                - /url: https://enrollio.ai/stories
+                - generic [ref=e36]: Testimonials
+            - listitem [ref=e37]:
+              - link "Systems Demo" [ref=e38] [cursor=pointer]:
+                - /url: https://enrollio.ai/book-live-demo
+                - generic [ref=e39]: Systems Demo
+            - listitem [ref=e40]:
+              - link "LOGIN" [ref=e41] [cursor=pointer]:
+                - /url: https://app.enrollio.ai/
+                - generic [ref=e42]: LOGIN
+            - listitem [ref=e43]:
+              - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+                - /url: https://payments.enrollio.ai/account-creation
+                - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+        - heading "Social Media Messaging" [level=1] [ref=e55]:
+          - strong [ref=e56]: Social Media Messaging
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - heading "Manage Your Facebook & Instagram Conversations In One Place" [level=2] [ref=e66]:
+              - strong [ref=e67]: Manage Your Facebook & Instagram Conversations In One Place
+            - paragraph [ref=e71]: Effortlessly streamline the management of all your dance studio's Facebook business Page messages and Instagram DMs in one central hub using our system. Say goodbye to missed opportunities as our Conversations tab ensures that no dance lead ever slips through the cracks again!
+            - generic "Conversations Final" [ref=e84]
+          - generic [ref=e87]:
+            - generic [ref=e89]:
+              - heading "Power Up Your Prospecting on Facebook & Instagram" [level=3] [ref=e93]:
+                - strong [ref=e94]: Power Up Your Prospecting on Facebook & Instagram
+              - paragraph [ref=e98]:
+                - text: Seamlessly link your dance studio's Instagram and Facebook accounts to begin engaging with conversations via Enrollio
+                - superscript [ref=e99]: ®
+                - text: ", whether you're at your desktop or using our mobile app. Furthermore, you can configure workflow automations to effortlessly handle responses and lead follow-ups, all on autopilot."
+              - heading "Build Powerful Automations for Social" [level=3] [ref=e103]:
+                - strong [ref=e104]: Build Powerful Automations for Social
+              - paragraph [ref=e108]:
+                - text: Empower your dance studio with Enrollio
+                - superscript [ref=e109]: ®
+                - text: "'s workflow automation builder, where you can establish auto-responders, craft custom messages tailored to specific phrases your customers use, and explore a world of creative strategies with our versatile automation tools. Unlock limitless possibilities for enhancing your dance studio's communication with Enrollio"
+                - superscript [ref=e110]: ®
+                - text: "!"
+            - generic [ref=e117]:
+              - img "Power Up Your Prospecting on Facebook & Instagram"
+        - generic [ref=e119]:
+          - generic [ref=e121]:
+            - img "Bring Enrollio Features on the Go with our Mobile App" [ref=e129]
+            - generic [ref=e131]:
+              - heading "Bring Enrollio® Features on the Go with our Mobile App" [level=3] [ref=e135]:
+                - strong [ref=e136]:
+                  - text: Bring Enrollio
+                  - superscript [ref=e137]: ®
+                  - text: Features on the Go with our Mobile App
+              - generic [ref=e140]:
+                - paragraph [ref=e141]: Stay connected with your dance studio anytime, anywhere!
+                - paragraph [ref=e142]
+                - paragraph [ref=e143]: With our iOS & Android mobile app, you can manage all inbound calls for your dance studio with ease. Assign dedicated phone numbers to your dance instructors or staff, and keep track of every conversation. Swiftly respond to inquiries from potential students via text while on the move. Make more time for what truly matters – dance!
+              - list [ref=e147]:
+                - listitem [ref=e148]:
+                  - paragraph [ref=e149]: Send Texts, Emails, Video Messages & Call
+              - list [ref=e153]:
+                - listitem [ref=e154]:
+                  - paragraph [ref=e155]: Request Payment for Classes
+              - list [ref=e159]:
+                - listitem [ref=e160]:
+                  - paragraph [ref=e161]: View Trial Class Calendar & Book Times
+          - generic [ref=e163]:
+            - link "https://apps.apple.com/us/app/enrollio/id6451193806" [ref=e173] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+              - generic [ref=e174]:
+                - img "App Store"
+            - link "https://play.google.com/store/apps/details?id=com.enrollio" [ref=e180] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio
+              - generic [ref=e181]:
+                - img "Google Play"
+        - generic [ref=e183]:
+          - heading "Ready to Get Started?" [level=2] [ref=e191]:
+            - strong [ref=e192]: Ready to Get Started?
+          - generic [ref=e194]:
+            - generic [ref=e196]:
+              - img "Enroll More Students" [ref=e202]
+              - heading "Enroll More Students" [level=3] [ref=e206]
+            - generic [ref=e208]:
+              - img "Automate Everyhing" [ref=e214]
+              - heading "Automate Everything" [level=3] [ref=e218]
+            - generic [ref=e220]:
+              - img "Keep Families Coming Back" [ref=e226]
+              - heading "Keep Families Coming Back" [level=3] [ref=e230]
+          - paragraph [ref=e238]:
+            - strong [ref=e239]: SAVE 20% WITH ANNUAL PRICING
+          - generic [ref=e243]:
+            - heading "FULL ACCESS PLAN" [level=3] [ref=e247]:
+              - strong [ref=e248]: FULL ACCESS PLAN
+            - paragraph [ref=e252]:
+              - strong [ref=e253]: $297
+            - list [ref=e257]:
+              - listitem [ref=e258]:
+                - paragraph [ref=e259]:
+                  - strong [ref=e260]: EVERYTHING IN STARTER PLAN
+            - list [ref=e264]:
+              - listitem [ref=e265]:
+                - paragraph [ref=e266]:
+                  - strong [ref=e267]: TWO-WAY TEXTING
+            - list [ref=e271]:
+              - listitem [ref=e272]:
+                - paragraph [ref=e273]:
+                  - strong [ref=e274]: AUTOMATED WEBSITE LEAD FOLLOW UP
+            - list [ref=e278]:
+              - listitem [ref=e279]:
+                - paragraph [ref=e280]:
+                  - strong [ref=e281]: AUTOMATED MISSED CALL TEXT
+            - list [ref=e285]:
+              - listitem [ref=e286]:
+                - paragraph [ref=e287]:
+                  - strong [ref=e288]: TRIAL CLASS AUTOMATION
+            - list [ref=e292]:
+              - listitem [ref=e293]:
+                - paragraph [ref=e294]:
+                  - strong [ref=e295]: ONE-TIME TEXT INVOICING
+            - list [ref=e299]:
+              - listitem [ref=e300]:
+                - paragraph [ref=e301]:
+                  - strong [ref=e302]: AUTOMATED REVIEW REQUESTS
+            - list [ref=e306]:
+              - listitem [ref=e307]:
+                - paragraph [ref=e308]:
+                  - strong [ref=e309]: PAID ADVERTISING SUPPORT
+          - link "SIGN UP NOW" [ref=e315] [cursor=pointer]:
+            - /url: https://payments.enrollio.ai/account-creation
+            - generic [ref=e317]: SIGN UP NOW
+        - text: 
+        - generic [ref=e321]:
+          - paragraph [ref=e327]:
+            - text: © Copyright 2026. Enrollio
+            - superscript [ref=e328]: ®
+            - text: . All rights reserved.
+          - heading "Privacy Policy" [level=1] [ref=e338]:
+            - link "Privacy Policy" [ref=e339] [cursor=pointer]:
+              - /url: https://enrollio.ai/privacy-policy
+          - heading "Terms" [level=2] [ref=e345]:
+            - link "Terms" [ref=e346] [cursor=pointer]:
+              - /url: https://enrollio.ai/terms
+          - heading "Cyber Security" [level=1] [ref=e352]:
+            - link "Cyber Security" [ref=e353] [cursor=pointer]:
+              - /url: https://enrollio.ai/cyber-security
+  - generic:
+    - generic:
+      - generic [ref=e355]:
+        - iframe [ref=e356]:
+          - button "Close message from company" [ref=f69e4] [cursor=pointer]:
+            - img [ref=f69e5]
+        - iframe
+      - iframe [ref=e357]:
+        - button "Open messaging window" [ref=f71e5] [cursor=pointer]:
+          - img [ref=f71e7]
+          - img [ref=f71e10]

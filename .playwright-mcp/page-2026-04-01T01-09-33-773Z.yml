@@ -1,0 +1,188 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]: Enrollio’s Chat Widget for Website - Dance School Software
+    - generic [ref=e6]:
+      - generic: 
+      - generic [ref=e8]:
+        - text: 
+        - generic [ref=e16]:
+          - link "https://enrollio.ai/" [ref=e21] [cursor=pointer]:
+            - /url: https://enrollio.ai/
+            - img "Brand Logo" [ref=e23]
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+                - text: WHAT WE OFFER
+                - generic [ref=e27]: 
+            - listitem [ref=e28]:
+              - button "RESOURCES " [ref=e29] [cursor=pointer]:
+                - text: RESOURCES
+                - generic [ref=e30]: 
+            - listitem [ref=e31]:
+              - link "About" [ref=e32] [cursor=pointer]:
+                - /url: https://enrollio.ai/about-us
+                - generic [ref=e33]: About
+            - listitem [ref=e34]:
+              - link "Testimonials" [ref=e35] [cursor=pointer]:
+                - /url: https://enrollio.ai/stories
+                - generic [ref=e36]: Testimonials
+            - listitem [ref=e37]:
+              - link "Systems Demo" [ref=e38] [cursor=pointer]:
+                - /url: https://enrollio.ai/book-live-demo
+                - generic [ref=e39]: Systems Demo
+            - listitem [ref=e40]:
+              - link "LOGIN" [ref=e41] [cursor=pointer]:
+                - /url: https://app.enrollio.ai/
+                - generic [ref=e42]: LOGIN
+            - listitem [ref=e43]:
+              - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+                - /url: https://payments.enrollio.ai/account-creation
+                - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+        - 'heading "Chat Widget for Website : Make Communication Easy for your Dance School Studio" [level=1] [ref=e55]':
+          - strong [ref=e56]: "Chat Widget for Website : Make Communication Easy for your Dance School Studio"
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - heading "Capture More Leads with the Enrollio® Chat Widget" [level=2] [ref=e66]:
+              - strong [ref=e67]:
+                - text: Capture More Leads with the Enrollio
+                - superscript [ref=e68]: ®
+                - text: Chat Widget
+            - paragraph [ref=e72]:
+              - text: Stay connected with visitors on your dance studio's website, whether you're at your desktop or using our mobile app for iOS and Android. Enrollio
+              - superscript [ref=e73]: ®
+              - text: enables you to have real-time conversations and offer instant responses to common inquiries through automated replies. Keep the communication flowing smoothly with Enrollio
+              - superscript [ref=e74]: ®
+              - text: ", your dedicated website chat widget for dance studios worldwide."
+            - generic "Chat Widget" [ref=e87]
+          - generic [ref=e90]:
+            - generic [ref=e92]:
+              - heading "Communicate With Website Visitors On-The-Go" [level=3] [ref=e96]:
+                - strong [ref=e97]: Communicate With Website Visitors On-The-Go
+              - paragraph [ref=e101]:
+                - text: Easily address enrollment inquiries on the fly using our mobile app! With Enrollio
+                - superscript [ref=e102]: ®
+                - text: ", you can stay connected to your dance studio's prospective students and parents, providing quick responses and enrollment assistance wherever you are."
+              - heading "Set Office Hours" [level=3] [ref=e106]:
+                - strong [ref=e107]: Set Office Hours
+              - paragraph [ref=e111]:
+                - text: Create a customized chat widget schedule for your dance studio's website. With Enrollio
+                - superscript [ref=e112]: ®
+                - text: ", you can ensure that when visitors reach out during off-hours, they receive a reassuring message, letting them know you'll be back in no time. Keep the dance conversation alive, even when your studio is resting, thanks to Enrollio"
+                - superscript [ref=e113]: ®
+                - text: "'s flexible scheduling options.\""
+            - generic [ref=e120]:
+              - img "Communicate With Website Visitors On-The-Go"
+        - generic [ref=e122]:
+          - generic [ref=e124]:
+            - img "Bring Enrollio Features on the Go with our Mobile App" [ref=e132]
+            - generic [ref=e134]:
+              - heading "Bring Enrollio® Features on the Go with our Mobile App" [level=3] [ref=e138]:
+                - strong [ref=e139]:
+                  - text: Bring Enrollio
+                  - superscript [ref=e140]: ®
+                  - text: Features on the Go with our Mobile App
+              - paragraph [ref=e144]:
+                - text: Effortlessly manage all your inbound calls using our dedicated iOS and Android mobile app. Enrollio
+                - superscript [ref=e145]: ®
+                - text: allows you to assign specific phone numbers to your dance studio staff members and easily track incoming calls. Plus, you can send and receive text messages on the go to engage with all your lead inquiries. Unlock countless time-saving possibilities with Enrollio
+                - superscript [ref=e146]: ®
+                - text: – the ultimate solution for dance studios worldwide.
+              - list [ref=e150]:
+                - listitem [ref=e151]:
+                  - paragraph [ref=e152]: Send Texts, Emails, Video Messages & Call
+              - list [ref=e156]:
+                - listitem [ref=e157]:
+                  - paragraph [ref=e158]: Request Payment & Send Invoices
+              - list [ref=e162]:
+                - listitem [ref=e163]:
+                  - paragraph [ref=e164]: View Trial Class Calendar & Book Times
+          - generic [ref=e166]:
+            - link "https://apps.apple.com/us/app/enrollio/id6451193806" [ref=e176] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+              - generic [ref=e177]:
+                - img "App Store"
+            - link "https://play.google.com/store/apps/details?id=com.enrollio" [ref=e183] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio
+              - generic [ref=e184]:
+                - img "Google Play"
+        - generic [ref=e186]:
+          - heading "Ready to Get Started?" [level=2] [ref=e194]:
+            - strong [ref=e195]: Ready to Get Started?
+          - generic [ref=e197]:
+            - generic [ref=e199]:
+              - img "Enroll More Students" [ref=e205]
+              - heading "Enroll More Students" [level=3] [ref=e209]
+            - generic [ref=e211]:
+              - img "Automate Everything" [ref=e217]
+              - heading "Automate Everything" [level=3] [ref=e221]
+            - generic [ref=e223]:
+              - img "Keep Families Coming Back" [ref=e229]
+              - heading "Keep Families Coming Back" [level=3] [ref=e233]
+          - paragraph [ref=e241]:
+            - strong [ref=e242]: SAVE 20% WITH ANNUAL PRICING
+          - generic [ref=e246]:
+            - heading "FULL ACCESS PLAN" [level=3] [ref=e250]:
+              - strong [ref=e251]: FULL ACCESS PLAN
+            - paragraph [ref=e255]:
+              - strong [ref=e256]: $297
+            - list [ref=e260]:
+              - listitem [ref=e261]:
+                - paragraph [ref=e262]:
+                  - strong [ref=e263]: EVERYTHING IN STARTER PLAN
+            - list [ref=e267]:
+              - listitem [ref=e268]:
+                - paragraph [ref=e269]:
+                  - strong [ref=e270]: TWO-WAY TEXTING
+            - list [ref=e274]:
+              - listitem [ref=e275]:
+                - paragraph [ref=e276]:
+                  - strong [ref=e277]: AUTOMATED WEBSITE LEAD FOLLOW UP
+            - list [ref=e281]:
+              - listitem [ref=e282]:
+                - paragraph [ref=e283]:
+                  - strong [ref=e284]: AUTOMATED MISSED CALL TEXT
+            - list [ref=e288]:
+              - listitem [ref=e289]:
+                - paragraph [ref=e290]:
+                  - strong [ref=e291]: TRIAL CLASS AUTOMATION
+            - list [ref=e295]:
+              - listitem [ref=e296]:
+                - paragraph [ref=e297]:
+                  - strong [ref=e298]: ONE-TIME TEXT INVOICING
+            - list [ref=e302]:
+              - listitem [ref=e303]:
+                - paragraph [ref=e304]:
+                  - strong [ref=e305]: AUTOMATED REVIEW REQUESTS
+            - list [ref=e309]:
+              - listitem [ref=e310]:
+                - paragraph [ref=e311]:
+                  - strong [ref=e312]: PAID ADVERTISING SUPPORT
+          - link "SIGN UP NOW" [ref=e318] [cursor=pointer]:
+            - /url: https://payments.enrollio.ai/account-creation
+            - generic [ref=e320]: SIGN UP NOW
+        - text: 
+        - generic [ref=e324]:
+          - paragraph [ref=e330]:
+            - text: © Copyright 2026. Enrollio
+            - superscript [ref=e331]: ®
+            - text: . All rights reserved.
+          - heading "Privacy Policy" [level=1] [ref=e341]:
+            - link "Privacy Policy" [ref=e342] [cursor=pointer]:
+              - /url: https://enrollio.ai/privacy-policy
+          - heading "Terms" [level=2] [ref=e348]:
+            - link "Terms" [ref=e349] [cursor=pointer]:
+              - /url: https://enrollio.ai/terms
+          - heading "Cyber Security" [level=1] [ref=e355]:
+            - link "Cyber Security" [ref=e356] [cursor=pointer]:
+              - /url: https://enrollio.ai/cyber-security
+  - generic:
+    - generic:
+      - generic [ref=e358]:
+        - iframe [ref=e359]:
+          - button "Close message from company" [ref=f51e4] [cursor=pointer]:
+            - img [ref=f51e5]
+        - iframe
+      - iframe [ref=e360]:
+        - button "Open messaging window" [ref=f53e5] [cursor=pointer]:
+          - img [ref=f53e7]
+          - img [ref=f53e10]

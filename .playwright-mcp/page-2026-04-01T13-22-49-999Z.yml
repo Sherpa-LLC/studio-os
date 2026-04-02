@@ -1,0 +1,319 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link "S Studio OS" [ref=e7] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e9]: S
+        - generic [ref=e10]: Studio OS
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: Overview
+          - list [ref=e15]:
+            - listitem [ref=e16]:
+              - link "Dashboard" [ref=e17] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e18]
+                - generic [ref=e23]: Dashboard
+        - generic [ref=e24]:
+          - generic [ref=e25]: People
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Households" [ref=e29] [cursor=pointer]:
+                - /url: /households
+                - img [ref=e30]
+                - generic [ref=e33]: Households
+        - generic [ref=e34]:
+          - generic [ref=e35]: Programs
+          - list [ref=e37]:
+            - listitem [ref=e38]:
+              - link "Classes" [ref=e39] [cursor=pointer]:
+                - /url: /classes
+                - img [ref=e40]
+                - generic [ref=e42]: Classes
+            - listitem [ref=e43]:
+              - link "Attendance" [ref=e44] [cursor=pointer]:
+                - /url: /attendance
+                - img [ref=e45]
+                - generic [ref=e49]: Attendance
+            - listitem [ref=e50]:
+              - link "Recitals" [ref=e51] [cursor=pointer]:
+                - /url: /recitals
+                - img [ref=e52]
+                - generic [ref=e55]: Recitals
+            - listitem [ref=e56]:
+              - link "Competition" [ref=e57] [cursor=pointer]:
+                - /url: /competition
+                - img [ref=e58]
+                - generic [ref=e64]: Competition
+        - generic [ref=e65]:
+          - generic [ref=e66]: Finance
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Billing" [ref=e70] [cursor=pointer]:
+                - /url: /billing
+                - img [ref=e71]
+                - generic [ref=e73]: Billing
+        - generic [ref=e74]:
+          - generic [ref=e75]: Communicate
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - link "Conversations 5" [ref=e79] [cursor=pointer]:
+                - /url: /conversations
+                - img [ref=e80]
+                - generic [ref=e82]: Conversations
+                - generic [ref=e83]: "5"
+            - listitem [ref=e84]:
+              - link "Broadcasts" [ref=e85] [cursor=pointer]:
+                - /url: /communications
+                - img [ref=e86]
+                - generic [ref=e89]: Broadcasts
+        - generic [ref=e90]:
+          - generic [ref=e91]: Operations
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "Staff" [ref=e95] [cursor=pointer]:
+                - /url: /staff
+                - img [ref=e96]
+                - generic [ref=e101]: Staff
+            - listitem [ref=e102]:
+              - link "Seasons" [ref=e103] [cursor=pointer]:
+                - /url: /seasons
+                - img [ref=e104]
+                - generic [ref=e106]: Seasons
+            - listitem [ref=e107]:
+              - link "Knowledge Base" [ref=e108] [cursor=pointer]:
+                - /url: /knowledge-base
+                - img [ref=e109]
+                - generic [ref=e112]: Knowledge Base
+        - generic [ref=e113]:
+          - generic [ref=e114]: Growth
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - link "CRM" [ref=e118] [cursor=pointer]:
+                - /url: /crm
+                - img [ref=e119]
+                - generic [ref=e122]: CRM
+            - listitem [ref=e123]:
+              - link "Automations" [ref=e124] [cursor=pointer]:
+                - /url: /automations
+                - img [ref=e125]
+                - generic [ref=e127]: Automations
+            - listitem [ref=e128]:
+              - link "Reviews" [ref=e129] [cursor=pointer]:
+                - /url: /reviews
+                - img [ref=e130]
+                - generic [ref=e132]: Reviews
+      - list [ref=e134]:
+        - listitem [ref=e135]:
+          - button "VW Vicki Wallace Owner" [ref=e136]:
+            - generic [ref=e138]: VW
+            - generic [ref=e139]:
+              - generic [ref=e140]: Vicki Wallace
+              - generic [ref=e141]: Owner
+            - img [ref=e142]
+      - button "Toggle Sidebar" [ref=e144]
+    - main [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - button "Toggle Sidebar" [ref=e148]:
+            - img
+            - generic [ref=e149]: Toggle Sidebar
+          - separator [ref=e150]
+          - heading "Add New Class" [level=1] [ref=e151]
+          - generic [ref=e153]: "Viewing as: Owner"
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - heading "Add New Class" [level=1] [ref=e157]
+              - paragraph [ref=e158]: Build a class offering for your studio
+            - link "Back to Classes" [ref=e160] [cursor=pointer]:
+              - /url: /classes
+              - button "Back to Classes" [ref=e161]:
+                - img
+                - text: Back to Classes
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - heading "Class Identity" [level=2] [ref=e167]
+                - generic [ref=e168]:
+                  - generic [ref=e169]:
+                    - generic [ref=e170]: Class Name
+                    - textbox "Class Name" [ref=e171]:
+                      - /placeholder: e.g. Ballet II - Juniors (Ages 7-9)
+                      - text: Ballet II - Juniors
+                  - generic [ref=e172]:
+                    - generic [ref=e173]: Discipline
+                    - generic [ref=e174]:
+                      - button "Ballet" [ref=e175] [cursor=pointer]
+                      - button "Jazz" [ref=e176] [cursor=pointer]
+                      - button "Tap" [ref=e177] [cursor=pointer]
+                      - button "Contemporary" [ref=e178] [cursor=pointer]
+                      - button "Hip Hop" [ref=e179] [cursor=pointer]
+                      - button "Lyrical" [ref=e180] [cursor=pointer]
+                      - button "Acrobatics" [ref=e181] [cursor=pointer]
+                      - button "Musical Theatre" [ref=e182] [cursor=pointer]
+                      - button "Pointe" [ref=e183] [cursor=pointer]
+                  - generic [ref=e184]:
+                    - generic [ref=e185]:
+                      - generic [ref=e186]: Age Group
+                      - combobox [expanded] [ref=e187]:
+                        - generic [ref=e188]: Select age group
+                        - img: ▼
+                      - listbox [ref=e351]:
+                        - option "Tiny Tots (3-5 yrs)" [active] [ref=e352]:
+                          - generic [ref=e353]:
+                            - text: Tiny Tots
+                            - generic [ref=e354]: (3-5 yrs)
+                        - option "Minis (5-7 yrs)" [ref=e355]:
+                          - generic [ref=e356]:
+                            - text: Minis
+                            - generic [ref=e357]: (5-7 yrs)
+                        - option "Juniors (7-10 yrs)" [ref=e358]:
+                          - generic [ref=e359]:
+                            - text: Juniors
+                            - generic [ref=e360]: (7-10 yrs)
+                        - option "Teens (10-14 yrs)" [ref=e361]:
+                          - generic [ref=e362]:
+                            - text: Teens
+                            - generic [ref=e363]: (10-14 yrs)
+                        - option "Seniors (14-18 yrs)" [ref=e364]:
+                          - generic [ref=e365]:
+                            - text: Seniors
+                            - generic [ref=e366]: (14-18 yrs)
+                        - option "Adults (18-99 yrs)" [ref=e367]:
+                          - generic [ref=e368]:
+                            - text: Adults
+                            - generic [ref=e369]: (18-99 yrs)
+                      - textbox [ref=e189]
+                    - generic [ref=e190]:
+                      - generic [ref=e191]: Class Type
+                      - combobox [ref=e192]:
+                        - generic [ref=e193]: regular
+                        - img: ▼
+                      - textbox [ref=e194]: regular
+                  - generic [ref=e195]:
+                    - generic [ref=e196]:
+                      - text: Description
+                      - generic [ref=e197]: (optional)
+                    - textbox "Description (optional)" [ref=e198]:
+                      - /placeholder: What students will learn, prerequisites, what to wear...
+              - generic [ref=e199]:
+                - heading "When & Where" [level=2] [ref=e202]
+                - generic [ref=e203]:
+                  - generic [ref=e204]:
+                    - paragraph [ref=e206]: Schedule
+                    - generic [ref=e207]:
+                      - generic [ref=e208]:
+                        - generic [ref=e209]: Day
+                        - combobox [ref=e210]:
+                          - generic [ref=e211]: monday
+                          - img: ▼
+                        - textbox [ref=e212]: monday
+                      - generic [ref=e213]:
+                        - generic [ref=e214]: Start
+                        - textbox [ref=e215]: 16:00
+                      - generic [ref=e216]:
+                        - generic [ref=e217]: End
+                        - textbox [ref=e218]: 17:00
+                      - generic [ref=e219]:
+                        - generic [ref=e220]: Room
+                        - combobox [ref=e221]:
+                          - generic [ref=e222]: Studio A
+                          - img: ▼
+                        - textbox [ref=e223]: Studio A
+                    - generic [ref=e224]:
+                      - img [ref=e225]
+                      - text: Marley floor · Full mirrors · Sound system · Barres
+                  - button "Add Another Day" [ref=e227]:
+                    - img
+                    - text: Add Another Day
+              - generic [ref=e228]:
+                - heading "Instructor & Pricing" [level=2] [ref=e231]
+                - generic [ref=e232]:
+                  - generic [ref=e233]:
+                    - generic [ref=e234]:
+                      - generic [ref=e235]: Instructor
+                      - combobox [ref=e236]:
+                        - generic [ref=e237]: Select instructor
+                        - img: ▼
+                      - textbox [ref=e238]
+                    - generic [ref=e239]:
+                      - generic [ref=e240]: Capacity
+                      - spinbutton "Capacity" [ref=e241]: "25"
+                  - generic [ref=e242]:
+                    - generic [ref=e243]:
+                      - generic [ref=e244]: Age Range
+                      - generic [ref=e245]:
+                        - spinbutton [ref=e246]
+                        - generic [ref=e247]: to
+                        - spinbutton [ref=e248]
+                        - generic [ref=e249]: years
+                    - generic [ref=e250]:
+                      - generic [ref=e251]: Monthly Rate
+                      - generic [ref=e252]:
+                        - generic [ref=e253]: $
+                        - spinbutton "Monthly Rate" [ref=e254]
+                  - generic [ref=e255]:
+                    - generic [ref=e256]: Season
+                    - combobox [ref=e257]:
+                      - generic [ref=e258]: season-spring-2026
+                      - img: ▼
+                    - textbox [ref=e259]: season-spring-2026
+            - generic [ref=e261]:
+              - paragraph [ref=e262]: Live Preview
+              - generic [ref=e265]:
+                - generic [ref=e266]:
+                  - heading "Ballet II - Juniors" [level=3] [ref=e347]
+                  - paragraph [ref=e268]: Ballet
+                - separator [ref=e269]
+                - generic [ref=e270]:
+                  - img [ref=e272]
+                  - generic [ref=e275]:
+                    - paragraph [ref=e276]: Schedule
+                    - paragraph [ref=e279]:
+                      - text: Monday
+                      - generic [ref=e280]: 4:00 PM – 5:00 PM
+                - generic [ref=e281]:
+                  - img [ref=e283]
+                  - generic [ref=e286]:
+                    - paragraph [ref=e287]: Room
+                    - paragraph [ref=e290]:
+                      - text: Studio A
+                      - generic [ref=e291]: · 30 max
+                - separator [ref=e292]
+                - generic [ref=e293]:
+                  - img [ref=e295]
+                  - generic [ref=e299]:
+                    - paragraph [ref=e300]: Instructor
+                    - generic [ref=e301]: Not assigned
+                - generic [ref=e302]:
+                  - img [ref=e304]
+                  - generic [ref=e309]:
+                    - paragraph [ref=e310]: Capacity
+                    - generic [ref=e312]: 25 students
+                - generic [ref=e313]:
+                  - img [ref=e315]
+                  - generic [ref=e317]:
+                    - paragraph [ref=e318]: Rate
+                    - generic [ref=e319]: Not set
+                - generic [ref=e320]:
+                  - img [ref=e322]
+                  - generic [ref=e324]:
+                    - paragraph [ref=e325]: Season
+                    - generic [ref=e327]:
+                      - text: Spring 2026
+                      - generic [ref=e328]: Active
+              - paragraph [ref=e329]: Updates as you type
+        - generic [ref=e331]:
+          - paragraph [ref=e332]: Ballet II - Juniors · Ballet
+          - generic [ref=e333]:
+            - link "Cancel" [ref=e334] [cursor=pointer]:
+              - /url: /classes
+              - button "Cancel" [ref=e335]
+            - button "Create Class" [ref=e336]:
+              - img
+              - text: Create Class
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e342] [cursor=pointer]:
+    - img [ref=e343]
+  - alert [ref=e346]

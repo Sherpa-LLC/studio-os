@@ -20,10 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { classes } from "@/data/classes"
-import { students } from "@/data/students"
-import { getInstructorById, getInstructorName } from "@/data/instructors"
-import { getFinancialsByClassId } from "@/data/class-profitability"
+import type { Class, Student, Instructor, ClassFinancials, DayOfWeek } from "@/lib/types"
 import {
   formatCurrency,
   formatTime,
@@ -49,7 +46,6 @@ import {
   AlertTriangle,
   Calculator,
 } from "lucide-react"
-import type { DayOfWeek } from "@/lib/types"
 
 const ENROLLMENT_BADGE_CLASSES: Record<string, string> = {
   active: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -80,24 +76,32 @@ function getCapacityBarColor(enrolled: number, capacity: number): string {
   }
 }
 
-export default function ClassDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
+interface ClassDetailPageProps {
+  cls: Class | undefined
+  students: Student[]
+  instructors: Instructor[]
+  financials: ClassFinancials | undefined
+  instructorName: string
+}
 
-  const cls = useMemo(() => classes.find((c) => c.id === id), [id])
+export default function ClassDetailPage({
+  cls,
+  students,
+  instructors,
+  financials,
+  instructorName,
+}: ClassDetailPageProps) {
+  const id = cls?.id ?? ""
 
   const enrolledStudents = useMemo(() => {
     if (!cls) return []
     return students.filter((s) => s.enrolledClassIds.includes(cls.id))
-  }, [cls, id])
+  }, [cls, students])
 
   const instructor = useMemo(() => {
     if (!cls) return undefined
-    return getInstructorById(cls.instructorId)
-  }, [cls])
+    return instructors.find((i) => i.id === cls.instructorId)
+  }, [cls, instructors])
 
   if (!cls) {
     return (
@@ -106,7 +110,7 @@ export default function ClassDetailPage({
         <div className="flex-1 p-6 space-y-6">
           <PageHeader title="Class Not Found" />
           <p className="text-sm text-muted-foreground">
-            No class found with ID &quot;{id}&quot;.
+            The requested class could not be found.
           </p>
           <Link href="/classes">
             <Button variant="outline">
@@ -220,7 +224,7 @@ export default function ClassDetailPage({
                 Instructor
               </div>
               <p className="font-medium text-sm">
-                {getInstructorName(cls.instructorId)}
+                {instructorName}
               </p>
               {instructor && (
                 <p className="text-sm text-muted-foreground">
@@ -438,6 +442,7 @@ export default function ClassDetailPage({
               weeksPerMonth={weeksPerMonth}
               monthlyMargin={monthlyMargin}
               marginPercent={marginPercent}
+              profData={financials}
             />
           </TabsContent>
         </Tabs>
@@ -457,17 +462,18 @@ function FinancialsTabContent({
   weeksPerMonth,
   monthlyMargin,
   marginPercent,
+  profData,
 }: {
-  cls: (typeof classes)[number]
-  instructor: ReturnType<typeof getInstructorById>
+  cls: Class
+  instructor: Instructor | undefined
   monthlyRevenue: number
   instructorMonthlyCost: number
   classDurationHours: number
   weeksPerMonth: number
   monthlyMargin: number
   marginPercent: number
+  profData: ClassFinancials | undefined
 }) {
-  const profData = getFinancialsByClassId(cls.id)
   const [whatIfEnrollment, setWhatIfEnrollment] = useState("")
 
   // Use profitability data if available, otherwise fall back to inline calculations

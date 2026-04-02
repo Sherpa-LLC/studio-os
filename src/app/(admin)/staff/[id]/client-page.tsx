@@ -18,8 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { getStaffById } from "@/data/staff"
-import { classes } from "@/data/classes"
+import type { StaffMember, Class, DayOfWeek, StaffRole, StaffStatus } from "@/lib/types"
 import {
   formatCurrency,
   formatDate,
@@ -46,7 +45,6 @@ import {
   DollarSign,
   BookOpen,
 } from "lucide-react"
-import type { DayOfWeek, StaffRole, StaffStatus } from "@/lib/types"
 
 const ALL_DAYS: DayOfWeek[] = [
   "monday",
@@ -109,19 +107,20 @@ function isCertExpired(expiresAt?: string): boolean {
   return exp.getTime() < Date.now()
 }
 
-export default function StaffDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
+interface StaffDetailPageProps {
+  staff: StaffMember | undefined
+  classes: Class[]
+}
 
-  const staff = useMemo(() => getStaffById(id), [id])
+export default function StaffDetailPage({
+  staff,
+  classes,
+}: StaffDetailPageProps) {
 
   const staffClasses = useMemo(() => {
     if (!staff) return []
     return classes.filter((c) => staff.classIds.includes(c.id))
-  }, [staff])
+  }, [staff, classes])
 
   if (!staff) {
     return (
@@ -130,7 +129,7 @@ export default function StaffDetailPage({
         <div className="flex-1 p-6 space-y-6">
           <PageHeader title="Staff Not Found" />
           <p className="text-sm text-muted-foreground">
-            No staff member found with ID &quot;{id}&quot;.
+            The requested staff member could not be found.
           </p>
           <Link href="/staff">
             <Button variant="outline">

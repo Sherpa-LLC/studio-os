@@ -1,0 +1,418 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link "S Studio OS" [ref=e7] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e9]: S
+        - generic [ref=e10]: Studio OS
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: Overview
+          - list [ref=e15]:
+            - listitem [ref=e16]:
+              - link "Dashboard" [ref=e17] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e18]
+                - generic [ref=e23]: Dashboard
+        - generic [ref=e24]:
+          - generic [ref=e25]: People
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Households" [ref=e29] [cursor=pointer]:
+                - /url: /households
+                - img [ref=e30]
+                - generic [ref=e33]: Households
+        - generic [ref=e34]:
+          - generic [ref=e35]: Programs
+          - list [ref=e37]:
+            - listitem [ref=e38]:
+              - link "Classes" [ref=e39] [cursor=pointer]:
+                - /url: /classes
+                - img [ref=e40]
+                - generic [ref=e42]: Classes
+            - listitem [ref=e43]:
+              - link "Attendance" [ref=e44] [cursor=pointer]:
+                - /url: /attendance
+                - img [ref=e45]
+                - generic [ref=e49]: Attendance
+            - listitem [ref=e50]:
+              - link "Recitals" [ref=e51] [cursor=pointer]:
+                - /url: /recitals
+                - img [ref=e52]
+                - generic [ref=e55]: Recitals
+            - listitem [ref=e56]:
+              - link "Competition" [ref=e57] [cursor=pointer]:
+                - /url: /competition
+                - img [ref=e58]
+                - generic [ref=e64]: Competition
+        - generic [ref=e65]:
+          - generic [ref=e66]: Finance
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Billing" [ref=e70] [cursor=pointer]:
+                - /url: /billing
+                - img [ref=e71]
+                - generic [ref=e73]: Billing
+        - generic [ref=e74]:
+          - generic [ref=e75]: Communicate
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - link "Conversations 5" [ref=e79] [cursor=pointer]:
+                - /url: /conversations
+                - img [ref=e80]
+                - generic [ref=e82]: Conversations
+                - generic [ref=e83]: "5"
+            - listitem [ref=e84]:
+              - link "Broadcasts" [ref=e85] [cursor=pointer]:
+                - /url: /communications
+                - img [ref=e86]
+                - generic [ref=e89]: Broadcasts
+        - generic [ref=e90]:
+          - generic [ref=e91]: Operations
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "Staff" [ref=e95] [cursor=pointer]:
+                - /url: /staff
+                - img [ref=e96]
+                - generic [ref=e101]: Staff
+            - listitem [ref=e102]:
+              - link "Seasons" [ref=e103] [cursor=pointer]:
+                - /url: /seasons
+                - img [ref=e104]
+                - generic [ref=e106]: Seasons
+            - listitem [ref=e107]:
+              - link "Knowledge Base" [ref=e108] [cursor=pointer]:
+                - /url: /knowledge-base
+                - img [ref=e109]
+                - generic [ref=e112]: Knowledge Base
+        - generic [ref=e113]:
+          - generic [ref=e114]: Growth
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - link "CRM" [ref=e118] [cursor=pointer]:
+                - /url: /crm
+                - img [ref=e119]
+                - generic [ref=e122]: CRM
+            - listitem [ref=e123]:
+              - link "Automations" [ref=e124] [cursor=pointer]:
+                - /url: /automations
+                - img [ref=e125]
+                - generic [ref=e127]: Automations
+            - listitem [ref=e128]:
+              - link "Reviews" [ref=e129] [cursor=pointer]:
+                - /url: /reviews
+                - img [ref=e130]
+                - generic [ref=e132]: Reviews
+      - list [ref=e134]:
+        - listitem [ref=e135]:
+          - button "VW Vicki Wallace Owner" [ref=e136]:
+            - generic [ref=e138]: VW
+            - generic [ref=e139]:
+              - generic [ref=e140]: Vicki Wallace
+              - generic [ref=e141]: Owner
+            - img [ref=e142]
+      - button "Toggle Sidebar" [ref=e144]
+    - main [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - button "Toggle Sidebar" [ref=e148]:
+            - img
+            - generic [ref=e149]: Toggle Sidebar
+          - separator [ref=e150]
+          - heading "Conversations" [level=1] [ref=e151]
+          - generic [ref=e153]: "Viewing as: Owner"
+        - generic [ref=e154]:
+          - tablist [ref=e157]:
+            - tab "Messages 6" [selected] [ref=e158]:
+              - text: Messages
+              - generic [ref=e159]: "6"
+            - tab "Calls 15" [ref=e160]:
+              - text: Calls
+              - generic [ref=e161]: "15"
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]:
+                  - img [ref=e166]
+                  - textbox "Search conversations..." [ref=e169]
+                - generic [ref=e170]:
+                  - button "All (6)" [ref=e171]
+                  - button "SMS" [ref=e172]
+                  - button "Email" [ref=e173]
+                  - button "Facebook" [ref=e174]
+                  - button "Instagram" [ref=e175]
+                  - button "Web Chat" [ref=e176]
+              - generic [ref=e178]:
+                - button "DT David Thompson 22h She loved it! How do we sign up? Also do you offer any multi-class discounts? Lead 1" [ref=e179]:
+                  - generic [ref=e180]:
+                    - generic [ref=e182]: DT
+                    - generic [ref=e183]:
+                      - generic [ref=e184]:
+                        - generic [ref=e185]: David Thompson
+                        - generic [ref=e186]: 22h
+                      - generic [ref=e187]:
+                        - img [ref=e188]
+                        - paragraph [ref=e190]: She loved it! How do we sign up? Also do you offer any multi-class discounts?
+                      - generic [ref=e191]:
+                        - generic [ref=e192]: Lead
+                        - generic [ref=e193]: "1"
+                - button "AS Amanda Simmons 23h That sounds great! Can we come in Saturday for a trial? Lead 1" [ref=e194]:
+                  - generic [ref=e195]:
+                    - generic [ref=e197]: AS
+                    - generic [ref=e198]:
+                      - generic [ref=e199]:
+                        - generic [ref=e200]: Amanda Simmons
+                        - generic [ref=e201]: 23h
+                      - generic [ref=e202]:
+                        - img [ref=e203]
+                        - paragraph [ref=e205]: That sounds great! Can we come in Saturday for a trial?
+                      - generic [ref=e206]:
+                        - generic [ref=e207]: Lead
+                        - generic [ref=e208]: "1"
+                - button "MG Maria Garcia 1d I noticed my March invoice seems higher than usual. Can you check? Family 1" [ref=e209]:
+                  - generic [ref=e210]:
+                    - generic [ref=e212]: MG
+                    - generic [ref=e213]:
+                      - generic [ref=e214]:
+                        - generic [ref=e215]: Maria Garcia
+                        - generic [ref=e216]: 1d
+                      - generic [ref=e217]:
+                        - img [ref=e218]
+                        - paragraph [ref=e220]: I noticed my March invoice seems higher than usual. Can you check?
+                      - generic [ref=e221]:
+                        - generic [ref=e222]: Family
+                        - generic [ref=e223]: "1"
+                - button "NK Nina Kowalski 1d What's the monthly cost for the Tiny Tots program? Lead 1" [ref=e224]:
+                  - generic [ref=e225]:
+                    - generic [ref=e227]: NK
+                    - generic [ref=e228]:
+                      - generic [ref=e229]:
+                        - generic [ref=e230]: Nina Kowalski
+                        - generic [ref=e231]: 1d
+                      - generic [ref=e232]:
+                        - img [ref=e233]
+                        - paragraph [ref=e236]: What's the monthly cost for the Tiny Tots program?
+                      - generic [ref=e237]:
+                        - generic [ref=e238]: Lead
+                        - generic [ref=e239]: "1"
+                - button "LT Lisa Thompson 1d Thank you so much! The girls are so excited about the showcase. Quick question - is there a limit on how many family members can attend? Family 1" [ref=e240]:
+                  - generic [ref=e241]:
+                    - generic [ref=e243]: LT
+                    - generic [ref=e244]:
+                      - generic [ref=e245]:
+                        - generic [ref=e246]: Lisa Thompson
+                        - generic [ref=e247]: 1d
+                      - generic [ref=e248]:
+                        - img [ref=e249]
+                        - paragraph [ref=e252]: Thank you so much! The girls are so excited about the showcase. Quick question - is there a limit on how many family members can attend?
+                      - generic [ref=e253]:
+                        - generic [ref=e254]: Family
+                        - generic [ref=e255]: "1"
+                - button "JA Jennifer Anderson 1d Got it, thanks Sarah! We'll make sure she has her hair in a bun. Family" [ref=e256]:
+                  - generic [ref=e257]:
+                    - generic [ref=e259]: JA
+                    - generic [ref=e260]:
+                      - generic [ref=e261]:
+                        - generic [ref=e262]: Jennifer Anderson
+                        - generic [ref=e263]: 1d
+                      - generic [ref=e264]:
+                        - img [ref=e265]
+                        - paragraph [ref=e267]: Got it, thanks Sarah! We'll make sure she has her hair in a bun.
+                      - generic [ref=e269]: Family
+                - button "CM Carlos Mendez 1d We have a fantastic Hip Hop class for her age group! Mondays and Wednesdays at 5:30 PM with Coach Marcus. Want to bring Sofia by for a trial? Lead" [ref=e270]:
+                  - generic [ref=e271]:
+                    - generic [ref=e273]: CM
+                    - generic [ref=e274]:
+                      - generic [ref=e275]:
+                        - generic [ref=e276]: Carlos Mendez
+                        - generic [ref=e277]: 1d
+                      - generic [ref=e278]:
+                        - img [ref=e279]
+                        - paragraph [ref=e282]: We have a fantastic Hip Hop class for her age group! Mondays and Wednesdays at 5:30 PM with Coach Marcus. Want to bring Sofia by for a trial?
+                      - generic [ref=e284]: Lead
+                - button "SC Susan Clarke 1d Emma has been doing ballet for 3 years at another studio but wants to try contemporary. Do you have a class that would be good for a transition? Lead 1" [ref=e285]:
+                  - generic [ref=e286]:
+                    - generic [ref=e288]: SC
+                    - generic [ref=e289]:
+                      - generic [ref=e290]:
+                        - generic [ref=e291]: Susan Clarke
+                        - generic [ref=e292]: 1d
+                      - generic [ref=e293]:
+                        - img [ref=e294]
+                        - paragraph [ref=e296]: Emma has been doing ballet for 3 years at another studio but wants to try contemporary. Do you have a class that would be good for a transition?
+                      - generic [ref=e297]:
+                        - generic [ref=e298]: Lead
+                        - generic [ref=e299]: "1"
+                - button "AR Angela Rivera 2d Perfect, we'll apply the sibling discount to your April invoice. You should see $57 less on your next statement. Family Closed" [ref=e300]:
+                  - generic [ref=e301]:
+                    - generic [ref=e303]: AR
+                    - generic [ref=e304]:
+                      - generic [ref=e305]:
+                        - generic [ref=e306]: Angela Rivera
+                        - generic [ref=e307]: 2d
+                      - generic [ref=e308]:
+                        - img [ref=e309]
+                        - paragraph [ref=e311]: Perfect, we'll apply the sibling discount to your April invoice. You should see $57 less on your next statement.
+                      - generic [ref=e312]:
+                        - generic [ref=e313]: Family
+                        - generic [ref=e314]: Closed
+                - button "RP Rachel Park 2d The Kim family is wonderful! We'd love to have Mina join our Tiny Tots Ballet. When works best for a visit? Lead" [ref=e315]:
+                  - generic [ref=e316]:
+                    - generic [ref=e318]: RP
+                    - generic [ref=e319]:
+                      - generic [ref=e320]:
+                        - generic [ref=e321]: Rachel Park
+                        - generic [ref=e322]: 2d
+                      - generic [ref=e323]:
+                        - img [ref=e324]
+                        - paragraph [ref=e326]: The Kim family is wonderful! We'd love to have Mina join our Tiny Tots Ballet. When works best for a visit?
+                      - generic [ref=e328]: Lead
+                - button "SC Sarah Chen 3d No problem at all! We hope Lily feels better soon. She won't be marked absent for today. Family Closed" [ref=e329]:
+                  - generic [ref=e330]:
+                    - generic [ref=e332]: SC
+                    - generic [ref=e333]:
+                      - generic [ref=e334]:
+                        - generic [ref=e335]: Sarah Chen
+                        - generic [ref=e336]: 3d
+                      - generic [ref=e337]:
+                        - img [ref=e338]
+                        - paragraph [ref=e340]: No problem at all! We hope Lily feels better soon. She won't be marked absent for today.
+                      - generic [ref=e341]:
+                        - generic [ref=e342]: Family
+                        - generic [ref=e343]: Closed
+                - button "PP Priya Patel 3d Absolutely! Competition Team tryouts are April 12th. Both Ananya and Priti are welcome to audition. Details attached. Family" [ref=e344]:
+                  - generic [ref=e345]:
+                    - generic [ref=e347]: PP
+                    - generic [ref=e348]:
+                      - generic [ref=e349]:
+                        - generic [ref=e350]: Priya Patel
+                        - generic [ref=e351]: 3d
+                      - generic [ref=e352]:
+                        - img [ref=e353]
+                        - paragraph [ref=e355]: Absolutely! Competition Team tryouts are April 12th. Both Ananya and Priti are welcome to audition. Details attached.
+                      - generic [ref=e357]: Family
+                - button "MW Marcus Williams 3d Absolutely! We have several boys in our Hip Hop classes and they love it. Our Juniors class (ages 7-10) meets M/W at 5:30 PM. Lead" [ref=e358]:
+                  - generic [ref=e359]:
+                    - generic [ref=e361]: MW
+                    - generic [ref=e362]:
+                      - generic [ref=e363]:
+                        - generic [ref=e364]: Marcus Williams
+                        - generic [ref=e365]: 3d
+                      - generic [ref=e366]:
+                        - img [ref=e367]
+                        - paragraph [ref=e370]: Absolutely! We have several boys in our Hip Hop classes and they love it. Our Juniors class (ages 7-10) meets M/W at 5:30 PM.
+                      - generic [ref=e372]: Lead
+                - button "KT Keiko Tanaka 5d Thank you for letting us know! Here's the updated schedule for the rest of March. Family Closed" [ref=e373]:
+                  - generic [ref=e374]:
+                    - generic [ref=e376]: KT
+                    - generic [ref=e377]:
+                      - generic [ref=e378]:
+                        - generic [ref=e379]: Keiko Tanaka
+                        - generic [ref=e380]: 5d
+                      - generic [ref=e381]:
+                        - img [ref=e382]
+                        - paragraph [ref=e385]: Thank you for letting us know! Here's the updated schedule for the rest of March.
+                      - generic [ref=e386]:
+                        - generic [ref=e387]: Family
+                        - generic [ref=e388]: Closed
+                - button "TB Tom Bradley 5d Thanks for your interest! Our summer intensive runs June 15-26. Registration opens April 1st. Shall I add you to the early notification list? Lead Snoozed" [ref=e389]:
+                  - generic [ref=e390]:
+                    - generic [ref=e392]: TB
+                    - generic [ref=e393]:
+                      - generic [ref=e394]:
+                        - generic [ref=e395]: Tom Bradley
+                        - generic [ref=e396]: 5d
+                      - generic [ref=e397]:
+                        - img [ref=e398]
+                        - paragraph [ref=e401]: Thanks for your interest! Our summer intensive runs June 15-26. Registration opens April 1st. Shall I add you to the early notification list?
+                      - generic [ref=e402]:
+                        - generic [ref=e403]: Lead
+                        - generic [ref=e404]: Snoozed
+            - generic [ref=e405]:
+              - generic [ref=e406]:
+                - generic [ref=e407]:
+                  - generic [ref=e409]: DT
+                  - generic [ref=e410]:
+                    - paragraph [ref=e411]: David Thompson
+                    - generic [ref=e412]:
+                      - generic [ref=e413]: SMS
+                      - generic [ref=e414]: Lead
+                - generic [ref=e415]:
+                  - button [ref=e416]:
+                    - img
+                  - button [ref=e417]:
+                    - img
+              - generic [ref=e420]:
+                - generic [ref=e421]:
+                  - generic [ref=e424]: Monday, March 23
+                  - generic [ref=e428]:
+                    - paragraph [ref=e429]: Hi David! Great meeting you and Ava during Bring a Friend Week! How did she enjoy the jazz class?
+                    - generic [ref=e430]:
+                      - img [ref=e431]
+                      - generic [ref=e433]: Mar 23 10:00 AM
+                - generic [ref=e434]:
+                  - generic [ref=e437]: Yesterday
+                  - generic [ref=e441]:
+                    - paragraph [ref=e442]: She loved it! How do we sign up? Also do you offer any multi-class discounts?
+                    - generic [ref=e443]:
+                      - img [ref=e444]
+                      - generic [ref=e446]: Yesterday 11:00 AM
+              - generic [ref=e449]:
+                - textbox "Reply via SMS..." [ref=e450]
+                - generic [ref=e451]:
+                  - button [ref=e452]:
+                    - img [ref=e453]
+                  - button [disabled]:
+                    - img
+            - generic [ref=e457]:
+              - generic [ref=e458]:
+                - generic [ref=e460]: DT
+                - paragraph [ref=e461]: David Thompson
+                - generic [ref=e462]:
+                  - img
+                  - text: Lead
+              - separator [ref=e463]
+              - generic [ref=e464]:
+                - paragraph [ref=e465]: Contact Info
+                - generic [ref=e466]:
+                  - generic [ref=e467]:
+                    - img [ref=e468]
+                    - generic [ref=e470]: (555) 123-4004
+                  - generic [ref=e471]:
+                    - img [ref=e472]
+                    - generic [ref=e475]: david.t@email.com
+              - separator [ref=e476]
+              - generic [ref=e477]:
+                - paragraph [ref=e478]: Conversation
+                - generic [ref=e479]:
+                  - generic [ref=e480]:
+                    - paragraph [ref=e481]: Channel
+                    - generic [ref=e482]: SMS
+                  - generic [ref=e483]:
+                    - paragraph [ref=e484]: Status
+                    - paragraph [ref=e485]: open
+                  - generic [ref=e486]:
+                    - paragraph [ref=e487]: Messages
+                    - paragraph [ref=e488]: "2"
+                  - generic [ref=e489]:
+                    - paragraph [ref=e490]: Unread
+                    - paragraph [ref=e491]: "1"
+              - separator [ref=e492]
+              - generic [ref=e493]:
+                - paragraph [ref=e494]: Actions
+                - generic [ref=e495]:
+                  - button "Call Contact" [ref=e496]:
+                    - img
+                    - text: Call Contact
+                  - button "Send Email" [ref=e497]:
+                    - img
+                    - text: Send Email
+                  - button "Snooze" [ref=e498]:
+                    - img
+                    - text: Snooze
+                  - button "Close Conversation" [ref=e499]:
+                    - img
+                    - text: Close Conversation
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e505] [cursor=pointer]:
+    - img [ref=e506]

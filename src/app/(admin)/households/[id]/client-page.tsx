@@ -26,10 +26,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { households } from "@/data/households"
-import { students } from "@/data/students"
-import { classes } from "@/data/classes"
-import { invoices } from "@/data/invoices"
 import {
   formatCurrency,
   formatDate,
@@ -54,7 +50,7 @@ import {
   Calendar,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { Guardian, Household, Student } from "@/lib/types"
+import type { Guardian, Household, Student, Class, Invoice } from "@/lib/types"
 
 const STATUS_BADGE_CLASSES: Record<Household["status"], string> = {
   active: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -93,29 +89,25 @@ const SAMPLE_ACTIVITY = [
   { id: "act-6", date: "2026-02-01", description: "February invoice generated", type: "billing" },
 ]
 
+interface HouseholdDetailPageProps {
+  household: Household | undefined
+  students: Student[]
+  classes: Class[]
+  invoices: Invoice[]
+}
+
 export default function HouseholdDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
-
-  const household = useMemo(
-    () => households.find((hh) => hh.id === id),
-    [id],
-  )
-
-  const householdStudents = useMemo(
-    () => students.filter((s) => s.householdId === id),
-    [id],
-  )
+  household,
+  students: householdStudents,
+  classes,
+  invoices,
+}: HouseholdDetailPageProps) {
+  const id = household?.id ?? ""
 
   const householdInvoices = useMemo(
     () =>
-      invoices
-        .filter((inv) => inv.householdId === id)
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-    [id],
+      [...invoices].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    [invoices],
   )
 
   // ── Household edit state ──────────────────────────────────────────────

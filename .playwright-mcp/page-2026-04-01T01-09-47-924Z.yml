@@ -1,0 +1,182 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]: Trial Class Automation - Enrollio
+    - generic [ref=e6]:
+      - generic: 
+      - generic [ref=e8]:
+        - text: 
+        - generic [ref=e16]:
+          - link "https://enrollio.ai/" [ref=e21] [cursor=pointer]:
+            - /url: https://enrollio.ai/
+            - img "Brand Logo" [ref=e23]
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+                - text: WHAT WE OFFER
+                - generic [ref=e27]: 
+            - listitem [ref=e28]:
+              - button "RESOURCES " [ref=e29] [cursor=pointer]:
+                - text: RESOURCES
+                - generic [ref=e30]: 
+            - listitem [ref=e31]:
+              - link "About" [ref=e32] [cursor=pointer]:
+                - /url: https://enrollio.ai/about-us
+                - generic [ref=e33]: About
+            - listitem [ref=e34]:
+              - link "Testimonials" [ref=e35] [cursor=pointer]:
+                - /url: https://enrollio.ai/stories
+                - generic [ref=e36]: Testimonials
+            - listitem [ref=e37]:
+              - link "Systems Demo" [ref=e38] [cursor=pointer]:
+                - /url: https://enrollio.ai/book-live-demo
+                - generic [ref=e39]: Systems Demo
+            - listitem [ref=e40]:
+              - link "LOGIN" [ref=e41] [cursor=pointer]:
+                - /url: https://app.enrollio.ai/
+                - generic [ref=e42]: LOGIN
+            - listitem [ref=e43]:
+              - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+                - /url: https://payments.enrollio.ai/account-creation
+                - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+        - heading "TRIAL CLASS AUTOMATION" [level=2] [ref=e55]:
+          - strong [ref=e56]: TRIAL CLASS AUTOMATION
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - heading "Automation Trial Classes & Make Up Classes" [level=1] [ref=e66]:
+              - strong [ref=e67]: Automation Trial Classes & Make Up Classes
+            - paragraph [ref=e71]: Automate Trial Classes & Make Up Classes with our Built-In Calendar
+            - generic "Calander" [ref=e84]
+          - generic [ref=e87]:
+            - generic [ref=e89]:
+              - heading "Automate Trial Classes" [level=3] [ref=e93]:
+                - strong [ref=e94]: Automate Trial Classes
+              - paragraph [ref=e98]:
+                - text: Schedule a convenient time for your dance studio students, and let Enrollio
+                - superscript [ref=e99]: ®
+                - text: handle the rest. Our platform automatically sends them waivers and intake forms for a hassle-free sign-up process, complete with friendly text reminders leading up to their scheduled session. Streamline your dance studio's enrollment experience effortlessly with Enrollio
+                - superscript [ref=e100]: ®
+                - text: "!"
+              - heading "Automated Follow Up" [level=3] [ref=e104]:
+                - strong [ref=e105]: Automated Follow Up
+              - paragraph [ref=e109]:
+                - text: Following your trial dance class, Enrollio
+                - superscript [ref=e110]: ®
+                - text: ensures that your team stays in the loop by checking in to gauge how the trial went. Bid farewell to any concerns about trial class students slipping through the cracks – Enrollio
+                - superscript [ref=e111]: ®
+                - text: keeps you on top of every dance studio trial experience!
+            - generic [ref=e118]:
+              - img "Automate Trial Classes and follow up"
+        - generic [ref=e120]:
+          - generic [ref=e122]:
+            - img "Bring Enrollio Features on the Go with our Mobile App" [ref=e130]
+            - generic [ref=e132]:
+              - heading "Bring Enrollio® Features on the Go with our Mobile App" [level=3] [ref=e136]:
+                - strong [ref=e137]:
+                  - text: Bring Enrollio
+                  - superscript [ref=e138]: ®
+                  - text: Features on the Go with our Mobile App
+              - paragraph [ref=e142]:
+                - text: Effortlessly manage all your inbound calls using our dedicated iOS and Android mobile app. Enrollio
+                - superscript [ref=e143]: ®
+                - text: allows you to assign specific phone numbers to your dance studio staff members and easily track incoming calls. Plus, you can send and receive text messages on the go to engage with all your lead inquiries. Unlock countless time-saving possibilities with Enrollio
+                - superscript [ref=e144]: ®
+                - text: – the ultimate solution for dance studios worldwide
+              - list [ref=e148]:
+                - listitem [ref=e149]:
+                  - paragraph [ref=e150]: Send Texts, Emails, Video Messages & Call
+              - list [ref=e154]:
+                - listitem [ref=e155]:
+                  - paragraph [ref=e156]: Request Payment & Send Invoices
+              - list [ref=e160]:
+                - listitem [ref=e161]:
+                  - paragraph [ref=e162]: View Trial Class Calendar & Book Times
+          - generic [ref=e164]:
+            - link "https://apps.apple.com/us/app/enrollio/id6451193806" [ref=e174] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+              - generic [ref=e175]:
+                - img "App Store"
+            - link "https://play.google.com/store/apps/details?id=com.enrollio" [ref=e181] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio
+              - generic [ref=e182]:
+                - img "Google Play"
+        - generic [ref=e184]:
+          - heading "Ready to Get Started?" [level=2] [ref=e192]:
+            - strong [ref=e193]: Ready to Get Started?
+          - generic [ref=e195]:
+            - generic [ref=e197]:
+              - img "Enroll More Stdents" [ref=e203]
+              - heading "Enroll More Students" [level=3] [ref=e207]
+            - generic [ref=e209]:
+              - img "Automate Everything" [ref=e215]
+              - heading "Automate Everything" [level=3] [ref=e219]
+            - generic [ref=e221]:
+              - img "Keep Families Coming Back" [ref=e227]
+              - heading "Keep Families Coming Back" [level=3] [ref=e231]
+          - paragraph [ref=e239]:
+            - strong [ref=e240]: SAVE 20% WITH ANNUAL PRICING
+          - generic [ref=e244]:
+            - heading "FULL ACCESS PLAN" [level=3] [ref=e248]:
+              - strong [ref=e249]: FULL ACCESS PLAN
+            - paragraph [ref=e253]:
+              - strong [ref=e254]: $297
+            - list [ref=e258]:
+              - listitem [ref=e259]:
+                - paragraph [ref=e260]:
+                  - strong [ref=e261]: EVERYTHING IN STARTER PLAN
+            - list [ref=e265]:
+              - listitem [ref=e266]:
+                - paragraph [ref=e267]:
+                  - strong [ref=e268]: TWO-WAY TEXTING
+            - list [ref=e272]:
+              - listitem [ref=e273]:
+                - paragraph [ref=e274]:
+                  - strong [ref=e275]: AUTOMATED WEBSITE LEAD FOLLOW UP
+            - list [ref=e279]:
+              - listitem [ref=e280]:
+                - paragraph [ref=e281]:
+                  - strong [ref=e282]: AUTOMATED MISSED CALL TEXT
+            - list [ref=e286]:
+              - listitem [ref=e287]:
+                - paragraph [ref=e288]:
+                  - strong [ref=e289]: TRIAL CLASS AUTOMATION
+            - list [ref=e293]:
+              - listitem [ref=e294]:
+                - paragraph [ref=e295]:
+                  - strong [ref=e296]: ONE-TIME TEXT INVOICING
+            - list [ref=e300]:
+              - listitem [ref=e301]:
+                - paragraph [ref=e302]:
+                  - strong [ref=e303]: AUTOMATED REVIEW REQUESTS
+            - list [ref=e307]:
+              - listitem [ref=e308]:
+                - paragraph [ref=e309]:
+                  - strong [ref=e310]: PAID ADVERTISING SUPPORT
+          - link "SIGN UP NOW" [ref=e316] [cursor=pointer]:
+            - /url: https://payments.enrollio.ai/account-creation
+            - generic [ref=e318]: SIGN UP NOW
+        - text: 
+        - generic [ref=e322]:
+          - paragraph [ref=e328]:
+            - text: © Copyright 2026. Enrollio
+            - superscript [ref=e329]: ®
+            - text: . All rights reserved.
+          - heading "Privacy Policy" [level=1] [ref=e339]:
+            - link "Privacy Policy" [ref=e340] [cursor=pointer]:
+              - /url: https://enrollio.ai/privacy-policy
+          - heading "Terms" [level=2] [ref=e346]:
+            - link "Terms" [ref=e347] [cursor=pointer]:
+              - /url: https://enrollio.ai/terms
+          - heading "Cyber Security" [level=1] [ref=e353]:
+            - link "Cyber Security" [ref=e354] [cursor=pointer]:
+              - /url: https://enrollio.ai/cyber-security
+  - generic:
+    - generic:
+      - generic [ref=e356]:
+        - iframe [ref=e357]:
+          - button "Close message from company" [ref=f63e4] [cursor=pointer]:
+            - img [ref=f63e5]
+        - iframe
+      - iframe [ref=e358]:
+        - button "Open messaging window" [ref=f65e5] [cursor=pointer]:
+          - img [ref=f65e7]
+          - img [ref=f65e10]

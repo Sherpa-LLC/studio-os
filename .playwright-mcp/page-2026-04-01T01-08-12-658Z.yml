@@ -1,0 +1,409 @@
+- generic [ref=e2]:
+  - alert [ref=e3]: "Enrollio - #1 Dance Studio Software for Growth Accelerator"
+  - generic [ref=e6]:
+    - generic: 
+    - generic [ref=e8]:
+      - text:  
+      - generic [ref=e16]:
+        - link "https://enrollio.ai" [ref=e21] [cursor=pointer]:
+          - /url: https://enrollio.ai
+          - img "Brand Logo" [ref=e23]
+        - list [ref=e24]:
+          - listitem [ref=e25]:
+            - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+              - text: WHAT WE OFFER
+              - generic [ref=e27]: 
+          - listitem [ref=e28]:
+            - button "RESOURCES " [ref=e29] [cursor=pointer]:
+              - text: RESOURCES
+              - generic [ref=e30]: 
+          - listitem [ref=e31]:
+            - link "About" [ref=e32] [cursor=pointer]:
+              - /url: https://enrollio.ai/about-us
+              - generic [ref=e33]: About
+          - listitem [ref=e34]:
+            - link "Testimonials" [ref=e35] [cursor=pointer]:
+              - /url: https://enrollio.ai/stories
+              - generic [ref=e36]: Testimonials
+          - listitem [ref=e37]:
+            - link "Systems Demo" [ref=e38] [cursor=pointer]:
+              - /url: https://enrollio.ai/get-started
+              - generic [ref=e39]: Systems Demo
+          - listitem [ref=e40]:
+            - link "LOGIN" [ref=e41] [cursor=pointer]:
+              - /url: https://app.enrollio.ai/
+              - generic [ref=e42]: LOGIN
+          - listitem [ref=e43]:
+            - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+              - /url: https://payments.enrollio.ai/account-creation
+              - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+      - generic [ref=e53]:
+        - generic [ref=e55]:
+          - heading "Enrollio Studio OS" [level=2] [ref=e63]
+          - heading "Fill Your Classes and Run Your Studio on One System" [level=1] [ref=e67]
+          - generic [ref=e70]:
+            - heading "Enrollio® is the studio operating system that turns website clicks into booked trial classes and paid students, while replacing your registration, CRM, texting, and payment" [level=2] [ref=e71]
+            - heading "tools with one studio-ready platform." [level=2] [ref=e72]
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - paragraph [ref=e78]: Replace 5–7 disconnected tools with one platform
+            - listitem [ref=e79]:
+              - paragraph [ref=e80]: Never miss a lead, payment, or enrollment again
+            - listitem [ref=e81]:
+              - paragraph [ref=e82]: Built for real studios — not generic businesses
+          - link "Book a Studio Systems Demo" [ref=e88] [cursor=pointer]:
+            - /url: https://enrollio.ai/get-started
+            - generic [ref=e90]: Book a Studio Systems Demo
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - generic [ref=e97]: Enrollments
+            - generic [ref=e98]: +137 this month
+          - generic [ref=e99]:
+            - generic [ref=e100]: Growth
+            - generic [ref=e101]: ▲ 523%
+          - generic [ref=e102]:
+            - img "Enrollio" [ref=e104]
+            - generic [ref=e105]:
+              - generic [ref=e106]:
+                - generic [ref=e107]: Last 30 days (Dec 21, 2025 - Jan 19, 2026)
+                - generic [ref=e108]: "# of Enrollments (unit)"
+                - generic [ref=e109]: "137"
+                - generic [ref=e110]:
+                  - generic [ref=e111]: ▲
+                  - generic [ref=e112]: 523% vs previous period (22)
+              - generic [ref=e113]:
+                - generic [ref=e114]: Last 30 days (Dec 21, 2...)
+                - generic [ref=e115]: "# of Class Dropped"
+                - generic [ref=e116]: No data to display
+              - generic [ref=e117]:
+                - generic [ref=e118]: Last 30 days (Dec 21, 2...)
+                - generic [ref=e119]: Total Leads
+                - generic [ref=e120]: "18"
+              - generic [ref=e121]:
+                - generic [ref=e122]: Last 30 days (Dec 21, 2...)
+                - generic [ref=e123]: Camp Enrollments
+                - generic [ref=e124]: "54"
+              - generic [ref=e125]:
+                - generic [ref=e126]: Last 30 days (Dec 21, 2025 - Jan 19, 2026)
+                - generic [ref=e127]: Leads to Trials Booked
+                - generic [ref=e129]:
+                  - generic [ref=e130]:
+                    - text: Trials
+                    - text: 20%
+                  - generic [ref=e131]:
+                    - img [ref=e132]
+                    - generic [ref=e135]:
+                      - generic [ref=e136]: "50"
+                      - generic [ref=e137]: Total
+                  - generic [ref=e138]:
+                    - text: Lead
+                    - text: 30%
+              - generic [ref=e139]:
+                - generic [ref=e140]: Last 29 days (Dec 22, 2025 - Jan 19, 2026)
+                - generic [ref=e141]: Trials to Enrollments
+                - generic [ref=e143]:
+                  - generic [ref=e144]:
+                    - text: Trials to
+                    - text: 25.9%
+                  - generic [ref=e145]:
+                    - img [ref=e146]
+                    - generic [ref=e149]:
+                      - generic [ref=e150]: "27"
+                      - generic [ref=e151]: Total
+                  - generic [ref=e152]:
+                    - text: Dance St...
+                    - text: 74.1%
+              - generic [ref=e153]:
+                - generic [ref=e154]: Last 30 days (Dec 21, 2025 - Jan...)
+                - generic [ref=e155]: Total Trials Booked vs Attended
+                - generic [ref=e157]:
+                  - generic [ref=e158]:
+                    - text: Dance St...
+                    - text: 25.9%
+                  - generic [ref=e159]:
+                    - img [ref=e160]
+                    - generic [ref=e163]:
+                      - generic [ref=e164]: "27"
+                      - generic [ref=e165]: Total
+                  - generic [ref=e166]:
+                    - text: Dance St...
+                    - text: 74.1%
+              - generic [ref=e167]:
+                - generic [ref=e168]: Last 30 days (Dec 21, 2...)
+                - generic [ref=e169]: Projected Sales
+                - generic [ref=e170]: 18,565
+                - img [ref=e172]
+                - generic [ref=e174]:
+                  - generic [ref=e175]: ▲
+                  - generic [ref=e176]: 362% vs previous period (4,018)
+              - generic [ref=e177]:
+                - generic [ref=e178]: Last 30 days (Dec 21, 2...)
+                - generic [ref=e179]: Facebook Leads
+                - generic [ref=e180]: "28"
+                - generic [ref=e181]:
+                  - generic [ref=e182]: ▲
+                  - generic [ref=e183]: 4% vs previous period (27)
+              - generic [ref=e184]:
+                - generic [ref=e185]: Last 30 days (Dec 21, 2025 - Jan 19, 2026)
+                - generic [ref=e186]: Dance Studio Trials Booked
+                - table [ref=e187]:
+                  - rowgroup [ref=e188]:
+                    - row "Dimension Booked" [ref=e189]:
+                      - columnheader "Dimension" [ref=e190]
+                      - columnheader "Booked" [ref=e191]
+                  - rowgroup [ref=e192]:
+                    - 'row "Trial: Monday 5:45 Ballet/Hip-Hop (4-5yrs) 4" [ref=e193]':
+                      - 'cell "Trial: Monday 5:45 Ballet/Hip-Hop (4-5yrs)" [ref=e194]'
+                      - cell "4" [ref=e195]
+                    - 'row "Trial: Saturday 11:45 Princess Ballet (3-4 yrs) 4" [ref=e196]':
+                      - 'cell "Trial: Saturday 11:45 Princess Ballet (3-4 yrs)" [ref=e197]'
+                      - cell "4" [ref=e198]
+                    - 'row "Trial: Wednesday 6:50 Princess Ballet (4-5 yrs) 4" [ref=e199]':
+                      - 'cell "Trial: Wednesday 6:50 Princess Ballet (4-5 yrs)" [ref=e200]'
+                      - cell "4" [ref=e201]
+                    - 'row "Trial: Saturday 1:45 Ballet/Hip-Hop (4-5 yrs) 2" [ref=e202]':
+                      - 'cell "Trial: Saturday 1:45 Ballet/Hip-Hop (4-5 yrs)" [ref=e203]'
+                      - cell "2" [ref=e204]
+                    - 'row "Trial: Sunday 12:00 Tap/Hip Hop (5-7 yrs) 2" [ref=e205]':
+                      - 'cell "Trial: Sunday 12:00 Tap/Hip Hop (5-7 yrs)" [ref=e206]'
+                      - cell "2" [ref=e207]
+                    - 'row "Trial: Wednesday 11:00 Princess Ballet (3-4 yrs) 2" [ref=e208]':
+                      - 'cell "Trial: Wednesday 11:00 Princess Ballet (3-4 yrs)" [ref=e209]'
+                      - cell "2" [ref=e210]
+              - generic [ref=e211]:
+                - generic [ref=e212]: Last 30 days (Dec 21, 2025 - Jan 19, 2026)
+                - generic [ref=e213]: Dance Studio Student Journey
+                - generic [ref=e214]:
+                  - generic [ref=e215]:
+                    - generic [ref=e216]: Website Views
+                    - generic [ref=e217]: 1,212
+                  - generic [ref=e218]:
+                    - generic [ref=e219]: Leads
+                    - generic [ref=e220]: "18"
+                  - generic [ref=e221]:
+                    - generic [ref=e222]: Lead to Enrollment
+                    - generic [ref=e223]: "5"
+                    - generic [ref=e224]: ▲ 400%
+                - generic [ref=e225]:
+                  - generic [ref=e228]: 1.49%
+                  - generic [ref=e229]: 27.78%
+                - generic [ref=e231]:
+                  - text: Overall conversion rate
+                  - strong [ref=e232]: 0.41%
+      - generic [ref=e238]:
+        - heading "Trusted by Studios Running Serious Operations" [level=1] [ref=e242]
+        - generic [ref=e246]:
+          - generic [ref=e247]:
+            - generic [ref=e248]: "0"
+            - generic [ref=e249]: Studios Onboarded
+          - generic [ref=e251]:
+            - generic [ref=e252]: "0"
+            - generic [ref=e253]: Website Leads Captured
+          - generic [ref=e255]:
+            - generic [ref=e256]: "0"
+            - generic [ref=e257]: Countries
+          - generic [ref=e259]:
+            - generic [ref=e260]: "0"
+            - generic [ref=e261]: Built-in Automations
+      - generic [ref=e267]:
+        - heading "Stop Juggling Tools. Start Running a System." [level=1] [ref=e271]
+        - heading "You shouldn't need 6 apps to run one studio. Enrollio replaces them all." [level=2] [ref=e275]
+        - generic [ref=e279]:
+          - generic [ref=e280]:
+            - img [ref=e282]
+            - paragraph [ref=e284]: Separate email & texting tools
+          - generic [ref=e285]:
+            - img [ref=e287]
+            - paragraph [ref=e289]: Standalone class registration software
+          - generic [ref=e290]:
+            - img [ref=e292]
+            - paragraph [ref=e297]: Generic CRMs not built for studios
+          - generic [ref=e298]:
+            - img [ref=e300]
+            - paragraph [ref=e302]: Disconnected payment systems
+          - generic [ref=e303]:
+            - img [ref=e305]
+            - paragraph [ref=e307]: Website forms that don't talk to anything
+          - generic [ref=e308]:
+            - img [ref=e310]
+            - paragraph [ref=e313]: Spreadsheets & manual follow-ups
+        - heading "Enrollio replaces them all — so everything works together by default and you stop being the glue." [level=2] [ref=e320]:
+          - text: Enrollio replaces them all — so everything works together by default and
+          - strong [ref=e321]: you stop being the glue.
+      - generic [ref=e327]:
+        - heading "One System. Six Core Functions." [level=1] [ref=e331]
+        - heading "Everything your studio needs to operate — unified and automated." [level=2] [ref=e335]
+        - generic [ref=e339]:
+          - generic [ref=e340]:
+            - img [ref=e342]
+            - heading "Enrollment Engine" [level=3] [ref=e344]
+            - paragraph [ref=e345]: Capture and convert every inquiry automatically — so classes fill without constant follow-up.
+          - generic [ref=e346]:
+            - img [ref=e348]
+            - heading "Class Registration & Rosters" [level=3] [ref=e350]
+            - paragraph [ref=e351]: Enroll students, manage waitlists, and keep rosters accurate without admin chaos.
+          - generic [ref=e352]:
+            - img [ref=e354]
+            - heading "Parent Portal" [level=3] [ref=e357]
+            - paragraph [ref=e358]: Give families a modern, self-service experience — so fewer emails hit your inbox.
+          - generic [ref=e359]:
+            - img [ref=e361]
+            - heading "Studio Communication" [level=3] [ref=e363]
+            - paragraph [ref=e364]: All texts and emails tied to student records — so nothing gets missed or duplicated.
+          - generic [ref=e365]:
+            - img [ref=e367]
+            - heading "Payments & Billing" [level=3] [ref=e369]
+            - paragraph [ref=e370]: Automated tuition, retries, and reporting — so cash flow stays predictable.
+          - generic [ref=e371]:
+            - img [ref=e373]
+            - heading "Studio Command Dashboard" [level=3] [ref=e378]
+            - paragraph [ref=e379]: See enrollment, revenue, and activity at a glance — so decisions are fast and confident.
+      - generic [ref=e385]:
+        - generic [ref=e388]:
+          - heading "Trusted by Studios" [level=1] [ref=e389]
+          - heading "Running Serious Operations" [level=1] [ref=e390]
+        - generic [ref=e394]:
+          - generic [ref=e395]:
+            - generic [ref=e396]: "0"
+            - generic [ref=e397]: Studios Onboarded
+          - generic [ref=e399]:
+            - generic [ref=e400]: "0"
+            - generic [ref=e401]: Website Leads Captured
+          - generic [ref=e403]:
+            - generic [ref=e404]: "0"
+            - generic [ref=e405]: Countries
+          - generic [ref=e407]:
+            - generic [ref=e408]: "0"
+            - generic [ref=e409]: Built-in Automations
+        - generic [ref=e411]:
+          - generic [ref=e413]:
+            - heading "\"Finally had one system for everything\"" [level=2] [ref=e422]
+            - heading "Susan Janson — Kick It Up Dance, Long Beach, CA" [level=1] [ref=e426]
+            - heading "Streamlined enrollment, payments, and parent communication by running her studio through one connected system." [level=1] [ref=e430]:
+              - emphasis [ref=e431]: Streamlined enrollment, payments, and parent communication by running her studio through one connected system.
+          - generic [ref=e433]:
+            - heading "“From Leads To 40 New Students With Automated Follow‑Up”" [level=2] [ref=e442]
+            - heading "Katie Elizabeth — KE Dance Upstate New York" [level=1] [ref=e446]
+            - heading "After joining Enrollio in June, KE Dance enrolled nearly 40 new students with automated follow-ups and an easy-to-use system that simplified admin." [level=1] [ref=e450]:
+              - emphasis [ref=e451]: After joining Enrollio in June, KE Dance enrolled nearly 40 new students with automated follow-ups and an easy-to-use system that simplified admin.
+          - generic [ref=e453]:
+            - heading "\"Finally felt supported and guided\"" [level=2] [ref=e462]
+            - heading "Derralie Coonan - Dancemajic, Victoria, AU" [level=1] [ref=e466]
+            - heading "Got hands-on help setting up Enrollio and felt confident moving forward thanks to responsive, real human support." [level=1] [ref=e470]:
+              - emphasis [ref=e471]: Got hands-on help setting up Enrollio and felt confident moving forward thanks to responsive, real human support.
+        - link "View More →" [ref=e477] [cursor=pointer]:
+          - /url: https://enrollio.ai/stories
+          - generic [ref=e479]: View More →
+      - generic [ref=e485]:
+        - heading "You Don't Figure This Out Alone" [level=1] [ref=e489]
+        - heading "Expert-guided onboarding ensures you launch with confidence." [level=2] [ref=e493]
+        - generic [ref=e497]:
+          - generic [ref=e498]:
+            - generic [ref=e500]: "1"
+            - generic [ref=e502]:
+              - heading "Choose Your Setup Path" [level=3] [ref=e503]
+              - paragraph [ref=e504]: DIY or done-for-you onboarding options based on your needs and timeline.
+          - generic [ref=e505]:
+            - generic [ref=e508]: "2"
+            - generic [ref=e510]:
+              - heading "We Configure the System" [level=3] [ref=e511]
+              - paragraph [ref=e512]: Based on how your studio actually runs — not a generic template.
+          - generic [ref=e513]:
+            - generic [ref=e516]: "3"
+            - generic [ref=e517]:
+              - heading "Launch With Confidence" [level=3] [ref=e518]
+              - paragraph [ref=e519]: Most studios are live in under 14 days with an expert reviewing your setup before you flip the switch.
+        - link "See Onboarding Options →" [ref=e525] [cursor=pointer]:
+          - /url: https://enrollio.ai/express-setup
+          - generic [ref=e527]: See Onboarding Options →
+      - generic [ref=e533]:
+        - heading "One Platform. One Monthly Price." [level=1] [ref=e537]
+        - generic [ref=e540]:
+          - heading "Everything is included — enrollment, registration, portals," [level=2] [ref=e541]
+          - heading "communication, and support. Optional onboarding packages" [level=2] [ref=e542]
+          - heading "available if you want it handled for you." [level=2] [ref=e543]
+        - link "View Pricing →" [ref=e545] [cursor=pointer]:
+          - /url: https://enrollio.ai/enrollio-crm#row-wEMKr8g2kQct
+          - generic [ref=e547]: View Pricing →
+        - heading "No long-term contracts. Cancel anytime. Guided onboarding to get your studio live without disrupting your current system." [level=2] [ref=e551]:
+          - emphasis [ref=e552]: No long-term contracts. Cancel anytime. Guided onboarding to get your studio live without disrupting your current system.
+      - generic [ref=e558]:
+        - generic [ref=e561]:
+          - heading "Ready to Fill Your Classes" [level=1] [ref=e562]
+          - heading "Without Running Yourself Into" [level=1] [ref=e563]
+          - heading "the Ground?" [level=1] [ref=e564]
+        - heading "See how one system replaces the chaos." [level=2] [ref=e568]
+        - link "Book a Studio Systems Demo →" [ref=e570] [cursor=pointer]:
+          - /url: https://enrollio.ai/get-started
+          - generic [ref=e572]: Book a Studio Systems Demo →
+      - generic [ref=e590]:
+        - generic [ref=e592]:
+          - heading "QUICK LINKS" [level=2] [ref=e596]
+          - heading "About Enrollio" [level=2] [ref=e600]:
+            - link "About Enrollio" [ref=e601] [cursor=pointer]:
+              - /url: https://enrollio.ai/about-us
+          - heading "How It Works" [level=2] [ref=e605]:
+            - link "How It Works" [ref=e606] [cursor=pointer]:
+              - /url: https://enrollio.ai/how-it-works
+          - heading "Case Studies" [level=2] [ref=e610]:
+            - link "Case Studies" [ref=e611] [cursor=pointer]:
+              - /url: https://enrollio.ai/testimonials
+          - heading "GET STARTED" [level=2] [ref=e615]
+          - heading "Book A Studio Systems Call" [level=2] [ref=e619]:
+            - link "Book A Studio Systems Call" [ref=e620] [cursor=pointer]:
+              - /url: https://enrollio.ai/get-started
+          - heading "Try Enrollio" [level=2] [ref=e624]:
+            - link "Try Enrollio" [ref=e625] [cursor=pointer]:
+              - /url: https://payments.enrollio.ai/account-creation
+          - heading "Get Express Setup" [level=2] [ref=e629]:
+            - link "Get Express Setup" [ref=e630] [cursor=pointer]:
+              - /url: https://enrollio.ai/express-setup
+          - heading "Learn More" [level=2] [ref=e634]
+          - heading "Blog" [level=2] [ref=e638]:
+            - link "Blog" [ref=e639] [cursor=pointer]:
+              - /url: https://enrollio.ai/blog
+          - heading "FAQ's" [level=2] [ref=e643]:
+            - link "FAQ's" [ref=e644] [cursor=pointer]:
+              - /url: https://enrollio.ai/faqs
+        - generic [ref=e646]:
+          - heading "trusted by dance studios worldwide" [level=3] [ref=e650]
+          - generic [ref=e658]:
+            - link [ref=e659] [cursor=pointer]:
+              - /url: "#"
+            - link [ref=e660] [cursor=pointer]:
+              - /url: "#"
+            - link [ref=e661] [cursor=pointer]:
+              - /url: "#"
+          - link "Book a Studio Systems Call" [ref=e663] [cursor=pointer]:
+            - /url: https://enrollio.ai/get-started
+            - generic [ref=e665]: Book a Studio Systems Call
+        - generic [ref=e667]:
+          - heading "CONNECT WITH US" [level=2] [ref=e671]
+          - generic [ref=e674]:
+            - link [ref=e675] [cursor=pointer]:
+              - /url: https://www.facebook.com/groups/enrollio
+            - link [ref=e676] [cursor=pointer]:
+              - /url: https://www.instagram.com/enrolliowins/
+          - heading "Download Enrollio App" [level=2] [ref=e680]
+          - generic [ref=e683]:
+            - link [ref=e684] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+            - link [ref=e685] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio&pli=1
+          - heading "SUPPORT" [level=2] [ref=e689]
+          - 'heading "Email: support@enrollio.ai" [level=2] [ref=e693]':
+            - text: "Email:"
+            - link "support@enrollio.ai" [ref=e694] [cursor=pointer]:
+              - /url: mailto:support@enrollio.ai
+      - generic [ref=e698]:
+        - heading "© Copyright 2026. Enrollio®. All rights reserved." [level=2] [ref=e704]
+        - heading "Terms and conditions - Privacy Policy" [level=2] [ref=e710]:
+          - link "Terms and conditions" [ref=e711] [cursor=pointer]:
+            - /url: https://enrollio.ai/terms
+          - text: "-"
+          - link "Privacy Policy" [ref=e712] [cursor=pointer]:
+            - /url: https://enrollio.ai/privacy-policy
+        - heading "Cyber Security" [level=2] [ref=e718]:
+          - link "Cyber Security" [ref=e719] [cursor=pointer]:
+            - /url: https://enrollio.ai/cyber-security
+      - text: 

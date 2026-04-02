@@ -1,0 +1,6 @@
+{"type":"server-started","port":59091,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:59091","screen_dir":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/content","state_dir":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/state"}
+{"type":"screen-added","file":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/content/tab-layout.html"}
+{"type":"screen-added","file":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/content/expenses-tab.html"}
+{"type":"screen-added","file":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/content/class-analysis-tab.html"}
+{"type":"screen-added","file":"/Users/dylanwilcox/Projects/studio-os/.superpowers/brainstorm/89745-1775059180/content/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}

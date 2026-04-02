@@ -29,13 +29,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Separator } from "@/components/ui/separator"
 import { formatCurrency, formatDate } from "@/lib/format"
-import { getHouseholdById, households } from "@/data/households"
-import { getStudentsByHousehold } from "@/data/students"
-import {
-  getInvoicesByHousehold,
-  getBillingOverridesByHousehold,
-} from "@/data/invoices"
-import { getClassById } from "@/data/classes"
+import type { Household, Student, Invoice, BillingOverride, Class, PaymentStatus } from "@/lib/types"
 import { useRouter } from "next/navigation"
 import {
   ArrowLeft,
@@ -46,7 +40,6 @@ import {
   Plus,
   Settings,
 } from "lucide-react"
-import type { PaymentStatus, Invoice } from "@/lib/types"
 
 function getStatusBadge(status: PaymentStatus) {
   switch (status) {
@@ -152,18 +145,22 @@ function InvoiceRow({ invoice }: { invoice: Invoice }) {
   )
 }
 
-export default function HouseholdBillingPage({
-  params,
-}: {
-  params: { householdId: string }
-}) {
-  const { householdId } = params
-  const router = useRouter()
+interface HouseholdBillingPageProps {
+  household: Household | undefined
+  students: Student[]
+  invoices: Invoice[]
+  overrides: (BillingOverride & { householdId: string; invoiceId: string })[]
+  classes: Class[]
+}
 
-  const household = getHouseholdById(householdId)
-  const students = getStudentsByHousehold(householdId)
-  const householdInvoices = getInvoicesByHousehold(householdId)
-  const overrides = getBillingOverridesByHousehold(householdId)
+export default function HouseholdBillingPage({
+  household,
+  students,
+  invoices: householdInvoices,
+  overrides,
+  classes,
+}: HouseholdBillingPageProps) {
+  const router = useRouter()
 
   const [overrideDialogOpen, setOverrideDialogOpen] = useState(false)
   const [overrideAmount, setOverrideAmount] = useState("")
@@ -188,7 +185,7 @@ export default function HouseholdBillingPage({
     return (
       sum +
       student.enrolledClassIds.reduce((classSum, classId) => {
-        const cls = getClassById(classId)
+        const cls = classes.find((c) => c.id === classId)
         return classSum + (cls?.monthlyRate ?? 0)
       }, 0)
     )
@@ -463,7 +460,7 @@ export default function HouseholdBillingPage({
                         </p>
                         <div className="mt-1.5 space-y-1">
                           {student.enrolledClassIds.map((classId) => {
-                            const cls = getClassById(classId)
+                            const cls = classes.find((c) => c.id === classId)
                             return cls ? (
                               <div
                                 key={classId}

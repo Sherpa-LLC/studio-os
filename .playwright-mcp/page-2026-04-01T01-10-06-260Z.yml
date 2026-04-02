@@ -1,0 +1,184 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - alert [ref=e3]: Website & Funnel Builder - Enrollio
+    - generic [ref=e6]:
+      - generic: 
+      - generic [ref=e8]:
+        - text: 
+        - generic [ref=e16]:
+          - link "https://enrollio.ai/" [ref=e21] [cursor=pointer]:
+            - /url: https://enrollio.ai/
+            - img "Brand Logo" [ref=e23]
+          - list [ref=e24]:
+            - listitem [ref=e25]:
+              - button "WHAT WE OFFER " [ref=e26] [cursor=pointer]:
+                - text: WHAT WE OFFER
+                - generic [ref=e27]: 
+            - listitem [ref=e28]:
+              - button "RESOURCES " [ref=e29] [cursor=pointer]:
+                - text: RESOURCES
+                - generic [ref=e30]: 
+            - listitem [ref=e31]:
+              - link "About" [ref=e32] [cursor=pointer]:
+                - /url: https://enrollio.ai/about-us
+                - generic [ref=e33]: About
+            - listitem [ref=e34]:
+              - link "Testimonials" [ref=e35] [cursor=pointer]:
+                - /url: https://enrollio.ai/stories
+                - generic [ref=e36]: Testimonials
+            - listitem [ref=e37]:
+              - link "Systems Demo" [ref=e38] [cursor=pointer]:
+                - /url: https://enrollio.ai/book-live-demo
+                - generic [ref=e39]: Systems Demo
+            - listitem [ref=e40]:
+              - link "LOGIN" [ref=e41] [cursor=pointer]:
+                - /url: https://app.enrollio.ai/
+                - generic [ref=e42]: LOGIN
+            - listitem [ref=e43]:
+              - link "CLAIM 30-DAY FREE TRIAL" [ref=e44] [cursor=pointer]:
+                - /url: https://payments.enrollio.ai/account-creation
+                - generic [ref=e45]: CLAIM 30-DAY FREE TRIAL
+        - heading "Build Unlimited Websites & Funnels" [level=1] [ref=e55]:
+          - strong [ref=e56]: Build Unlimited Websites & Funnels
+        - generic [ref=e58]:
+          - generic [ref=e62]:
+            - generic "Funnels" [ref=e75]
+            - heading "Build Unlimited Funnels, Landing Pages, & Websites With Enrollio®" [level=3] [ref=e80]:
+              - strong [ref=e81]:
+                - text: Build Unlimited Funnels, Landing Pages, & Websites With Enrollio
+                - superscript [ref=e82]: ®
+            - paragraph [ref=e86]:
+              - text: Effortlessly arrange and customize all the elements of your dance studio website and Enrollio
+              - superscript [ref=e87]: ®
+              - text: pages with our intuitive drag-and-drop page builder. Craft stunning, mobile-friendly, and fast-loading funnels and websites right within your Enrollio
+              - superscript [ref=e88]: ®
+              - text: account. Simply connect your domains, and you're ready to go, creating an online presence that shines!
+          - generic [ref=e92]:
+            - heading "Drag & Drop Website & Funnel Builder" [level=3] [ref=e96]:
+              - strong [ref=e97]: Drag & Drop Website & Funnel Builder
+            - paragraph [ref=e101]:
+              - text: Designing stunning, high-converting funnels is a breeze with our user-friendly page builder. Every plan includes a collection of industry-tested and proven funnels that you can rebrand and tailor for your dance studio, eliminating the need to begin from scratch. You can effortlessly integrate elements from your Enrollio
+              - superscript [ref=e102]: ®
+              - text: account, such as your calendar, two-step and one-step checkouts, forms, and a whole lot more to create a tailored funnel that suits your dance business perfectly.
+            - heading "Easily Sell More With Downsells, Crossells, & Workflow Automations That Make Your Life Easier" [level=3] [ref=e106]:
+              - strong [ref=e107]: Easily Sell More With Downsells, Crossells, & Workflow Automations That Make Your Life Easier
+            - paragraph [ref=e111]:
+              - text: Enrollio
+              - superscript [ref=e112]: ®
+              - text: empowers you to automate actions when someone purchases a specific product from your catalog. Whether it's one-time products, payment plans, or subscriptions, you can seamlessly automate processes like abandoned cart reminders, follow-ups, granting access to memberships, courses, and much more. Streamline your entire sales funnel and process with ease! Plus, you have the option to import your existing funnels from Clickfunnels, ensuring a quick and seamless transition to Enrollio
+              - superscript [ref=e113]: ®
+              - text: .
+        - generic [ref=e115]:
+          - generic [ref=e117]:
+            - img "Bring Enrollio Features on the Go with our Mobile App" [ref=e125]
+            - generic [ref=e127]:
+              - heading "Bring Enrollio® Features on the Go with our Mobile App" [level=3] [ref=e131]:
+                - strong [ref=e132]:
+                  - text: Bring Enrollio
+                  - superscript [ref=e133]: ®
+                  - text: Features on the Go with our Mobile App
+              - paragraph [ref=e137]:
+                - text: Effortlessly manage all your inbound calls using our dedicated iOS and Android mobile app. Enrollio
+                - superscript [ref=e138]: ®
+                - text: allows you to assign specific phone numbers to your dance studio staff members and easily track incoming calls. Plus, you can send and receive text messages on the go to engage with all your lead inquiries. Unlock countless time-saving possibilities with Enrollio
+                - superscript [ref=e139]: ®
+                - text: – the ultimate solution for dance studios worldwide.
+              - list [ref=e143]:
+                - listitem [ref=e144]:
+                  - paragraph [ref=e145]: Send Texts, Emails, Video Messages & Call
+              - list [ref=e149]:
+                - listitem [ref=e150]:
+                  - paragraph [ref=e151]: Request Payment for Classes
+              - list [ref=e155]:
+                - listitem [ref=e156]:
+                  - paragraph [ref=e157]: View Trial Class Calendar & Book Times
+          - generic [ref=e159]:
+            - link "https://apps.apple.com/us/app/enrollio/id6451193806" [ref=e169] [cursor=pointer]:
+              - /url: https://apps.apple.com/us/app/enrollio/id6451193806
+              - generic [ref=e170]:
+                - img "App Store"
+            - link "https://play.google.com/store/apps/details?id=com.enrollio" [ref=e176] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=com.enrollio
+              - generic [ref=e177]:
+                - img "Google Play"
+        - generic [ref=e179]:
+          - heading "Ready to Get Started?" [level=2] [ref=e187]:
+            - strong [ref=e188]: Ready to Get Started?
+          - generic [ref=e190]:
+            - generic [ref=e192]:
+              - img "Enroll More Students" [ref=e198]
+              - heading "Enroll More Students" [level=3] [ref=e202]
+            - generic [ref=e204]:
+              - img "Automate Everyhing" [ref=e210]
+              - heading "Automate Everything" [level=3] [ref=e214]
+            - generic [ref=e216]:
+              - img "Keep Families Coming Back" [ref=e222]
+              - heading "Keep Families Coming Back" [level=3] [ref=e226]
+          - paragraph [ref=e234]:
+            - strong [ref=e235]: SAVE 20% WITH ANNUAL PRICING
+          - generic [ref=e239]:
+            - heading "FULL ACCESS PLAN" [level=3] [ref=e243]:
+              - strong [ref=e244]: FULL ACCESS PLAN
+            - paragraph [ref=e248]:
+              - strong [ref=e249]: $297
+            - list [ref=e253]:
+              - listitem [ref=e254]:
+                - paragraph [ref=e255]:
+                  - strong [ref=e256]: EVERYTHING IN STARTER PLAN
+            - list [ref=e260]:
+              - listitem [ref=e261]:
+                - paragraph [ref=e262]:
+                  - strong [ref=e263]: TWO-WAY TEXTING
+            - list [ref=e267]:
+              - listitem [ref=e268]:
+                - paragraph [ref=e269]:
+                  - strong [ref=e270]: AUTOMATED WEBSITE LEAD FOLLOW UP
+            - list [ref=e274]:
+              - listitem [ref=e275]:
+                - paragraph [ref=e276]:
+                  - strong [ref=e277]: AUTOMATED MISSED CALL TEXT
+            - list [ref=e281]:
+              - listitem [ref=e282]:
+                - paragraph [ref=e283]:
+                  - strong [ref=e284]: TRIAL CLASS AUTOMATION
+            - list [ref=e288]:
+              - listitem [ref=e289]:
+                - paragraph [ref=e290]:
+                  - strong [ref=e291]: ONE-TIME TEXT INVOICING
+            - list [ref=e295]:
+              - listitem [ref=e296]:
+                - paragraph [ref=e297]:
+                  - strong [ref=e298]: AUTOMATED REVIEW REQUESTS
+            - list [ref=e302]:
+              - listitem [ref=e303]:
+                - paragraph [ref=e304]:
+                  - strong [ref=e305]: PAID ADVERTISING SUPPORT
+          - link "SIGN UP NOW" [ref=e311] [cursor=pointer]:
+            - /url: https://payments.enrollio.ai/account-creation
+            - generic [ref=e313]: SIGN UP NOW
+        - text: 
+        - generic [ref=e317]:
+          - paragraph [ref=e323]:
+            - text: © Copyright 2026. Enrollio
+            - superscript [ref=e324]: ®
+            - text: . All rights reserved.
+          - heading "Privacy Policy" [level=1] [ref=e334]:
+            - link "Privacy Policy" [ref=e335] [cursor=pointer]:
+              - /url: https://enrollio.ai/privacy-policy
+          - heading "Terms" [level=2] [ref=e341]:
+            - link "Terms" [ref=e342] [cursor=pointer]:
+              - /url: https://enrollio.ai/terms
+          - heading "Cyber Security" [level=1] [ref=e348]:
+            - link "Cyber Security" [ref=e349] [cursor=pointer]:
+              - /url: https://enrollio.ai/cyber-security
+  - generic:
+    - generic:
+      - generic [ref=e351]:
+        - iframe [ref=e352]:
+          - button "Close message from company" [ref=f75e4] [cursor=pointer]:
+            - img [ref=f75e5]
+        - iframe
+      - iframe [ref=e353]:
+        - button "Open messaging window" [ref=f77e5] [cursor=pointer]:
+          - img [ref=f77e7]
+          - img [ref=f77e10]

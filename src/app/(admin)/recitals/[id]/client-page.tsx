@@ -34,12 +34,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import {
-  getRecitalById,
-  getMeasurementsByRecitalId,
-  getCostumeFinancials,
-  lineupConflicts,
-} from "@/data/recitals"
+import type { Recital, Routine, StudentMeasurement, RecitalStatus, CostumeOrderStatus, MeasurementStatus } from "@/lib/types"
 import { formatCurrency, formatDate } from "@/lib/format"
 import { DISCIPLINE_LABELS, DISCIPLINE_COLORS } from "@/lib/constants"
 import {
@@ -74,7 +69,6 @@ import {
 import { CSS } from "@dnd-kit/utilities"
 import { toast } from "sonner"
 import { OverviewTab } from "@/components/recitals/overview-tab"
-import type { RecitalStatus, CostumeOrderStatus, MeasurementStatus, Routine } from "@/lib/types"
 
 // ── Status config ───────────────────────────────────────────────────────────
 
@@ -193,16 +187,19 @@ function SortableRoutineRow({
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
-export default function RecitalDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
+interface RecitalDetailPageProps {
+  recital: Recital | undefined
+  measurements: StudentMeasurement[]
+  financials: { totalCost: number; totalRevenue: number; margin: number; perRoutine: { routineId: string; routineName: string; className: string; studentCount: number; unitCost: number; salePrice: number; totalCost: number; totalRevenue: number; margin: number }[] }
+  lineupConflicts: { studentName: string; routineA: string; positionA: number; routineB: string; positionB: number; gap: number; severity: "warning" | "error" }[]
+}
 
-  const recital = useMemo(() => getRecitalById(id), [id])
-  const measurements = useMemo(() => getMeasurementsByRecitalId(id), [id])
-  const financials = useMemo(() => getCostumeFinancials(id), [id])
+export default function RecitalDetailPage({
+  recital,
+  measurements,
+  financials,
+  lineupConflicts,
+}: RecitalDetailPageProps) {
 
   const [activeTab, setActiveTab] = useState("overview")
   const [costumeSheetRoutine, setCostumeSheetRoutine] = useState<Routine | null>(null)
@@ -252,7 +249,7 @@ export default function RecitalDetailPage({
         <div className="flex-1 p-6 space-y-6">
           <PageHeader title="Recital Not Found" />
           <p className="text-sm text-muted-foreground">
-            No recital found with ID &quot;{id}&quot;.
+            The requested recital could not be found.
           </p>
           <Link href="/recitals">
             <Button variant="outline">

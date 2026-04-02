@@ -18,11 +18,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  getArticleById,
-  getCategoryMeta,
-  articles,
-} from "@/data/knowledge-base"
+import type { KnowledgeBaseArticle, ArticleCategory } from "@/lib/types"
 import { formatDate } from "@/lib/format"
 import {
   ArrowLeft,
@@ -33,7 +29,6 @@ import {
   FileText,
 } from "lucide-react"
 import { toast } from "sonner"
-import type { ArticleCategory } from "@/lib/types"
 
 const CATEGORY_BADGE_COLORS: Record<ArticleCategory, string> = {
   "policies-procedures": "bg-indigo-50 text-indigo-700 border-indigo-200",
@@ -43,25 +38,18 @@ const CATEGORY_BADGE_COLORS: Record<ArticleCategory, string> = {
   "hr-staff": "bg-amber-50 text-amber-700 border-amber-200",
 }
 
-export default function ArticlePage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
-  const [editOpen, setEditOpen] = useState(false)
+interface ArticlePageProps {
+  article: KnowledgeBaseArticle | undefined
+  categoryMeta: { id: string; label: string; description: string; icon: string; articleCount: number } | undefined
+  relatedArticles: KnowledgeBaseArticle[]
+}
 
-  const article = useMemo(() => getArticleById(id), [id])
-  const categoryMeta = useMemo(
-    () => (article ? getCategoryMeta(article.category) : undefined),
-    [article]
-  )
-  const relatedArticles = useMemo(() => {
-    if (!article) return []
-    return article.relatedArticleIds
-      .map((rid) => articles.find((a) => a.id === rid))
-      .filter(Boolean) as typeof articles
-  }, [article])
+export default function ArticlePage({
+  article,
+  categoryMeta,
+  relatedArticles,
+}: ArticlePageProps) {
+  const [editOpen, setEditOpen] = useState(false)
 
   if (!article) {
     return (
@@ -72,7 +60,7 @@ export default function ArticlePage({
             Article Not Found
           </h1>
           <p className="text-sm text-muted-foreground">
-            No article found with ID &quot;{id}&quot;.
+            The requested article could not be found.
           </p>
           <Link href="/knowledge-base">
             <Button variant="outline">

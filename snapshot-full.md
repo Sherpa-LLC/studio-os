@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - link "S Studio OS" [ref=e7] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e9]: S
+        - generic [ref=e10]: Studio OS
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]: Overview
+          - list [ref=e15]:
+            - listitem [ref=e16]:
+              - link "Dashboard" [ref=e17] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e18]
+                - generic [ref=e23]: Dashboard
+        - generic [ref=e24]:
+          - generic [ref=e25]: People
+          - list [ref=e27]:
+            - listitem [ref=e28]:
+              - link "Households" [ref=e29] [cursor=pointer]:
+                - /url: /households
+                - img [ref=e30]
+                - generic [ref=e33]: Households
+        - generic [ref=e34]:
+          - generic [ref=e35]: Programs
+          - list [ref=e37]:
+            - listitem [ref=e38]:
+              - link "Classes" [ref=e39] [cursor=pointer]:
+                - /url: /classes
+                - img [ref=e40]
+                - generic [ref=e42]: Classes
+            - listitem [ref=e43]:
+              - link "Attendance" [ref=e44] [cursor=pointer]:
+                - /url: /attendance
+                - img [ref=e45]
+                - generic [ref=e49]: Attendance
+            - listitem [ref=e50]:
+              - link "Recitals" [ref=e51] [cursor=pointer]:
+                - /url: /recitals
+                - img [ref=e52]
+                - generic [ref=e55]: Recitals
+            - listitem [ref=e56]:
+              - link "Competition" [ref=e57] [cursor=pointer]:
+                - /url: /competition
+                - img [ref=e58]
+                - generic [ref=e64]: Competition
+        - generic [ref=e65]:
+          - generic [ref=e66]: Finance
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Billing" [ref=e70] [cursor=pointer]:
+                - /url: /billing
+                - img [ref=e71]
+                - generic [ref=e73]: Billing
+        - generic [ref=e74]:
+          - generic [ref=e75]: Communicate
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - link "Conversations 5" [ref=e79] [cursor=pointer]:
+                - /url: /conversations
+                - img [ref=e80]
+                - generic [ref=e82]: Conversations
+                - generic [ref=e83]: "5"
+            - listitem [ref=e84]:
+              - link "Broadcasts" [ref=e85] [cursor=pointer]:
+                - /url: /communications
+                - img [ref=e86]
+                - generic [ref=e89]: Broadcasts
+        - generic [ref=e90]:
+          - generic [ref=e91]: Operations
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "Staff" [ref=e95] [cursor=pointer]:
+                - /url: /staff
+                - img [ref=e96]
+                - generic [ref=e101]: Staff
+            - listitem [ref=e102]:
+              - link "Seasons" [ref=e103] [cursor=pointer]:
+                - /url: /seasons
+                - img [ref=e104]
+                - generic [ref=e106]: Seasons
+            - listitem [ref=e107]:
+              - link "Knowledge Base" [ref=e108] [cursor=pointer]:
+                - /url: /knowledge-base
+                - img [ref=e109]
+                - generic [ref=e112]: Knowledge Base
+        - generic [ref=e113]:
+          - generic [ref=e114]: Growth
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - link "CRM" [ref=e118] [cursor=pointer]:
+                - /url: /crm
+                - img [ref=e119]
+                - generic [ref=e122]: CRM
+            - listitem [ref=e123]:
+              - link "Automations" [ref=e124] [cursor=pointer]:
+                - /url: /automations
+                - img [ref=e125]
+                - generic [ref=e127]: Automations
+            - listitem [ref=e128]:
+              - link "Reviews" [ref=e129] [cursor=pointer]:
+                - /url: /reviews
+                - img [ref=e130]
+                - generic [ref=e132]: Reviews
+      - list [ref=e134]:
+        - listitem [ref=e135]:
+          - button "VW Vicki Wallace Owner" [ref=e136]:
+            - generic [ref=e138]: VW
+            - generic [ref=e139]:
+              - generic [ref=e140]: Vicki Wallace
+              - generic [ref=e141]: Owner
+            - img [ref=e142]
+      - button "Toggle Sidebar" [ref=e144]
+    - main [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - button "Toggle Sidebar" [ref=e148]:
+            - img
+            - generic [ref=e149]: Toggle Sidebar
+          - separator [ref=e150]
+          - heading "Add New Class" [level=1] [ref=e151]
+          - generic [ref=e153]: "Viewing as: Owner"
+        - generic [ref=e154]:
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - heading "Add New Class" [level=1] [ref=e157]
+              - paragraph [ref=e158]: Build a class offering for your studio
+            - link "Back to Classes" [ref=e160] [cursor=pointer]:
+              - /url: /classes
+              - button "Back to Classes" [ref=e161]:
+                - img
+                - text: Back to Classes
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - heading "Class Identity" [level=2] [ref=e167]
+                - generic [ref=e168]
+              - generic [ref=e199]:
+                - heading "When & Where" [level=2] [ref=e202]
+                - generic [ref=e203]
+              - generic [ref=e228]:
+                - heading "Instructor & Pricing" [level=2] [ref=e231]
+                - generic [ref=e232]
+            - generic [ref=e261]:
+              - paragraph [ref=e262]: Live Preview
+              - generic [ref=e265]:
+                - generic [ref=e266]
+                - separator [ref=e269]
+                - generic [ref=e270]
+                - generic [ref=e281]
+                - separator [ref=e292]
+                - generic [ref=e293]
+                - generic [ref=e302]
+                - generic [ref=e313]
+                - generic [ref=e320]
+              - paragraph [ref=e329]: Updates as you type
+        - generic [ref=e331]:
+          - paragraph [ref=e332]: Fill in the details above
+          - generic [ref=e333]:
+            - link "Cancel" [ref=e334] [cursor=pointer]:
+              - /url: /classes
+              - button "Cancel" [ref=e335]
+            - button "Create Class" [ref=e336]:
+              - img
+              - text: Create Class
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e342] [cursor=pointer]:
+    - img [ref=e343]
+  - alert [ref=e346]

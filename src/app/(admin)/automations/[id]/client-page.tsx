@@ -24,8 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { getAutomationById } from "@/data/automations"
-import { textTemplates } from "@/data/text-templates"
+import type { Automation, TextTemplate } from "@/lib/types"
 import {
   ArrowLeft,
   Zap,
@@ -105,13 +104,15 @@ const STEP_FIELDS: Record<AutomationStepType, { key: string; label: string; type
   ],
 }
 
+interface AutomationDetailPageProps {
+  automation: Automation | undefined
+  textTemplates: TextTemplate[]
+}
+
 export default function AutomationDetailPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const { id } = params
-  const automation = getAutomationById(id)
+  automation,
+  textTemplates,
+}: AutomationDetailPageProps) {
 
   // ── Editable state ──────────────────────────────────────────────────────
   const [editing, setEditing] = useState(false)
