@@ -8,6 +8,7 @@ import { signOut } from "@/lib/auth-client"
 import {
   CalendarDays,
   CreditCard,
+  GraduationCap,
   Home,
   MessageSquare,
   LogOut,
@@ -23,6 +24,7 @@ import {
 
 const NAV_ITEMS = [
   { label: "Home", href: "/portal", icon: Home },
+  { label: "Enroll", href: "/portal/enroll", icon: GraduationCap },
   { label: "Schedule", href: "/portal/schedule", icon: CalendarDays },
   { label: "Billing", href: "/portal/billing", icon: CreditCard },
   { label: "Household", href: "/portal/household", icon: Home },
