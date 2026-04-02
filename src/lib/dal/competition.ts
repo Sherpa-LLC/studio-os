@@ -10,7 +10,8 @@ function mapTeam(t: any): CompetitionTeam {
     headCoach: t.headCoach, season: t.season, studentCount: t.studentCount,
     roster: (t.roster || []).map((m: any) => ({
       studentId: m.studentId, studentName: m.student?.firstName + " " + m.student?.lastName,
-      age: 0, parentName: "",
+      age: m.student?.dateOfBirth ? Math.floor((Date.now() - new Date(m.student.dateOfBirth).getTime()) / 31557600000) : 0,
+      parentName: m.student?.household?.guardians?.[0] ? m.student.household.guardians[0].firstName + " " + m.student.household.guardians[0].lastName : "",
       feeStatus: m.feeStatus, waiverStatus: m.waiverStatus.replace(/_/g, "-"),
       teamFee: toNumber(m.teamFee), competitionFees: toNumber(m.competitionFees),
       costumeFees: toNumber(m.costumeFees), totalOwed: toNumber(m.totalOwed), totalPaid: toNumber(m.totalPaid),
@@ -29,14 +30,14 @@ function mapTeam(t: any): CompetitionTeam {
 
 export async function getTeams() {
   const rows = await db.competitionTeam.findMany({
-    include: { roster: { include: { student: true } }, competitions: true },
+    include: { roster: { include: { student: { include: { household: { include: { guardians: true } } } } } }, competitions: true },
   })
   return rows.map(mapTeam)
 }
 export async function getTeamById(id: string) {
   const row = await db.competitionTeam.findUnique({
     where: { id },
-    include: { roster: { include: { student: true } }, competitions: true },
+    include: { roster: { include: { student: { include: { household: { include: { guardians: true } } } } } }, competitions: true },
   })
   return row ? mapTeam(row) : undefined
 }
