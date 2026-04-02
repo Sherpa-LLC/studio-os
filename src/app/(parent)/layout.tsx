@@ -98,7 +98,7 @@ export default function ParentLayout({
               </div>
               <DropdownMenuItem onClick={async () => { await signOut(); router.push("/login"); router.refresh() }}>
                 <LogOut className="mr-2 h-4 w-4" />
-                Switch Role
+                Sign out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

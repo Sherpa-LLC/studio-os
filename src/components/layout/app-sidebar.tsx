@@ -302,40 +302,16 @@ export function AppSidebar() {
                 align="start"
                 className="w-56"
               >
-                <div className="px-2 py-1.5 text-xs text-muted-foreground">
-                  Switch Role
+                <div className="px-2 py-1.5">
+                  <p className="text-sm font-medium">{userName}</p>
+                  <p className="text-xs text-muted-foreground">{ROLE_LABELS[role]}</p>
                 </div>
-                {(Object.keys(ROLE_LABELS) as Role[]).map((r) => (
-                  <DropdownMenuItem
-                    key={r}
-                    onClick={() => {
-                      setRole(r)
-                      if (r === "parent") {
-                        router.push("/portal")
-                      } else if (r === "attendance") {
-                        router.push("/attendance")
-                      } else if (r === "office") {
-                        router.push("/households")
-                      } else {
-                        router.push("/dashboard")
-                      }
-                    }}
-                    className={role === r ? "bg-accent" : ""}
-                  >
-                    {ROLE_LABELS[r]}
-                    {role === r && (
-                      <Badge variant="outline" className="ml-auto text-xs">
-                        Active
-                      </Badge>
-                    )}
-                  </DropdownMenuItem>
-                ))}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   onClick={async () => { await signOut(); router.push("/login"); router.refresh() }}
                 >
                   <LogOut className="mr-2 h-4 w-4" />
-                  Back to Login
+                  Sign out
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
