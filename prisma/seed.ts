@@ -5,54 +5,44 @@ import { PrismaPg } from "@prisma/adapter-pg"
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const db = new PrismaClient({ adapter })
 
-// Hash password using better-auth's internal method
-async function hashPassword(password: string): Promise<string> {
-  const { scrypt, randomBytes } = await import("node:crypto")
-  const { promisify } = await import("node:util")
-  const scryptAsync = promisify(scrypt)
-  const salt = randomBytes(16).toString("hex")
-  const buf = (await scryptAsync(password, salt, 64)) as Buffer
-  return `${buf.toString("hex")}.${salt}`
+const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL || "http://localhost:3000"
+
+async function createUser(name: string, email: string, password: string, role: string) {
+  // Create via better-auth API for proper password hashing
+  const res = await fetch(`${BETTER_AUTH_URL}/api/auth/sign-up/email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, password }),
+  })
+  if (!res.ok) {
+    // User may already exist, try direct DB update
+    console.log(`  Signup failed for ${email}, updating role directly...`)
+  }
+  // Set the correct role via SQL (signup defaults to "parent")
+  await db.$executeRawUnsafe(
+    `UPDATE "user" SET role = '${role}' WHERE email = '${email}'`
+  )
 }
 
 async function main() {
-  console.log("Seeding database...")
-
-  // Clear existing data
-  await db.account.deleteMany()
-  await db.session.deleteMany()
-  await db.user.deleteMany()
-
-  const password = await hashPassword("password123")
+  console.log("Seeding users...")
+  console.log("NOTE: Dev server must be running at", BETTER_AUTH_URL)
 
   const users = [
-    { name: "Vicki Wallace", email: "vicki@studioos.com", role: "admin" as const },
-    { name: "Pam Richardson", email: "pam@studioos.com", role: "office" as const },
-    { name: "Coach Sarah", email: "sarah@studioos.com", role: "attendance" as const },
-    { name: "Jennifer Martinez", email: "jennifer@studioos.com", role: "parent" as const },
+    { name: "Vicki Wallace", email: "vicki@studioos.com", role: "admin" },
+    { name: "Pam Richardson", email: "pam@studioos.com", role: "office" },
+    { name: "Coach Sarah", email: "sarah@studioos.com", role: "attendance" },
+    { name: "Jennifer Martinez", email: "jennifer@studioos.com", role: "parent" },
   ]
 
   for (const u of users) {
-    const user = await db.user.create({
-      data: {
-        name: u.name,
-        email: u.email,
-        role: u.role,
-        emailVerified: true,
-      },
-    })
-    await db.account.create({
-      data: {
-        userId: user.id,
-        accountId: user.id,
-        providerId: "credential",
-        password,
-      },
-    })
-    console.log(`  Created user: ${u.name} (${u.role})`)
+    await createUser(u.name, u.email, "password123", u.role)
+    console.log(`  ${u.name} (${u.role})`)
   }
 
-  console.log("Seed complete!")
+  // Verify
+  const count = await db.user.count()
+  console.log(`\nSeed complete! ${count} users in database.`)
 }
 
 main()
