@@ -7,7 +7,7 @@ function mapTemplate(t: any): TextTemplate {
     id: t.id,
     name: t.name,
     body: t.body,
-    category: mapTemplateCategory(t.category),
+    category: mapTemplateCategory(t.category) as any,
     shortcut: t.shortcut ?? undefined,
   }
 }

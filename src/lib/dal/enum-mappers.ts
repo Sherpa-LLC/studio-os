@@ -204,10 +204,6 @@ export function mapTemplateCategory(val: string): string {
 }
 
 // Lead stage mapping (Prisma -> frontend)
-export function mapLeadStage(val: string): string {
-  if (val === "new_lead") return "new"
-  return val.replace(/_/g, "-")
-}
 
 // Lead source mapping (Prisma -> frontend)
 export function mapLeadSource(val: string): string {
@@ -215,11 +211,5 @@ export function mapLeadSource(val: string): string {
 }
 
 // ISO date helper
-export function toISODate(d: Date): string {
-  return d.toISOString().split("T")[0]
-}
 
 // ISO datetime helper
-export function toISODateTime(d: Date): string {
-  return d.toISOString()
-}

@@ -1,13 +1,13 @@
 import { db } from "@/lib/db"
-import { mapLeadStage, mapLeadSource, mapDisciplineToFrontend, toISODate } from "./enum-mappers"
+import { mapLeadStage, mapLeadSource, mapDiscipline, toISODate } from "./enum-mappers"
 import type { Lead } from "@/lib/types"
 
 function mapLead(l: any): Lead {
   return {
     id: l.id, firstName: l.firstName, lastName: l.lastName,
     email: l.email, phone: l.phone, childName: l.childName, childAge: l.childAge,
-    interestDiscipline: mapDisciplineToFrontend(l.interestDiscipline),
-    source: mapLeadSource(l.source),
+    interestDiscipline: mapDiscipline(l.interestDiscipline),
+    source: mapLeadSource(l.source) as any,
     stage: mapLeadStage(l.stage),
     notes: l.notes, createdAt: toISODate(l.createdAt),
     lastContactedAt: l.lastContactedAt ? toISODate(l.lastContactedAt) : undefined,

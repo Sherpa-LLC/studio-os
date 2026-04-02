@@ -1,12 +1,12 @@
 import { db } from "@/lib/db"
-import { mapDisciplineToFrontend, mapAgeGroupToFrontend, toNumber } from "./enum-mappers"
+import { mapDiscipline, mapAgeGroup, toNumber } from "./enum-mappers"
 import type { CompetitionTeam } from "@/lib/types"
 
 function mapTeam(t: any): CompetitionTeam {
   return {
     id: t.id, name: t.name,
-    disciplines: t.disciplines.map(mapDisciplineToFrontend),
-    ageGroup: mapAgeGroupToFrontend(t.ageGroup),
+    disciplines: t.disciplines.map(mapDiscipline),
+    ageGroup: mapAgeGroup(t.ageGroup),
     headCoach: t.headCoach, season: t.season, studentCount: t.studentCount,
     roster: (t.roster || []).map((m: any) => ({
       studentId: m.studentId, studentName: m.student?.firstName + " " + m.student?.lastName,

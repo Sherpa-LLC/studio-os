@@ -1,12 +1,12 @@
 import { db } from "@/lib/db"
-import { mapDisciplineToFrontend } from "./enum-mappers"
+import { mapDiscipline } from "./enum-mappers"
 import type { Recital, Routine } from "@/lib/types"
 
 function mapRoutine(r: any): Routine {
   return {
     id: r.id, recitalId: r.recitalId, name: r.name,
     classId: r.classId, className: r.class?.name ?? "",
-    discipline: mapDisciplineToFrontend(r.discipline),
+    discipline: mapDiscipline(r.discipline),
     costume: r.costume as any,
     lineupPosition: r.lineupPosition, estimatedDuration: r.estimatedDuration,
     studentCount: r.studentCount,
