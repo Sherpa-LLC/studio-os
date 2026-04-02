@@ -1,4 +1,5 @@
 import { db } from "@/lib/db"
+import { Prisma } from "@/generated/prisma/client"
 import type {
   Class,
   AgeGroup,
@@ -114,7 +115,7 @@ function mapClassRow(row: ClassRow): Class {
 
 // ── Prisma Query (shared include/select) ─────────────────────────────────────
 
-async function queryClasses(where?: Parameters<typeof db.class.findMany>[0]["where"]) {
+async function queryClasses(where?: Prisma.ClassWhereInput) {
   const rows = await db.class.findMany({
     where,
     include: {
