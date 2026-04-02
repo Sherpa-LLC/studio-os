@@ -9,6 +9,5 @@ services:
       POSTGRES_DB: studio_os
     volumes:
       - pgdata:/var/lib/postgresql/data
-
 volumes:
   pgdata:
