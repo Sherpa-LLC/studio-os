@@ -5,6 +5,7 @@ import { test, expect, signIn, signOut, PASSWORD, ROLE_ACCOUNTS } from "./fixtur
 // ---------------------------------------------------------------------------
 
 test.describe("Authentication", () => {
+  test.describe.configure({ mode: "serial" })
   test("login page renders", async ({ page }) => {
     await page.goto("/login")
 
@@ -99,6 +100,7 @@ test.describe("Authentication", () => {
 // ---------------------------------------------------------------------------
 
 test.describe("RBAC - Admin access", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ page }) => {
     await signIn(page, "admin")
   })
@@ -125,6 +127,7 @@ test.describe("RBAC - Admin access", () => {
 })
 
 test.describe("RBAC - Parent restrictions", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ page }) => {
     await signIn(page, "parent")
   })
@@ -153,6 +156,7 @@ test.describe("RBAC - Parent restrictions", () => {
 })
 
 test.describe("RBAC - Coach access", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ page }) => {
     await signIn(page, "attendance")
   })
@@ -175,6 +179,7 @@ test.describe("RBAC - Coach access", () => {
 })
 
 test.describe("RBAC - Office access", () => {
+  test.describe.configure({ mode: "serial" })
   test.beforeEach(async ({ page }) => {
     await signIn(page, "office")
   })
