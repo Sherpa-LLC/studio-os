@@ -9,19 +9,23 @@ export default async function ClassesPage() {
     getInstructors(),
   ])
 
-  // Build sync name lookup for client component
-  const nameMap: Record<string, string> = {}
+  // Pre-compute maps so we don't pass functions to client
+  const instructorNameMap: Record<string, string> = {}
   for (const inst of instructors) {
-    nameMap[inst.id] = `${inst.firstName} ${inst.lastName}`
+    instructorNameMap[inst.id] = `${inst.firstName} ${inst.lastName}`
   }
-  const getInstructorName = (id: string) => nameMap[id] ?? "Unknown"
+
+  const classDurationMap: Record<string, number> = {}
+  for (const cls of classes) {
+    classDurationMap[cls.id] = getClassDurationHours(cls)
+  }
 
   return (
     <ClassesClientPage
       classes={classes}
       instructors={instructors}
-      getInstructorName={getInstructorName}
-      getClassDurationHours={getClassDurationHours}
+      instructorNameMap={instructorNameMap}
+      classDurationMap={classDurationMap}
     />
   )
 }

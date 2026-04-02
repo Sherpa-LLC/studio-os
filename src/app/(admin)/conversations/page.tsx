@@ -3,7 +3,6 @@ import {
   getUnreadCount,
   getTextTemplates,
   getCallRecords,
-  formatDuration,
 } from "@/lib/dal/conversations"
 import ConversationsClientPage from "./client-page"
 
@@ -22,7 +21,6 @@ export default async function ConversationsPage() {
       unreadCount={unreadCount}
       textTemplates={textTemplates}
       callRecords={callRecords}
-      formatDuration={formatDuration}
     />
   )
 }

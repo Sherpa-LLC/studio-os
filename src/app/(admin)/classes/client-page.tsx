@@ -156,15 +156,15 @@ function getCapacityLabel(enrolled: number, capacity: number): string {
 interface ClassesClientPageProps {
   classes: Class[]
   instructors: Instructor[]
-  getInstructorName: (id: string) => string
-  getClassDurationHours: (cls: Class) => number
+  instructorNameMap: Record<string, string>
+  classDurationMap: Record<string, number>
 }
 
 export default function ClassesClientPage({
   classes,
   instructors,
-  getInstructorName,
-  getClassDurationHours,
+  instructorNameMap,
+  classDurationMap,
 }: ClassesClientPageProps) {
   // Search
   const [searchQuery, setSearchQuery] = useState("")
@@ -210,7 +210,7 @@ export default function ClassesClientPage({
         // Text search: class name or instructor name
         if (query) {
           const name = cls.name.toLowerCase()
-          const instructor = getInstructorName(cls.instructorId).toLowerCase()
+          const instructor = instructorNameMap[cls.instructorId] ?? "Unknown".toLowerCase()
           if (!name.includes(query) && !instructor.includes(query)) return false
         }
 
@@ -360,7 +360,7 @@ export default function ClassesClientPage({
   if (instructorFilter !== "all") {
     activeFilters.push({
       key: "instructor",
-      label: getInstructorName(instructorFilter),
+      label: instructorNameMap[instructorFilter] ?? instructorFilter,
       onRemove: () => setInstructorFilter("all"),
     })
   }
@@ -630,7 +630,7 @@ export default function ClassesClientPage({
                 <span className="truncate">
                   {instructorFilter === "all"
                     ? "Instructor"
-                    : getInstructorName(instructorFilter)}
+                    : instructorNameMap[instructorFilter] ?? instructorFilter}
                 </span>
                 <ChevronDown className="size-3.5 shrink-0 text-muted-foreground" />
               </PopoverTrigger>
@@ -789,7 +789,7 @@ export default function ClassesClientPage({
                             {cls.name}
                           </CardTitle>
                           <p className="text-sm text-muted-foreground mt-1">
-                            {getInstructorName(cls.instructorId)}
+                            {instructorNameMap[cls.instructorId] ?? "Unknown"}
                           </p>
                         </div>
                         <Badge
@@ -860,7 +860,7 @@ export default function ClassesClientPage({
                       {/* Tuition */}
                       <div className="flex items-center justify-between pt-1 border-t">
                         <span className="text-xs text-muted-foreground">
-                          {getClassDurationHours(cls)} hr/wk &times; $95/hr
+                          {classDurationMap[cls.id] ?? 0} hr/wk &times; $95/hr
                         </span>
                         <span className="font-semibold text-sm">
                           {formatCurrency(cls.monthlyRate)}/mo
@@ -993,7 +993,7 @@ export default function ClassesClientPage({
                         {cls.schedule.room}
                       </TableCell>
                       <TableCell className="hidden lg:table-cell text-muted-foreground">
-                        {getInstructorName(cls.instructorId)}
+                        {instructorNameMap[cls.instructorId] ?? "Unknown"}
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center gap-2">

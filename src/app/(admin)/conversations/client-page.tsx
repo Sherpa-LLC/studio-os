@@ -1,5 +1,7 @@
 "use client"
 
+import { formatDuration } from "@/data/call-records"
+
 import { useState, useMemo } from "react"
 import { Header } from "@/components/layout/header"
 import { Badge } from "@/components/ui/badge"
@@ -133,7 +135,6 @@ interface ConversationsClientPageProps {
   unreadCount: number
   textTemplates: TextTemplate[]
   callRecords: CallRecord[]
-  formatDuration: (seconds: number) => string
 }
 
 export default function ConversationsClientPage({
@@ -141,7 +142,6 @@ export default function ConversationsClientPage({
   unreadCount: totalUnreadProp,
   textTemplates,
   callRecords,
-  formatDuration,
 }: ConversationsClientPageProps) {
   const [selectedId, setSelectedId] = useState<string | null>(conversations[0]?.id ?? null)
   const [channelFilter, setChannelFilter] = useState<ConversationChannel | "all">("all")
@@ -202,7 +202,7 @@ export default function ConversationsClientPage({
         </div>
 
       {activeTab === "calls" ? (
-        <CallsTab callRecords={callRecords} formatDuration={formatDuration} />
+        <CallsTab callRecords={callRecords} />
       ) : (
       <div className="flex flex-1 overflow-hidden">
         {/* ── Left Panel: Contact List ─────────────────────────── */}
@@ -540,7 +540,7 @@ export default function ConversationsClientPage({
 
 // ── Calls Tab ──���────────────────────────────────────────────────────────────
 
-function CallsTab({ callRecords, formatDuration }: { callRecords: CallRecord[]; formatDuration: (seconds: number) => string }) {
+function CallsTab({ callRecords }: { callRecords: CallRecord[] }) {
   const STATUS_CONFIG = {
     completed: { label: "Completed", icon: Phone, color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
     missed: { label: "Missed", icon: PhoneMissed, color: "text-red-600 bg-red-50 border-red-200" },
