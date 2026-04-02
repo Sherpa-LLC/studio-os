@@ -7,44 +7,237 @@ datasource db {
   provider = "postgresql"
 }
 
-enum Role { admin office attendance parent }
-enum Discipline { ballet jazz tap contemporary hip_hop lyrical acro musical_theatre pointe }
-enum AgeGroup { tiny_tots minis juniors teens seniors adults }
-enum DayOfWeek { monday tuesday wednesday thursday friday saturday }
-enum Room { studio_a studio_b studio_c studio_d }
-enum EnrollmentStatus { active waitlisted trial withdrawn graduated }
-enum PaymentStatus { paid pending overdue failed refunded }
-enum HouseholdStatus { active inactive archived }
-enum ClassStatus { active cancelled completed }
-enum SeasonStatus { upcoming active completed }
-enum BillingType { monthly per_session per_camp }
-enum Gender { female male other }
-enum GuardianRelationship { mother father guardian grandparent other }
-enum MessageChannel { email sms both }
-enum MessageStatus { sent scheduled draft }
-enum ConversationChannel { sms email facebook instagram webchat }
-enum ConversationStatus { open closed snoozed }
-enum MessageDirection { inbound outbound }
-enum AttendanceStatus { present absent late excused }
-enum LeadStage { new_lead contacted trial_scheduled trial_completed registered lost }
-enum LeadSource { website walk_in referral trial social_media phone }
-enum ContactType { lead household }
-enum TemplateCategory { follow_up reminder welcome billing general }
-enum AutomationTrigger { new_lead trial_booked trial_completed enrollment missed_class invoice_overdue birthday }
-enum AutomationStepType { send_sms send_email wait condition update_stage add_tag notify_staff }
-enum AutomationStatus { active paused draft }
-enum RecitalStatus { planning ordering rehearsals show_week completed }
-enum StaffRole { instructor assistant sub staff_admin }
-enum StaffStatus { active on_leave inactive }
-enum SubRequestStatus { open covered cancelled }
-enum ArticleCategory { policies_procedures curriculum_lesson_plans studio_operations sub_handbook hr_staff }
-enum ReviewPlatform { google facebook yelp }
-enum CallDirection { inbound outbound }
-enum CallStatus { completed missed voicemail }
-enum CompetitionEventStatus { registered pending upcoming }
-enum TeamFeeStatus { paid pending overdue }
-enum WaiverStatus { signed not_signed }
-enum RolloverResponseStatus { confirmed opted_out change_requested no_response }
+enum Role {
+  admin
+  office
+  attendance
+  parent
+}
+enum Discipline {
+  ballet
+  jazz
+  tap
+  contemporary
+  hip_hop
+  lyrical
+  acro
+  musical_theatre
+  pointe
+}
+enum AgeGroup {
+  tiny_tots
+  minis
+  juniors
+  teens
+  seniors
+  adults
+}
+enum DayOfWeek {
+  monday
+  tuesday
+  wednesday
+  thursday
+  friday
+  saturday
+}
+enum Room {
+  studio_a
+  studio_b
+  studio_c
+  studio_d
+}
+enum EnrollmentStatus {
+  active
+  waitlisted
+  trial
+  withdrawn
+  graduated
+}
+enum PaymentStatus {
+  paid
+  pending
+  overdue
+  failed
+  refunded
+}
+enum HouseholdStatus {
+  active
+  inactive
+  archived
+}
+enum ClassStatus {
+  active
+  cancelled
+  completed
+}
+enum SeasonStatus {
+  upcoming
+  active
+  completed
+}
+enum BillingType {
+  monthly
+  per_session
+  per_camp
+}
+enum Gender {
+  female
+  male
+  other
+}
+enum GuardianRelationship {
+  mother
+  father
+  guardian
+  grandparent
+  other
+}
+enum MessageChannel {
+  email
+  sms
+  both
+}
+enum MessageStatus {
+  sent
+  scheduled
+  draft
+}
+enum ConversationChannel {
+  sms
+  email
+  facebook
+  instagram
+  webchat
+}
+enum ConversationStatus {
+  open
+  closed
+  snoozed
+}
+enum MessageDirection {
+  inbound
+  outbound
+}
+enum AttendanceStatus {
+  present
+  absent
+  late
+  excused
+}
+enum LeadStage {
+  new_lead
+  contacted
+  trial_scheduled
+  trial_completed
+  registered
+  lost
+}
+enum LeadSource {
+  website
+  walk_in
+  referral
+  trial
+  social_media
+  phone
+}
+enum ContactType {
+  lead
+  household
+}
+enum TemplateCategory {
+  follow_up
+  reminder
+  welcome
+  billing
+  general
+}
+enum AutomationTrigger {
+  new_lead
+  trial_booked
+  trial_completed
+  enrollment
+  missed_class
+  invoice_overdue
+  birthday
+}
+enum AutomationStepType {
+  send_sms
+  send_email
+  wait
+  condition
+  update_stage
+  add_tag
+  notify_staff
+}
+enum AutomationStatus {
+  active
+  paused
+  draft
+}
+enum RecitalStatus {
+  planning
+  ordering
+  rehearsals
+  show_week
+  completed
+}
+enum StaffRole {
+  instructor
+  assistant
+  sub
+  staff_admin
+}
+enum StaffStatus {
+  active
+  on_leave
+  inactive
+}
+enum SubRequestStatus {
+  open
+  covered
+  cancelled
+}
+enum ArticleCategory {
+  policies_procedures
+  curriculum_lesson_plans
+  studio_operations
+  sub_handbook
+  hr_staff
+}
+enum ReviewPlatform {
+  google
+  facebook
+  yelp
+}
+enum CallDirection {
+  inbound
+  outbound
+}
+enum CallStatus {
+  completed
+  missed
+  voicemail
+}
+enum CompetitionEventStatus {
+  registered
+  pending
+  upcoming
+}
+enum TeamFeeStatus {
+  paid
+  pending
+  overdue
+}
+enum WaiverStatus {
+  signed
+  not_signed
+}
+enum RolloverResponseStatus {
+  confirmed
+  opted_out
+  change_requested
+  no_response
+}
 
 model User {
   id String @id @default(cuid())
@@ -120,6 +313,7 @@ model Household {
   guardians Guardian[]
   students Student[]
   invoices Invoice[]
+  rolloverResponses RolloverHouseholdResponse[]
   @@map("household")
 }
 
