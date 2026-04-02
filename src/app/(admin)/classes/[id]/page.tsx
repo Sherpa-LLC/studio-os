@@ -4,11 +4,6 @@ import { getInstructors, getInstructorName } from "@/lib/dal/instructors"
 import { getFinancialsByClassId } from "@/lib/dal/class-profitability"
 import ClientPage from "./client-page"
 
-export async function generateStaticParams() {
-  const classes = await getClasses()
-  return classes.map((cls) => ({ id: cls.id }))
-}
-
 export default async function Page({
   params,
 }: {

@@ -2,11 +2,6 @@ import { getAutomations, getAutomationById } from "@/lib/dal/automations"
 import { getTextTemplates } from "@/lib/dal/text-templates"
 import ClientPage from "./client-page"
 
-export async function generateStaticParams() {
-  const automations = await getAutomations()
-  return automations.map((a) => ({ id: a.id }))
-}
-
 export default async function Page({
   params,
 }: {
