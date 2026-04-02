@@ -16,6 +16,8 @@ const ACCOUNTS: Record<string, Account> = {
 
 async function signIn(page: Page, role: keyof typeof ACCOUNTS) {
   const account = ACCOUNTS[role]
+  // Clear any existing session first
+  await page.context().clearCookies()
   // Sign in via API to get session cookie
   const response = await page.request.post("/api/auth/sign-in/email", {
     data: { email: account.email, password: account.password },
