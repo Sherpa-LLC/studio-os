@@ -312,6 +312,10 @@ export function AppSidebar() {
                       setRole(r)
                       if (r === "parent") {
                         router.push("/portal")
+                      } else if (r === "attendance") {
+                        router.push("/attendance")
+                      } else if (r === "office") {
+                        router.push("/households")
                       } else {
                         router.push("/dashboard")
                       }

@@ -57,9 +57,17 @@ export async function getInstructorsByDiscipline(
 }
 
 export async function getInstructorName(id: string): Promise<string> {
-  const row = await db.staffMember.findFirst({
-    where: { id, role: "instructor" },
+  // Try direct ID lookup first, then mapped ID
+  let row = await db.staffMember.findUnique({
+    where: { id },
     select: { firstName: true, lastName: true },
   })
+  if (!row) {
+    // Try staff-inst-XXX format (instructors mapped during seed)
+    row = await db.staffMember.findUnique({
+      where: { id: `staff-${id}` },
+      select: { firstName: true, lastName: true },
+    })
+  }
   return row ? `${row.firstName} ${row.lastName}` : "Unknown"
 }
