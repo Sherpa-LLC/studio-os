@@ -62,12 +62,20 @@ export async function getInstructorName(id: string): Promise<string> {
     where: { id },
     select: { firstName: true, lastName: true },
   })
-  if (!row) {
-    // Try staff-inst-XXX format (instructors mapped during seed)
+  if (!row && id.startsWith("inst-")) {
+    // Try staff-XXX format (inst-001 -> staff-001)
+    const num = id.replace("inst-", "")
     row = await db.staffMember.findUnique({
-      where: { id: `staff-${id}` },
+      where: { id: `staff-${num}` },
       select: { firstName: true, lastName: true },
     })
+    if (!row) {
+      // Try staff-inst-XXX format
+      row = await db.staffMember.findUnique({
+        where: { id: `staff-${id}` },
+        select: { firstName: true, lastName: true },
+      })
+    }
   }
   return row ? `${row.firstName} ${row.lastName}` : "Unknown"
 }

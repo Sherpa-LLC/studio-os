@@ -14,7 +14,7 @@ export function formatCurrency(amount: number): string {
  * @example formatDate("2026-03-15") -> "Mar 15, 2026"
  */
 export function formatDate(isoString: string): string {
-  const date = new Date(isoString + "T00:00:00") // avoid timezone shift
+  const date = new Date(isoString.includes("T") ? isoString : isoString + "T00:00:00")
   return date.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
