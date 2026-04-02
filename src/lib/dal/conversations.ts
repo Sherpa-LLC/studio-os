@@ -59,3 +59,11 @@ export async function getUnreadCount() {
   const result = await db.conversation.aggregate({ _sum: { unreadCount: true } })
   return result._sum.unreadCount ?? 0
 }
+
+// Re-exports for conversations page
+import { textTemplates } from "@/data/text-templates"
+import { callRecords, formatDuration } from "@/data/call-records"
+
+export async function getTextTemplates() { return textTemplates }
+export async function getCallRecords() { return callRecords }
+export { formatDuration }

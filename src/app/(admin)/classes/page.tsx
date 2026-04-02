@@ -1,5 +1,6 @@
-import { getClasses, getClassDurationHours } from "@/lib/dal/classes"
-import { getInstructors, getInstructorName } from "@/lib/dal/instructors"
+import { getClasses } from "@/lib/dal/classes"
+import { getInstructors } from "@/lib/dal/instructors"
+import { getClassDurationHours } from "@/data/classes"
 import ClassesClientPage from "./client-page"
 
 export default async function ClassesPage() {
@@ -7,6 +8,13 @@ export default async function ClassesPage() {
     getClasses(),
     getInstructors(),
   ])
+
+  // Build sync name lookup for client component
+  const nameMap: Record<string, string> = {}
+  for (const inst of instructors) {
+    nameMap[inst.id] = `${inst.firstName} ${inst.lastName}`
+  }
+  const getInstructorName = (id: string) => nameMap[id] ?? "Unknown"
 
   return (
     <ClassesClientPage

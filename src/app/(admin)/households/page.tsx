@@ -1,5 +1,5 @@
 import { getHouseholds } from "@/lib/dal/households"
-import { getStudents } from "@/lib/dal/households"
+import { getStudents } from "@/lib/dal/students"
 import HouseholdsClientPage from "./client-page"
 
 export default async function HouseholdsPage() {

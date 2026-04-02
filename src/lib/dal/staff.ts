@@ -100,3 +100,9 @@ export async function getSubRequests(): Promise<SubRequest[]> {
   })
   return rows.map(mapSubRequest)
 }
+
+// Compatibility exports for staff subs page
+import { qualifiedSubCandidates as _qsc, subHistory as _sh } from "@/data/staff"
+
+export async function getQualifiedSubCandidates() { return _qsc }
+export async function getSubHistory() { return _sh }

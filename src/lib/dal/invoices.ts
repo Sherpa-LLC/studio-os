@@ -149,3 +149,19 @@ export async function getOverdueInvoices(): Promise<Invoice[]> {
   })
   return rows.map(mapInvoice)
 }
+
+// Compatibility exports for billing page
+import { invoices as _mockInvoices } from "@/data/invoices"
+
+export async function getMonthlyBilled() {
+  return _mockInvoices.reduce((sum, inv) => sum + inv.total, 0)
+}
+export async function getMonthlyCollected() {
+  return _mockInvoices.filter(i => i.status === "paid").reduce((sum, inv) => sum + inv.total, 0)
+}
+export async function getMonthlyOutstanding() {
+  return _mockInvoices.filter(i => i.status === "pending" || i.status === "overdue").reduce((sum, inv) => sum + inv.total, 0)
+}
+export async function getMonthlyFailed() {
+  return _mockInvoices.filter(i => i.status === "failed").reduce((sum, inv) => sum + inv.total, 0)
+}

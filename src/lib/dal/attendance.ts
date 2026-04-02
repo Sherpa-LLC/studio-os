@@ -34,3 +34,23 @@ export async function getAttendanceByDate(date: string) {
   const rows = await db.attendanceRecord.findMany({ where: { date: new Date(date) }, orderBy: { classId: "asc" } })
   return rows.map(mapRecord)
 }
+
+// Compatibility exports for page components
+import { getClassesByDay } from "@/data/classes"
+import { getAttendanceByClassAndDate } from "@/data/attendance-records"
+import type { DayOfWeek } from "@/lib/types"
+
+export async function getClassesByDayAsync(day: DayOfWeek) {
+  return getClassesByDay(day)
+}
+
+export async function getClassAttendanceSummary(classId: string, date: string) {
+  const records = getAttendanceByClassAndDate(classId, date)
+  return {
+    present: records.filter(r => r.status === "present").length,
+    absent: records.filter(r => r.status === "absent").length,
+    late: records.filter(r => r.status === "late").length,
+    excused: records.filter(r => r.status === "excused").length,
+    total: records.length,
+  }
+}

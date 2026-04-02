@@ -1,10 +1,8 @@
 export * from "./attendance"
 export * from "./automations"
 export * from "./billing"
-export * from "./call-records"
 export * from "./classes"
 export * from "./competition"
-export * from "./conversations"
 export * from "./dashboard"
 export * from "./households"
 export * from "./instructors"
@@ -21,3 +19,7 @@ export * from "./staff"
 export * from "./students"
 export * from "./text-templates"
 export * from "./trial-slots"
+
+// Explicit re-exports to avoid conflicts
+export { getCallRecords, formatDuration } from "./call-records"
+export { getConversations, getConversationById, getOpenConversations, getUnreadCount } from "./conversations"

@@ -24,3 +24,9 @@ export async function getArticlesByCategory(category: string) {
   return rows.map(mapArticle)
 }
 export { categories } from "@/data/knowledge-base"
+
+// Compatibility export
+import { articles as _kbArticles } from "@/data/knowledge-base"
+export async function getRecentlyUpdated() {
+  return [..._kbArticles].sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).slice(0, 5)
+}

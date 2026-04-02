@@ -17,7 +17,7 @@ export default async function AttendancePage() {
     activeClasses.map(async (cls) => ({
       cls,
       summary: await getClassAttendanceSummary(cls.id, TODAY),
-      instructorName: getInstructorName(cls.instructorId),
+      instructorName: await getInstructorName(cls.instructorId),
     }))
   )
 

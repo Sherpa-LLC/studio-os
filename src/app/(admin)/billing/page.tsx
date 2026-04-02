@@ -15,10 +15,10 @@ export default async function BillingPage() {
     await Promise.all([
       getInvoices(),
       getHouseholds(),
-      getMonthlyBilled(CURRENT_MONTH),
-      getMonthlyCollected(CURRENT_MONTH),
-      getMonthlyOutstanding(CURRENT_MONTH),
-      getMonthlyFailed(CURRENT_MONTH),
+      getMonthlyBilled(),
+      getMonthlyCollected(),
+      getMonthlyOutstanding(),
+      getMonthlyFailed(),
     ])
 
   return (
