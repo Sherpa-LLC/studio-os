@@ -1,9 +1,25 @@
-import { rolloverConfig as _rolloverConfig, rolloverResponses as _rolloverResponses, ageUpFlags as _ageUpFlags, rolloverSummary as _rolloverSummary } from "@/data/rollover"
+import { db } from "@/lib/db"
+import { toNumber, toISODate } from "./enum-mappers"
 
-export const rolloverConfig = _rolloverConfig
+export async function getRolloverConfig() {
+  const row = await db.rolloverConfig.findFirst({ orderBy: { createdAt: "desc" } })
+  if (!row) return null
+  return {
+    sourceSeasonId: row.sourceSeasonId, sourceSeasonName: row.sourceSeasonName,
+    targetSeasonName: row.targetSeasonName, rolloverDate: toISODate(row.rolloverDate),
+    registrationFee: toNumber(row.registrationFee), notificationDate: toISODate(row.notificationDate),
+    currentStep: row.currentStep,
+  }
+}
 
-export const rolloverResponses = _rolloverResponses
+export async function getRolloverResponses() {
+  const rows = await db.rolloverHouseholdResponse.findMany()
+  return rows.map(r => ({
+    householdId: r.householdId, householdName: r.householdName,
+    status: r.status.replace(/_/g, "-"),
+    currentClasses: r.currentClasses, suggestedClasses: r.suggestedClasses,
+    requestedChanges: r.requestedChanges ?? undefined, reason: r.reason ?? undefined,
+  }))
+}
 
-export const ageUpFlags = _ageUpFlags
-
-export const rolloverSummary = _rolloverSummary
+export { ageUpFlags, rolloverSummary } from "@/data/rollover"

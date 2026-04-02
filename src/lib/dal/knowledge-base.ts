@@ -1,9 +1,26 @@
-import { articles as _articles, categories as _categories, getArticleById as _getArticleById, getArticlesByCategory as _getArticlesByCategory } from "@/data/knowledge-base"
+import { db } from "@/lib/db"
+import type { KnowledgeBaseArticle } from "@/lib/types"
 
-export const articles = _articles
+function mapArticle(a: any): KnowledgeBaseArticle {
+  return {
+    id: a.id, title: a.title, category: a.category.replace(/_/g, "-"),
+    body: a.body, author: a.author, updatedAt: a.updatedAt.toISOString(),
+    relatedArticleIds: a.relatedArticleIds,
+    linkedClassIds: undefined,
+  }
+}
 
-export const categories = _categories
-
-export const getArticleById = _getArticleById
-
-export const getArticlesByCategory = _getArticlesByCategory
+export async function getArticles() {
+  const rows = await db.knowledgeBaseArticle.findMany({ orderBy: { updatedAt: "desc" } })
+  return rows.map(mapArticle)
+}
+export async function getArticleById(id: string) {
+  const row = await db.knowledgeBaseArticle.findUnique({ where: { id } })
+  return row ? mapArticle(row) : undefined
+}
+export async function getArticlesByCategory(category: string) {
+  const dbCat = category.replace(/-/g, "_")
+  const rows = await db.knowledgeBaseArticle.findMany({ where: { category: dbCat as any }, orderBy: { updatedAt: "desc" } })
+  return rows.map(mapArticle)
+}
+export { categories } from "@/data/knowledge-base"

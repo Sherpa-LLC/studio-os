@@ -1,9 +1,41 @@
-import { leads as _leads, getLeadsByStage as _getLeadsByStage, getLeadById as _getLeadById, searchLeads as _searchLeads } from "@/data/leads"
+import { db } from "@/lib/db"
+import { mapLeadStage, mapLeadSource, mapDisciplineToFrontend, toISODate } from "./enum-mappers"
+import type { Lead } from "@/lib/types"
 
-export const leads = _leads
+function mapLead(l: any): Lead {
+  return {
+    id: l.id, firstName: l.firstName, lastName: l.lastName,
+    email: l.email, phone: l.phone, childName: l.childName, childAge: l.childAge,
+    interestDiscipline: mapDisciplineToFrontend(l.interestDiscipline),
+    source: mapLeadSource(l.source),
+    stage: mapLeadStage(l.stage),
+    notes: l.notes, createdAt: toISODate(l.createdAt),
+    lastContactedAt: l.lastContactedAt ? toISODate(l.lastContactedAt) : undefined,
+    assignedTo: l.assignedTo ?? undefined,
+  }
+}
 
-export const getLeadsByStage = _getLeadsByStage
-
-export const getLeadById = _getLeadById
-
-export const searchLeads = _searchLeads
+export async function getLeads() {
+  const rows = await db.lead.findMany({ orderBy: { createdAt: "desc" } })
+  return rows.map(mapLead)
+}
+export async function getLeadById(id: string) {
+  const row = await db.lead.findUnique({ where: { id } })
+  return row ? mapLead(row) : undefined
+}
+export async function getLeadsByStage(stage: string) {
+  const dbStage = stage === "new" ? "new_lead" : stage.replace(/-/g, "_")
+  const rows = await db.lead.findMany({ where: { stage: dbStage as any }, orderBy: { createdAt: "desc" } })
+  return rows.map(mapLead)
+}
+export async function searchLeads(query: string) {
+  const rows = await db.lead.findMany({
+    where: { OR: [
+      { firstName: { contains: query, mode: "insensitive" } },
+      { lastName: { contains: query, mode: "insensitive" } },
+      { email: { contains: query, mode: "insensitive" } },
+    ]},
+    orderBy: { createdAt: "desc" },
+  })
+  return rows.map(mapLead)
+}
