@@ -35,6 +35,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Popover,
   PopoverContent,
@@ -197,7 +199,7 @@ export default function ClassesClientPage({
 
   const totalClasses = useMemo(
     () => classes.filter((c) => c.status === "active").length,
-    []
+    [classes]
   )
 
   const filtered = useMemo(() => {
@@ -266,6 +268,7 @@ export default function ClassesClientPage({
         }
       })
   }, [
+    classes,
     searchQuery,
     selectedDisciplines,
     selectedAvailability,
@@ -275,7 +278,20 @@ export default function ClassesClientPage({
     instructorFilter,
     sortField,
     sortDirection,
+    instructorNameMap,
   ])
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(filtered)
 
   // ── Active filter tracking ───────────────────────────────────────────────
 
@@ -758,8 +774,9 @@ export default function ClassesClientPage({
           </div>
         ) : viewMode === "grid" ? (
           /* ── Grid View ────────────────────────────────────────────── */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((cls) => {
+          <div className="rounded-lg border bg-card overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+            {paginatedItems.map((cls) => {
               const fillPercent = Math.min(
                 (cls.enrolledCount / cls.capacity) * 100,
                 100
@@ -871,6 +888,17 @@ export default function ClassesClientPage({
                 </Link>
               )
             })}
+            </div>
+            <TablePagination
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
           </div>
         ) : (
           /* ── List/Table View ──────────────────────────────────────── */
@@ -942,7 +970,7 @@ export default function ClassesClientPage({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filtered.map((cls) => {
+                {paginatedItems.map((cls) => {
                   const fillPercent = Math.min(
                     (cls.enrolledCount / cls.capacity) * 100,
                     100
@@ -1030,6 +1058,16 @@ export default function ClassesClientPage({
                 })}
               </TableBody>
             </Table>
+            <TablePagination
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
           </div>
         )}
       </div>

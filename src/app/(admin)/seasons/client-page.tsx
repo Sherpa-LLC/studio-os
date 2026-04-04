@@ -14,6 +14,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Dialog,
   DialogContent,
@@ -97,6 +99,18 @@ interface Props {
 export default function ClientPage({ seasons }: Props) {
   const [dialogOpen, setDialogOpen] = useState(false)
 
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(seasonRows, { initialPageSize: 50 })
+
   function handleCreateSeason() {
     setDialogOpen(false)
     toast.success("Season created successfully")
@@ -175,7 +189,7 @@ export default function ClientPage({ seasons }: Props) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {seasonRows.map((row) => (
+              {paginatedItems.map((row) => (
                 <TableRow key={row.id}>
                   <TableCell className="font-medium">{row.name}</TableCell>
                   <TableCell className="text-muted-foreground">
@@ -214,6 +228,16 @@ export default function ClientPage({ seasons }: Props) {
               ))}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </div>
       </div>
     </>

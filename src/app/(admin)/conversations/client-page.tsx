@@ -26,7 +26,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 
 
 import { formatPhone } from "@/lib/format"
@@ -541,6 +542,18 @@ export default function ConversationsClientPage({
 // ── Calls Tab ──���────────────────────────────────────────────────────────────
 
 function CallsTab({ callRecords }: { callRecords: CallRecord[] }) {
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(callRecords)
+
   const STATUS_CONFIG = {
     completed: { label: "Completed", icon: Phone, color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
     missed: { label: "Missed", icon: PhoneMissed, color: "text-red-600 bg-red-50 border-red-200" },
@@ -565,7 +578,7 @@ function CallsTab({ callRecords }: { callRecords: CallRecord[] }) {
             <Phone className="size-3.5 mr-1.5" /> New Call
           </Button>
         </div>
-        <Card>
+        <Card className="overflow-hidden">
           <Table>
             <TableHeader>
               <TableRow>
@@ -578,7 +591,7 @@ function CallsTab({ callRecords }: { callRecords: CallRecord[] }) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {callRecords.map((call) => {
+              {paginatedItems.map((call) => {
                 const statusCfg = STATUS_CONFIG[call.status]
                 return (
                   <TableRow key={call.id}>
@@ -624,6 +637,16 @@ function CallsTab({ callRecords }: { callRecords: CallRecord[] }) {
               })}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </Card>
       </div>
     </div>

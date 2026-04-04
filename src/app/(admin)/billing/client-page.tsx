@@ -1,5 +1,6 @@
 "use client"
 
+import { useMemo } from "react"
 import { Header } from "@/components/layout/header"
 import { PageHeader } from "@/components/shared/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,7 +14,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
 import { Separator } from "@/components/ui/separator"
+import { usePagination } from "@/hooks/use-pagination"
 import { formatCurrency, formatDate } from "@/lib/format"
 
 
@@ -87,10 +90,22 @@ export default function BillingClientPage({
 }: BillingClientPageProps) {
   const router = useRouter()
 
-  // Get recent invoices sorted by date descending
-  const recentInvoices = [...invoices]
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 20)
+  const sortedInvoices = useMemo(
+    () => [...invoices].sort((a, b) => b.date.localeCompare(a.date)),
+    [invoices]
+  )
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(sortedInvoices)
 
   return (
     <>
@@ -228,7 +243,7 @@ export default function BillingClientPage({
           <CardHeader>
             <CardTitle>Recent Invoices</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-0">
             <Table>
               <TableHeader>
                 <TableRow>
@@ -241,7 +256,7 @@ export default function BillingClientPage({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {recentInvoices.map((invoice) => (
+                {paginatedItems.map((invoice) => (
                   <TableRow
                     key={invoice.id}
                     className="cursor-pointer"
@@ -276,6 +291,17 @@ export default function BillingClientPage({
                 ))}
               </TableBody>
             </Table>
+            <TablePagination
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+              className="px-4"
+            />
           </CardContent>
         </Card>
       </div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Header } from "@/components/layout/header"
 import { PageHeader } from "@/components/shared/page-header"
 import { StatCard } from "@/components/dashboard/stat-card"
@@ -24,6 +24,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Bar,
   BarChart,
@@ -83,14 +85,26 @@ export default function DashboardPage() {
   const belowBreakeven = classFinancials.filter((f) => f.monthlyMargin < 0).length
   const highestMarginClass = classFinancials.reduce((best, f) => f.marginPercent > best.marginPercent ? f : best, classFinancials[0])
 
-  const sortedFinancials = [...classFinancials].sort((a, b) => {
-    const aVal = a[profitSortField]
-    const bVal = b[profitSortField]
-    if (typeof aVal === "string" && typeof bVal === "string") {
-      return profitSortAsc ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal)
-    }
-    return profitSortAsc ? (aVal as number) - (bVal as number) : (bVal as number) - (aVal as number)
-  })
+  const sortedFinancials = useMemo(
+    () =>
+      [...classFinancials].sort((a, b) => {
+        const aVal = a[profitSortField]
+        const bVal = b[profitSortField]
+        if (typeof aVal === "string" && typeof bVal === "string") {
+          return profitSortAsc
+            ? aVal.localeCompare(bVal)
+            : bVal.localeCompare(aVal)
+        }
+        return profitSortAsc
+          ? (aVal as number) - (bVal as number)
+          : (bVal as number) - (aVal as number)
+      }),
+    [profitSortField, profitSortAsc]
+  )
+
+  const leadSourcesForPagination = useMemo(() => [...leadSourceAnalytics], [])
+  const leadSourcePagination = usePagination(leadSourcesForPagination)
+  const profitabilityPagination = usePagination(sortedFinancials)
 
   function toggleProfitSort(field: ProfitSortField) {
     if (profitSortField === field) {
@@ -299,7 +313,7 @@ export default function DashboardPage() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {leadSourceAnalytics.map((s) => (
+                    {leadSourcePagination.paginatedItems.map((s) => (
                       <TableRow key={s.source}>
                         <TableCell>
                           <Badge variant="outline" className={SOURCE_BADGE_COLORS[s.source] ?? ""}>
@@ -325,6 +339,16 @@ export default function DashboardPage() {
                     </TableRow>
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={leadSourcePagination.page}
+                  pageCount={leadSourcePagination.pageCount}
+                  pageSize={leadSourcePagination.pageSize}
+                  totalItems={leadSourcePagination.totalItems}
+                  startIndex={leadSourcePagination.startIndex}
+                  endIndex={leadSourcePagination.endIndex}
+                  onPageChange={leadSourcePagination.setPage}
+                  onPageSizeChange={leadSourcePagination.setPageSize}
+                />
               </CardContent>
             </Card>
           </TabsContent>
@@ -371,7 +395,7 @@ export default function DashboardPage() {
                   Class Profitability
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -426,7 +450,7 @@ export default function DashboardPage() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {sortedFinancials.map((f) => {
+                    {profitabilityPagination.paginatedItems.map((f) => {
                       const marginColor =
                         f.marginPercent > 30
                           ? "text-emerald-600"
@@ -456,6 +480,17 @@ export default function DashboardPage() {
                     })}
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={profitabilityPagination.page}
+                  pageCount={profitabilityPagination.pageCount}
+                  pageSize={profitabilityPagination.pageSize}
+                  totalItems={profitabilityPagination.totalItems}
+                  startIndex={profitabilityPagination.startIndex}
+                  endIndex={profitabilityPagination.endIndex}
+                  onPageChange={profitabilityPagination.setPage}
+                  onPageSizeChange={profitabilityPagination.setPageSize}
+                  className="px-4"
+                />
               </CardContent>
             </Card>
           </TabsContent>

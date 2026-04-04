@@ -26,6 +26,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   formatCurrency,
   formatDate,
@@ -109,6 +111,10 @@ export default function HouseholdDetailPage({
       [...invoices].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
     [invoices],
   )
+
+  const billingTablePagination = usePagination(householdInvoices, {
+    initialPageSize: 10,
+  })
 
   // ── Household edit state ──────────────────────────────────────────────
   const [editingHousehold, setEditingHousehold] = useState(false)
@@ -624,7 +630,7 @@ export default function HouseholdDetailPage({
 
           {/* Billing Tab */}
           <TabsContent value="billing">
-            <div className="mt-4 rounded-lg border bg-card">
+            <div className="mt-4 rounded-lg border bg-card overflow-hidden">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -644,7 +650,7 @@ export default function HouseholdDetailPage({
                       </TableCell>
                     </TableRow>
                   ) : (
-                    householdInvoices.map((inv) => (
+                    billingTablePagination.paginatedItems.map((inv) => (
                       <TableRow key={inv.id}>
                         <TableCell className="font-medium">{inv.id.toUpperCase()}</TableCell>
                         <TableCell>{formatDate(inv.date)}</TableCell>
@@ -663,6 +669,18 @@ export default function HouseholdDetailPage({
                   )}
                 </TableBody>
               </Table>
+              {householdInvoices.length > 0 && (
+                <TablePagination
+                  page={billingTablePagination.page}
+                  pageCount={billingTablePagination.pageCount}
+                  pageSize={billingTablePagination.pageSize}
+                  totalItems={billingTablePagination.totalItems}
+                  startIndex={billingTablePagination.startIndex}
+                  endIndex={billingTablePagination.endIndex}
+                  onPageChange={billingTablePagination.setPage}
+                  onPageSizeChange={billingTablePagination.setPageSize}
+                />
+              )}
             </div>
           </TabsContent>
 

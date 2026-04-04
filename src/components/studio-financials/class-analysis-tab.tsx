@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { useState, useMemo } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -12,6 +13,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import { ArrowUpDown, ChevronDown, ChevronRight, Users, Clock, DollarSign } from "lucide-react"
 import { formatCurrency } from "@/lib/format"
 import { cn } from "@/lib/utils"
@@ -251,6 +254,18 @@ export function ClassAnalysisTab({ allocationMethod, onAllocationMethodChange, c
     })
   }, [adjustedFinancials, sortField, sortAsc])
 
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(sorted)
+
   function toggleSort(field: SortField) {
     if (sortField === field) {
       setSortAsc(!sortAsc)
@@ -362,7 +377,7 @@ export function ClassAnalysisTab({ allocationMethod, onAllocationMethodChange, c
               </TableRow>
             </TableHeader>
             <TableBody>
-              {sorted.map((f) => {
+              {paginatedItems.map((f) => {
                 const isNegative = f.monthlyMargin < 0
                 const isExpanded = expandedClassId === f.classId
                 const marginColor = f.marginPercent > 30
@@ -373,9 +388,8 @@ export function ClassAnalysisTab({ allocationMethod, onAllocationMethodChange, c
                 const studentsNeeded = isNegative ? f.breakeven - f.enrolledStudents : 0
 
                 return (
-                  <>
+                  <React.Fragment key={f.classId}>
                     <TableRow
-                      key={f.classId}
                       className={cn(
                         "cursor-pointer transition-colors",
                         isNegative && "bg-red-50 hover:bg-red-100",
@@ -422,7 +436,7 @@ export function ClassAnalysisTab({ allocationMethod, onAllocationMethodChange, c
                       </TableCell>
                     </TableRow>
                     {isExpanded && (
-                      <TableRow key={`${f.classId}-detail`}>
+                      <TableRow>
                         <TableCell colSpan={9} className="p-0">
                           <ClassDetailPanel
                             f={f}
@@ -433,11 +447,21 @@ export function ClassAnalysisTab({ allocationMethod, onAllocationMethodChange, c
                         </TableCell>
                       </TableRow>
                     )}
-                  </>
+                  </React.Fragment>
                 )
               })}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </CardContent>
       </Card>
 

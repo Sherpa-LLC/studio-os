@@ -15,6 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Select,
   SelectContent,
@@ -83,6 +85,18 @@ export default function ClientPage({ staffMembers }: Props) {
       return true
     })
   }, [roleFilter, disciplineFilter, staffMembers])
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(filtered)
 
   function handleAddStaff(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -170,7 +184,7 @@ export default function ClientPage({ staffMembers }: Props) {
                   </TableCell>
                 </TableRow>
               ) : (
-                filtered.map((staff) => (
+                paginatedItems.map((staff) => (
                   <TableRow key={staff.id}>
                     <TableCell>
                       <Link
@@ -242,6 +256,16 @@ export default function ClientPage({ staffMembers }: Props) {
               )}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </div>
       </div>
 

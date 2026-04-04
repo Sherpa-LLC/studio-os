@@ -19,6 +19,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Sheet,
   SheetContent,
@@ -228,6 +230,19 @@ export default function RecitalDetailPage({
 
   const routineIds = useMemo(() => lineup.map((r) => r.id), [lineup])
 
+  const routineRowsForPagination = recital?.routines ?? []
+  const perRoutineRows = financials?.perRoutine ?? []
+
+  const costumesPagination = usePagination(routineRowsForPagination, {
+    initialPageSize: 10,
+  })
+  const measurementsPagination = usePagination(measurements, {
+    initialPageSize: 10,
+  })
+  const perRoutinePagination = usePagination(perRoutineRows, {
+    initialPageSize: 10,
+  })
+
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
     if (!over || active.id === over.id) return
@@ -365,7 +380,7 @@ export default function RecitalDetailPage({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {recital.routines.map((routine) => {
+                    {costumesPagination.paginatedItems.map((routine) => {
                       const orderConfig = ORDER_STATUS_CONFIG[routine.costume.orderStatus]
                       const disciplineColor = DISCIPLINE_COLORS[routine.discipline]
 
@@ -434,6 +449,16 @@ export default function RecitalDetailPage({
                     })}
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={costumesPagination.page}
+                  pageCount={costumesPagination.pageCount}
+                  pageSize={costumesPagination.pageSize}
+                  totalItems={costumesPagination.totalItems}
+                  startIndex={costumesPagination.startIndex}
+                  endIndex={costumesPagination.endIndex}
+                  onPageChange={costumesPagination.setPage}
+                  onPageSizeChange={costumesPagination.setPageSize}
+                />
               </div>
             </div>
           </TabsContent>
@@ -487,7 +512,7 @@ export default function RecitalDetailPage({
                         </TableCell>
                       </TableRow>
                     ) : (
-                      measurements.map((m) => {
+                      measurementsPagination.paginatedItems.map((m) => {
                         const mConfig = MEASUREMENT_STATUS_CONFIG[m.status]
                         return (
                           <TableRow key={`${m.studentId}-${m.classId}`}>
@@ -529,6 +554,18 @@ export default function RecitalDetailPage({
                     )}
                   </TableBody>
                 </Table>
+                {measurements.length > 0 && (
+                  <TablePagination
+                    page={measurementsPagination.page}
+                    pageCount={measurementsPagination.pageCount}
+                    pageSize={measurementsPagination.pageSize}
+                    totalItems={measurementsPagination.totalItems}
+                    startIndex={measurementsPagination.startIndex}
+                    endIndex={measurementsPagination.endIndex}
+                    onPageChange={measurementsPagination.setPage}
+                    onPageSizeChange={measurementsPagination.setPageSize}
+                  />
+                )}
               </div>
             </div>
           </TabsContent>
@@ -659,7 +696,7 @@ export default function RecitalDetailPage({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {financials.perRoutine.map((row) => (
+                    {perRoutinePagination.paginatedItems.map((row) => (
                       <TableRow key={row.routineId}>
                         <TableCell className="font-medium text-sm">
                           {row.routineName}
@@ -687,7 +724,6 @@ export default function RecitalDetailPage({
                         </TableCell>
                       </TableRow>
                     ))}
-                    {/* Totals row */}
                     <TableRow className="border-t-2 font-semibold">
                       <TableCell colSpan={2}>Totals</TableCell>
                       <TableCell className="text-right">
@@ -707,6 +743,16 @@ export default function RecitalDetailPage({
                     </TableRow>
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={perRoutinePagination.page}
+                  pageCount={perRoutinePagination.pageCount}
+                  pageSize={perRoutinePagination.pageSize}
+                  totalItems={perRoutinePagination.totalItems}
+                  startIndex={perRoutinePagination.startIndex}
+                  endIndex={perRoutinePagination.endIndex}
+                  onPageChange={perRoutinePagination.setPage}
+                  onPageSizeChange={perRoutinePagination.setPageSize}
+                />
               </div>
 
               {/* Charge config */}
