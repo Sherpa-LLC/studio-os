@@ -42,6 +42,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import type { CompetitionTeam, CompetitionEvent } from "@/lib/types"
 import { formatCurrency, formatDate } from "@/lib/format"
 import { DISCIPLINE_LABELS, DISCIPLINE_COLORS } from "@/lib/constants"
@@ -93,6 +95,23 @@ export default function CompetitionDetailPage({
   const [selectedComp, setSelectedComp] = useState<CompetitionEvent | null>(null)
   const [compSheetOpen, setCompSheetOpen] = useState(false)
 
+  const rosterRows = team?.roster ?? []
+  const competitionRows = team?.competitions ?? []
+
+  const competitionCosts = useMemo(() => {
+    if (!team) return []
+    return team.competitions.map((comp) => {
+      const total = comp.entryFees + comp.travelCost + comp.hotelCost
+      const perStudent = team.studentCount > 0 ? total / team.studentCount : 0
+      return { ...comp, total, perStudent }
+    })
+  }, [team])
+
+  const rosterPagination = usePagination(rosterRows)
+  const competitionsPagination = usePagination(competitionRows)
+  const competitionCostsPagination = usePagination(competitionCosts)
+  const feeBreakdownPagination = usePagination(rosterRows)
+
   if (!team) {
     return (
       <>
@@ -129,13 +148,6 @@ export default function CompetitionDetailPage({
     setSelectedComp(comp)
     setCompSheetOpen(true)
   }
-
-  // ── Per-competition cost breakdown ─────────────────────────────────────
-  const competitionCosts = team.competitions.map((comp) => {
-    const total = comp.entryFees + comp.travelCost + comp.hotelCost
-    const perStudent = team.studentCount > 0 ? total / team.studentCount : 0
-    return { ...comp, total, perStudent }
-  })
 
   return (
     <>
@@ -244,7 +256,7 @@ export default function CompetitionDetailPage({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {team.roster.map((member) => (
+                    {rosterPagination.paginatedItems.map((member) => (
                       <TableRow key={member.studentId}>
                         <TableCell className="font-medium">
                           {member.studentName}
@@ -278,6 +290,16 @@ export default function CompetitionDetailPage({
                     ))}
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={rosterPagination.page}
+                  pageCount={rosterPagination.pageCount}
+                  pageSize={rosterPagination.pageSize}
+                  totalItems={rosterPagination.totalItems}
+                  startIndex={rosterPagination.startIndex}
+                  endIndex={rosterPagination.endIndex}
+                  onPageChange={rosterPagination.setPage}
+                  onPageSizeChange={rosterPagination.setPageSize}
+                />
               </div>
             </div>
           </TabsContent>
@@ -367,7 +389,7 @@ export default function CompetitionDetailPage({
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {team.competitions.map((comp) => (
+                    {competitionsPagination.paginatedItems.map((comp) => (
                       <TableRow
                         key={comp.id}
                         className="cursor-pointer"
@@ -398,6 +420,16 @@ export default function CompetitionDetailPage({
                     ))}
                   </TableBody>
                 </Table>
+                <TablePagination
+                  page={competitionsPagination.page}
+                  pageCount={competitionsPagination.pageCount}
+                  pageSize={competitionsPagination.pageSize}
+                  totalItems={competitionsPagination.totalItems}
+                  startIndex={competitionsPagination.startIndex}
+                  endIndex={competitionsPagination.endIndex}
+                  onPageChange={competitionsPagination.setPage}
+                  onPageSizeChange={competitionsPagination.setPageSize}
+                />
               </div>
             </div>
           </TabsContent>
@@ -469,7 +501,7 @@ export default function CompetitionDetailPage({
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {competitionCosts.map((comp) => (
+                      {competitionCostsPagination.paginatedItems.map((comp) => (
                         <TableRow key={comp.id}>
                           <TableCell className="font-medium">
                             {comp.name}
@@ -497,6 +529,16 @@ export default function CompetitionDetailPage({
                       ))}
                     </TableBody>
                   </Table>
+                  <TablePagination
+                    page={competitionCostsPagination.page}
+                    pageCount={competitionCostsPagination.pageCount}
+                    pageSize={competitionCostsPagination.pageSize}
+                    totalItems={competitionCostsPagination.totalItems}
+                    startIndex={competitionCostsPagination.startIndex}
+                    endIndex={competitionCostsPagination.endIndex}
+                    onPageChange={competitionCostsPagination.setPage}
+                    onPageSizeChange={competitionCostsPagination.setPageSize}
+                  />
                 </div>
               </div>
 
@@ -527,7 +569,7 @@ export default function CompetitionDetailPage({
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {team.roster.map((member) => {
+                      {feeBreakdownPagination.paginatedItems.map((member) => {
                         const balance = member.totalOwed - member.totalPaid
                         return (
                           <TableRow
@@ -568,6 +610,16 @@ export default function CompetitionDetailPage({
                       })}
                     </TableBody>
                   </Table>
+                  <TablePagination
+                    page={feeBreakdownPagination.page}
+                    pageCount={feeBreakdownPagination.pageCount}
+                    pageSize={feeBreakdownPagination.pageSize}
+                    totalItems={feeBreakdownPagination.totalItems}
+                    startIndex={feeBreakdownPagination.startIndex}
+                    endIndex={feeBreakdownPagination.endIndex}
+                    onPageChange={feeBreakdownPagination.setPage}
+                    onPageSizeChange={feeBreakdownPagination.setPageSize}
+                  />
                 </div>
               </div>
             </div>

@@ -14,6 +14,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Sheet,
   SheetContent,
@@ -70,6 +72,18 @@ export default function ClientPage({ messages }: Props) {
     if (channelFilter === "all") return sorted
     return sorted.filter((m) => m.channel === channelFilter)
   }, [channelFilter, messages])
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(filtered)
 
   const filterButtons: { value: ChannelFilter; label: string }[] = [
     { value: "all", label: "All" },
@@ -150,7 +164,7 @@ export default function ClientPage({ messages }: Props) {
                   </TableCell>
                 </TableRow>
               ) : (
-                filtered.map((msg) => (
+                paginatedItems.map((msg) => (
                   <TableRow
                     key={msg.id}
                     className="cursor-pointer"
@@ -197,6 +211,16 @@ export default function ClientPage({ messages }: Props) {
               )}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useMemo, useState } from "react"
 import { Header } from "@/components/layout/header"
 import { PageHeader } from "@/components/shared/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -15,6 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Dialog,
   DialogContent,
@@ -166,6 +168,18 @@ export default function HouseholdBillingPage({
   const [overrideAmount, setOverrideAmount] = useState("")
   const [overrideReason, setOverrideReason] = useState("")
 
+  const sortedHouseholdInvoices = useMemo(
+    () => [...householdInvoices].sort((a, b) => b.date.localeCompare(a.date)),
+    [householdInvoices]
+  )
+
+  const invoicePagination = usePagination(sortedHouseholdInvoices, {
+    initialPageSize: 10,
+  })
+  const overridesPagination = usePagination(overrides, {
+    initialPageSize: 10,
+  })
+
   if (!household) {
     return (
       <>
@@ -287,32 +301,43 @@ export default function HouseholdBillingPage({
               <CardHeader>
                 <CardTitle>Invoice History</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 {householdInvoices.length === 0 ? (
-                  <p className="text-sm text-muted-foreground text-center py-8">
+                  <p className="text-sm text-muted-foreground text-center py-8 px-6">
                     No invoices found for this household.
                   </p>
                 ) : (
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-10" />
-                        <TableHead>Invoice #</TableHead>
-                        <TableHead>Date</TableHead>
-                        <TableHead>Due Date</TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Paid Date</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {householdInvoices
-                        .sort((a, b) => b.date.localeCompare(a.date))
-                        .map((invoice) => (
+                  <>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-10" />
+                          <TableHead>Invoice #</TableHead>
+                          <TableHead>Date</TableHead>
+                          <TableHead>Due Date</TableHead>
+                          <TableHead className="text-right">Amount</TableHead>
+                          <TableHead>Status</TableHead>
+                          <TableHead>Paid Date</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {invoicePagination.paginatedItems.map((invoice) => (
                           <InvoiceRow key={invoice.id} invoice={invoice} />
                         ))}
-                    </TableBody>
-                  </Table>
+                      </TableBody>
+                    </Table>
+                    <TablePagination
+                      page={invoicePagination.page}
+                      pageCount={invoicePagination.pageCount}
+                      pageSize={invoicePagination.pageSize}
+                      totalItems={invoicePagination.totalItems}
+                      startIndex={invoicePagination.startIndex}
+                      endIndex={invoicePagination.endIndex}
+                      onPageChange={invoicePagination.setPage}
+                      onPageSizeChange={invoicePagination.setPageSize}
+                      className="px-4"
+                    />
+                  </>
                 )}
               </CardContent>
             </Card>
@@ -386,12 +411,13 @@ export default function HouseholdBillingPage({
                   </Dialog>
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 {overrides.length === 0 ? (
-                  <p className="text-sm text-muted-foreground text-center py-8">
+                  <p className="text-sm text-muted-foreground text-center py-8 px-6">
                     No billing overrides for this household.
                   </p>
                 ) : (
+                  <>
                   <Table>
                     <TableHeader>
                       <TableRow>
@@ -408,7 +434,7 @@ export default function HouseholdBillingPage({
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {overrides.map((override) => (
+                      {overridesPagination.paginatedItems.map((override) => (
                         <TableRow key={override.id}>
                           <TableCell>{formatDate(override.createdAt)}</TableCell>
                           <TableCell className="text-muted-foreground">
@@ -430,6 +456,18 @@ export default function HouseholdBillingPage({
                       ))}
                     </TableBody>
                   </Table>
+                  <TablePagination
+                    page={overridesPagination.page}
+                    pageCount={overridesPagination.pageCount}
+                    pageSize={overridesPagination.pageSize}
+                    totalItems={overridesPagination.totalItems}
+                    startIndex={overridesPagination.startIndex}
+                    endIndex={overridesPagination.endIndex}
+                    onPageChange={overridesPagination.setPage}
+                    onPageSizeChange={overridesPagination.setPageSize}
+                    className="px-4"
+                  />
+                  </>
                 )}
               </CardContent>
             </Card>

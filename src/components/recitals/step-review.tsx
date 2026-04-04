@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,6 +11,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   ChevronUp,
   ChevronDown,
@@ -48,6 +52,18 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 // ── Step Review ─────────────────────────────────────────────────────────────
 
 export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(routines, { initialPageSize: 10 })
+
   function moveUp(index: number) {
     if (index === 0) return
     const updated = [...routines]
@@ -94,7 +110,7 @@ export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
       {/* ── Show Lineup ──────────────────────────────────────────────────── */}
       <SectionHeader>Show Lineup</SectionHeader>
 
-      <div className="rounded-lg border bg-card">
+      <div className="rounded-lg border bg-card overflow-hidden">
         <Table>
           <TableHeader>
             <TableRow>
@@ -108,14 +124,15 @@ export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {routines.map((routine, index) => {
+            {paginatedItems.map((routine, pageLocalIndex) => {
               const disciplineColor = DISCIPLINE_COLORS[routine.discipline]
+              const globalIndex = (page - 1) * pageSize + pageLocalIndex
 
               return (
                 <TableRow key={routine.classId}>
                   <TableCell>
                     <span className="font-mono text-sm font-medium">
-                      {index + 1}
+                      {globalIndex + 1}
                     </span>
                   </TableCell>
                   <TableCell>
@@ -124,8 +141,8 @@ export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
                         variant="ghost"
                         size="icon-sm"
                         className="size-7"
-                        disabled={index === 0}
-                        onClick={() => moveUp(index)}
+                        disabled={globalIndex === 0}
+                        onClick={() => moveUp(globalIndex)}
                       >
                         <ChevronUp className="size-4" />
                       </Button>
@@ -133,8 +150,8 @@ export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
                         variant="ghost"
                         size="icon-sm"
                         className="size-7"
-                        disabled={index === routines.length - 1}
-                        onClick={() => moveDown(index)}
+                        disabled={globalIndex === routines.length - 1}
+                        onClick={() => moveDown(globalIndex)}
                       >
                         <ChevronDown className="size-4" />
                       </Button>
@@ -174,6 +191,16 @@ export function StepReview({ routines, costumes, onReorder }: StepReviewProps) {
             })}
           </TableBody>
         </Table>
+        <TablePagination
+          page={page}
+          pageCount={pageCount}
+          pageSize={pageSize}
+          totalItems={totalItems}
+          startIndex={startIndex}
+          endIndex={endIndex}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+        />
       </div>
 
       {/* ── Separator ────────────────────────────────────────────────────── */}

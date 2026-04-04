@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   rolloverConfig,
   rolloverResponses,
@@ -69,10 +71,25 @@ type FilterValue = "all" | RolloverResponseStatus
 export default function RolloverPage() {
   const [filter, setFilter] = useState<FilterValue>("all")
 
-  const filteredResponses =
-    filter === "all"
-      ? rolloverResponses
-      : rolloverResponses.filter((r) => r.status === filter)
+  const filteredResponses = useMemo(
+    () =>
+      filter === "all"
+        ? rolloverResponses
+        : rolloverResponses.filter((r) => r.status === filter),
+    [filter]
+  )
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(filteredResponses)
 
   function handleSendReminder(householdName: string) {
     toast.success(`Reminder sent to ${householdName}`)
@@ -317,7 +334,7 @@ export default function RolloverPage() {
                       </TableCell>
                     </TableRow>
                   ) : (
-                    filteredResponses.map((response) => (
+                    paginatedItems.map((response) => (
                       <TableRow
                         key={response.householdId}
                         className={getRowHighlight(response.status)}
@@ -397,6 +414,16 @@ export default function RolloverPage() {
                   )}
                 </TableBody>
               </Table>
+              <TablePagination
+                page={page}
+                pageCount={pageCount}
+                pageSize={pageSize}
+                totalItems={totalItems}
+                startIndex={startIndex}
+                endIndex={endIndex}
+                onPageChange={setPage}
+                onPageSizeChange={setPageSize}
+              />
             </div>
 
             {/* Age-Up Alerts */}

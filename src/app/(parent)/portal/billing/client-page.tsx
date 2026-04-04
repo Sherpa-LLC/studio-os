@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { Fragment, useMemo, useState } from "react"
 import { PageHeader } from "@/components/shared/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -25,6 +25,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import { formatCurrency, formatDate } from "@/lib/format"
 import { toast } from "sonner"
 import { CreditCard, CheckCircle2, Clock, ChevronDown, ChevronUp, Pencil } from "lucide-react"
@@ -72,6 +74,26 @@ export default function MyBillingClient({
 }: MyBillingClientProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null)
   const [paymentDialogOpen, setPaymentDialogOpen] = useState(false)
+
+  const sortedInvoices = useMemo(
+    () =>
+      [...householdInvoices].sort(
+        (a, b) => b.date.localeCompare(a.date)
+      ),
+    [householdInvoices]
+  )
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(sortedInvoices, { initialPageSize: 10 })
 
   function getStudentName(studentId: string): string {
     const student = students.find((s) => s.id === studentId)
@@ -186,7 +208,7 @@ export default function MyBillingClient({
         <CardHeader>
           <CardTitle>Invoice History</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-0">
           <Table>
             <TableHeader>
               <TableRow>
@@ -198,7 +220,7 @@ export default function MyBillingClient({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {householdInvoices.map((inv) => {
+              {paginatedItems.map((inv) => {
                 const isExpanded = expandedId === inv.id
                 const monthLabel = new Date(inv.date + "T00:00:00").toLocaleDateString("en-US", {
                   month: "long",
@@ -206,9 +228,8 @@ export default function MyBillingClient({
                 })
 
                 return (
-                  <>
+                  <Fragment key={inv.id}>
                     <TableRow
-                      key={inv.id}
                       className="cursor-pointer hover:bg-muted/50"
                       onClick={() => setExpandedId(isExpanded ? null : inv.id)}
                     >
@@ -231,7 +252,7 @@ export default function MyBillingClient({
                       </TableCell>
                     </TableRow>
                     {isExpanded && (
-                      <TableRow key={`${inv.id}-detail`}>
+                      <TableRow>
                         <TableCell colSpan={5} className="bg-muted/30 p-0">
                           <div className="px-4 py-3 space-y-2">
                             <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
@@ -261,11 +282,22 @@ export default function MyBillingClient({
                         </TableCell>
                       </TableRow>
                     )}
-                  </>
+                  </Fragment>
                 )
               })}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+            className="px-4"
+          />
         </CardContent>
       </Card>
     </div>

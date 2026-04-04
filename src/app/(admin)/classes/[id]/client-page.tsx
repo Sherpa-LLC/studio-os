@@ -20,6 +20,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import type { Class, Student, Instructor, ClassFinancials, DayOfWeek } from "@/lib/types"
 import {
   formatCurrency,
@@ -97,6 +99,10 @@ export default function ClassDetailPage({
     if (!cls) return []
     return students.filter((s) => s.enrolledClassIds.includes(cls.id))
   }, [cls, students])
+
+  const rosterPagination = usePagination(enrolledStudents, {
+    initialPageSize: 10,
+  })
 
   const instructor = useMemo(() => {
     if (!cls) return undefined
@@ -292,7 +298,7 @@ export default function ClassDetailPage({
 
           {/* Roster Tab */}
           <TabsContent value="roster">
-            <div className="mt-4 rounded-lg border bg-card">
+            <div className="mt-4 rounded-lg border bg-card overflow-hidden">
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -313,7 +319,7 @@ export default function ClassDetailPage({
                       </TableCell>
                     </TableRow>
                   ) : (
-                    enrolledStudents.map((student) => (
+                    rosterPagination.paginatedItems.map((student) => (
                       <TableRow key={student.id}>
                         <TableCell>
                           <div className="flex items-center gap-2.5">
@@ -364,6 +370,18 @@ export default function ClassDetailPage({
                   )}
                 </TableBody>
               </Table>
+              {enrolledStudents.length > 0 && (
+                <TablePagination
+                  page={rosterPagination.page}
+                  pageCount={rosterPagination.pageCount}
+                  pageSize={rosterPagination.pageSize}
+                  totalItems={rosterPagination.totalItems}
+                  startIndex={rosterPagination.startIndex}
+                  endIndex={rosterPagination.endIndex}
+                  onPageChange={rosterPagination.setPage}
+                  onPageSizeChange={rosterPagination.setPageSize}
+                />
+              )}
             </div>
           </TabsContent>
 

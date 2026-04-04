@@ -15,6 +15,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Select,
   SelectContent,
@@ -100,6 +102,18 @@ export default function HouseholdsClientPage({ households, students }: Household
       return true
     })
   }, [search, statusFilter, households, students])
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(filtered)
 
   return (
     <>
@@ -269,7 +283,7 @@ export default function HouseholdsClientPage({ households, students }: Household
                   </TableCell>
                 </TableRow>
               ) : (
-                filtered.map((hh) => {
+                paginatedItems.map((hh) => {
                   const studentCount = getStudentCount(hh)
                   return (
                     <TableRow key={hh.id}>
@@ -321,6 +335,16 @@ export default function HouseholdsClientPage({ households, students }: Household
               )}
             </TableBody>
           </Table>
+          <TablePagination
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            totalItems={totalItems}
+            startIndex={startIndex}
+            endIndex={endIndex}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+          />
         </div>
       </div>
     </>

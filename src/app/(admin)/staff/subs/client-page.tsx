@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { usePagination } from "@/hooks/use-pagination"
 import { Header } from "@/components/layout/header"
 import { PageHeader } from "@/components/shared/page-header"
 import { Button } from "@/components/ui/button"
@@ -16,6 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
 
 import { formatDate, getInitials } from "@/lib/format"
 import { DISCIPLINE_LABELS, DISCIPLINE_COLORS } from "@/lib/constants"
@@ -76,6 +78,18 @@ export default function SubManagementClientPage({
   subHistory,
 }: SubManagementClientPageProps) {
   const activeRequest = subRequests.find((r) => r.status === "open")
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(subHistory, { initialPageSize: 50 })
 
   function handleRequestSub(name: string) {
     toast.success(`Sub request sent to ${name}`)
@@ -221,7 +235,7 @@ export default function SubManagementClientPage({
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {subHistory.map((entry) => (
+                {paginatedItems.map((entry) => (
                   <TableRow key={entry.id}>
                     <TableCell>{formatDate(entry.date)}</TableCell>
                     <TableCell>
@@ -254,6 +268,16 @@ export default function SubManagementClientPage({
                 ))}
               </TableBody>
             </Table>
+            <TablePagination
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
           </div>
         </div>
       </div>

@@ -17,6 +17,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import {
   Brain,
   Sparkles,
@@ -128,6 +130,18 @@ function ScoreBar({ score }: { score: number }) {
 
 export default function InsightsPage() {
   const [completedActions, setCompletedActions] = useState<Set<string>>(new Set())
+
+  const {
+    page,
+    pageSize,
+    pageCount,
+    totalItems,
+    paginatedItems,
+    setPage,
+    setPageSize,
+    startIndex,
+    endIndex,
+  } = usePagination(leadPriorities, { initialPageSize: 50 })
 
   function markActionDone(actionId: string, title: string) {
     setCompletedActions((prev) => {
@@ -253,10 +267,10 @@ export default function InsightsPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {leadPriorities.map((lead, index) => (
+                {paginatedItems.map((lead, index) => (
                   <TableRow key={lead.leadId}>
                     <TableCell className="font-mono text-sm font-medium">
-                      {index + 1}
+                      {(page - 1) * pageSize + index + 1}
                     </TableCell>
                     <TableCell>
                       <div>
@@ -296,6 +310,16 @@ export default function InsightsPage() {
                 ))}
               </TableBody>
             </Table>
+            <TablePagination
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              totalItems={totalItems}
+              startIndex={startIndex}
+              endIndex={endIndex}
+              onPageChange={setPage}
+              onPageSizeChange={setPageSize}
+            />
           </div>
         </div>
 

@@ -18,6 +18,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { TablePagination } from "@/components/ui/table-pagination"
+import { usePagination } from "@/hooks/use-pagination"
 import type { StaffMember, Class, DayOfWeek, StaffRole, StaffStatus } from "@/lib/types"
 import {
   formatCurrency,
@@ -122,6 +124,30 @@ export default function StaffDetailPage({
     return classes.filter((c) => staff.classIds.includes(c.id))
   }, [staff, classes])
 
+  const classPayDetails = useMemo(() => {
+    if (!staff) return []
+    return staffClasses.map((cls) => {
+      const [sh, sm] = cls.schedule.startTime.split(":").map(Number)
+      const [eh, em] = cls.schedule.endTime.split(":").map(Number)
+      const durationHours = (eh * 60 + em - (sh * 60 + sm)) / 60
+      const payPerClass =
+        staff.payType === "per-class"
+          ? staff.payRate
+          : staff.payRate * durationHours
+      const monthlyPay = payPerClass * 4.3
+      return {
+        cls,
+        durationHours,
+        payPerClass,
+        monthlyPay,
+      }
+    })
+  }, [staff, staffClasses])
+
+  const classTablePagination = usePagination(classPayDetails, {
+    initialPageSize: 50,
+  })
+
   if (!staff) {
     return (
       <>
@@ -144,24 +170,6 @@ export default function StaffDetailPage({
 
   const fullName = `${staff.firstName} ${staff.lastName}`
   const tenure = yearsAgo(staff.hireDate)
-
-  // ── Classes & Pay calculations ──────────────────────────────────────────
-  const classPayDetails = staffClasses.map((cls) => {
-    const [sh, sm] = cls.schedule.startTime.split(":").map(Number)
-    const [eh, em] = cls.schedule.endTime.split(":").map(Number)
-    const durationHours = (eh * 60 + em - (sh * 60 + sm)) / 60
-    const payPerClass =
-      staff.payType === "per-class"
-        ? staff.payRate
-        : staff.payRate * durationHours
-    const monthlyPay = payPerClass * 4.3
-    return {
-      cls,
-      durationHours,
-      payPerClass,
-      monthlyPay,
-    }
-  })
 
   const totalMonthlyComp = classPayDetails.reduce(
     (sum, d) => sum + d.monthlyPay,
@@ -481,7 +489,7 @@ export default function StaffDetailPage({
               </div>
 
               {/* Class Breakdown Table */}
-              <div className="rounded-lg border bg-card">
+              <div className="rounded-lg border bg-card overflow-hidden">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -507,7 +515,7 @@ export default function StaffDetailPage({
                         </TableCell>
                       </TableRow>
                     ) : (
-                      classPayDetails.map(({ cls, payPerClass, monthlyPay }) => (
+                      classTablePagination.paginatedItems.map(({ cls, payPerClass, monthlyPay }) => (
                         <TableRow key={cls.id}>
                           <TableCell>
                             <Link
@@ -536,6 +544,18 @@ export default function StaffDetailPage({
                     )}
                   </TableBody>
                 </Table>
+                {classPayDetails.length > 0 && (
+                  <TablePagination
+                    page={classTablePagination.page}
+                    pageCount={classTablePagination.pageCount}
+                    pageSize={classTablePagination.pageSize}
+                    totalItems={classTablePagination.totalItems}
+                    startIndex={classTablePagination.startIndex}
+                    endIndex={classTablePagination.endIndex}
+                    onPageChange={classTablePagination.setPage}
+                    onPageSizeChange={classTablePagination.setPageSize}
+                  />
+                )}
               </div>
 
               {/* Revenue Metric */}
